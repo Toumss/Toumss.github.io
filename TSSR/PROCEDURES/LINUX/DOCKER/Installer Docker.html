@@ -1,0 +1,29 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>Installer Docker</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>Installer Docker</h1>
+
+      <div class="ck-content">
+        <p>Pour etre sur qu'il n'y a pas une ancienne version :</p><pre><code class="language-text-plain">apt-get remove docker docker-engine containerd runc docker-ce </code></pre>
+        <p>Installer docker :</p><pre><code class="language-text-plain">apt update</code></pre><pre><code class="language-text-plain">apt install docker.io docker-compose -y</code></pre>
+        <hr>
+        <p>On ajoute un utilisateur docker au groupe :</p><pre><code class="language-text-plain">usermod -aG docker debian</code></pre>
+        <p>Puis on redemarre l'OS pour que ca soit pris en compte&nbsp;</p><pre><code class="language-text-plain">reboot</code></pre>
+        <p>Pour voir mes images de conteneur :</p><pre><code class="language-text-plain">docker ps -a</code></pre>
+        <p>&nbsp;</p><pre><code class="language-text-plain">docker </code></pre>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+      </div>
+    </div>
+  </body>
+
+</html>

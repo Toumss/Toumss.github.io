@@ -1,0 +1,49 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../../../../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>Ajouter/Supprimer/monter Database via EMS</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>Ajouter/Supprimer/monter Database via EMS</h1>
+
+      <div class="ck-content">
+        <p>Pour <strong>ajouter</strong> une base de donnée à Exchange via l'invite
+          de commande “EMS” taper la commande suivante <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(1)</code></span> :</p><pre><code class="language-text-plain">New-MailboxDatabase -Server WIN-SERV-EX -Name "TEST1" -EdbFilePath "C:\Program Files\Microsoft\Exchange Server\V15\Mailbox\TEST1\TEST1.edb"</code></pre>
+        <figure
+        class="image">
+          <img src="AjouterSupprimermonter%20Database%20via%20EMS/vmware_tzTPvCwusZ.png">
+          </figure>
+          <p>&nbsp;</p>
+          <p>Si la commande est accepter on doit voir <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(2)</code></span> :
+            “<strong>Name</strong>” “<strong>Server</strong>” “<strong>Recovery</strong>”
+            “<strong>ReplicationType</strong>” ainsi qu'un message d'avertissement.</p>
+          <p>&nbsp;</p>
+          <p>Pour <strong>monter</strong> une base de donnée à Exchange via l'invite
+            de commande “EMS” taper la commande suivante :</p><pre><code class="language-text-plain">Mount-Database -Identity Test1</code></pre>
+          <figure
+          class="image">
+            <img src="AjouterSupprimermonter%20Database%20via%20EMS/vmware_hbwL8TYnCP.png">
+            </figure>
+            <p>&nbsp;</p>
+            <p>Pour <strong>supprimer</strong> une base de donnée à Exchange via l'invite
+              de commande “EMS” taper la commande suivante <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(1)</code></span> :</p><pre><code class="language-text-plain">Remove-MailboxDatabase -Identity Test1</code></pre>
+            <p>&nbsp;</p>
+            <figure class="image">
+              <img src="AjouterSupprimermonter%20Database%20via%20EMS/vmware_hV84kg5ulO.png">
+            </figure>
+            <p>&nbsp;</p>
+            <p>Si la commande a bien été prise en compte un message demandant de confirmer
+              s'affiche <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(2)</code></span>,
+              Choisir entre [O], [T], [N] ou [U].&nbsp;</p>
+            <p>&nbsp;</p>
+      </div>
+    </div>
+  </body>
+
+</html>

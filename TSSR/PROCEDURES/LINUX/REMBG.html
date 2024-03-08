@@ -1,0 +1,39 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>REMBG</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>REMBG</h1>
+
+      <div class="ck-content">
+        <p><span class="text-big"><strong>REMOVE BACKGROUND</strong></span>
+        </p>
+        <p>&nbsp;</p>
+        <p>On install pip</p><pre><code class="language-text-plain">apt install python3-pip</code></pre>
+        <p>&nbsp;Puis on install venv</p><pre><code class="language-text-plain">apt install python3-venv</code></pre>
+        <p>On se crée un dossier venv nommer “venv”</p><pre><code class="language-text-plain">python3 -m venv venv</code></pre>
+        <p>On entre dans notre environnement venv</p><pre><code class="language-text-plain">source venv/bin/activate</code></pre>
+        <p>Une fois dedans on install notre programme REMBG</p><pre><code class="language-text-plain">pip install rembg
+pip install rembg[gpu,cli]</code></pre><pre><code class="language-text-plain">pip install onnxruntime</code></pre>
+        <p>On copie notre photo de notre répertoire jusqu'a notre environnement :</p><pre><code class="language-text-plain"> cp /home/debian/Bureau/lili.jpg .</code></pre>
+        <p>Puis on peu utiliser notre commande pour enlever le fond comme ceci&nbsp;</p>
+        <p>(rembg i “notre_photo.jpg” "notre_photo_modifier.jpg)</p><pre><code class="language-text-plain">rembg i lili.jpg lili1.jpg</code></pre>
+        <p>Une fois fait il nous reste plus qu'a move notre photo de notre environnement
+          a notre repertoire&nbsp;</p><pre><code class="language-text-plain">mv lili1.jpg /home/debian/Bureau/</code></pre>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+      </div>
+    </div>
+  </body>
+
+</html>

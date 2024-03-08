@@ -1,0 +1,35 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>Fichier extensions.conf</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>Fichier extensions.conf</h1>
+
+      <div class="ck-content">
+        <p>[default]</p>
+        <p>[local]</p>
+        <p>exten =&gt; _1XX, 1, Answer()
+          <br>exten =&gt; _1XX, n, Dial(SIP/${EXTEN},10)
+          <br>exten =&gt; _1XX, n, VoiceMail(${EXTEN})
+          <br>exten =&gt; _1xx, n, Hangup()</p>
+        <p>exten =&gt; 888, 1, VoiceMailMain(${CALLERID(num)})</p>
+        <p>exten =&gt; 1000,1,Answer()
+          <br>exten =&gt; 1000,n,Dial(SIP/101,10)
+          <br>exten =&gt; 1000,n,Dial(SIP/102,10)
+          <br>exten =&gt; 1000,n,voicemail(101)
+          <br>exten =&gt; 1000,n,Hangup()</p>
+        <p>exten =&gt; 2000,1,Answer()
+          <br>exten =&gt; 2000,n,Dial(SIP/101&amp;SIP/102,15)
+          <br>exten =&gt; 2000,n,Hangup()</p>
+      </div>
+    </div>
+  </body>
+
+</html>

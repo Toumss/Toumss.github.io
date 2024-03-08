@@ -1,0 +1,31 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../../../../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>Ajouter utilisateur via EMS</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>Ajouter utilisateur via EMS</h1>
+
+      <div class="ck-content">
+        <p>Pour ajouter un utilisateur sur Exchange via EMS se rendre dans l'invite
+          de commande EMS puis taper la commande suivante <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(1)</code></span>,
+          &nbsp;:</p><pre><code class="language-text-plain">New-Mailbox -Alias Olivier -Name Olivier -FirstName Olivier -LastName Froger -DisplayName "Olivier Froger" -Password (ConvertTo-SecureString -String 'Greta37!' -AsPlainText -Force) -ResetPasswordOnNextLogon $true -UserPrincipalName "Olivier@tssr.local"</code></pre>
+        <p>&nbsp;</p>
+        <figure class="image">
+          <img src="Ajouter%20utilisateur%20via%20EMS/vmware_E3JMnGC2U1.png">
+        </figure>
+        <p>&nbsp;</p>
+        <p>Si l'utilisateur a bien été crée on voir les lignes “Name” “Alias” “ServerName”
+          “ProhibitSendQuota” s'afficher <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(2)</code></span>
+        </p>
+      </div>
+    </div>
+  </body>
+
+</html>

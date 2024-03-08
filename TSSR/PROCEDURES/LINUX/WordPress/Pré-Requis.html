@@ -1,0 +1,55 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>Pré-Requis</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>Pré-Requis</h1>
+
+      <div class="ck-content">
+        <p><span class="text-big"><strong>PRÉ-REQUIS</strong></span>
+        </p>
+        <p>&nbsp;</p>
+        <p><i>Toutes les commandes doivent être entrer en “root”</i>
+        </p>
+        <p>On commence “<strong>mettre à jour</strong>” les paquet sur la machine
+          Debian 12 :</p><pre><code class="language-text-plain">apt-get update &amp;&amp; sudo apt-get upgrade</code></pre>
+        <p>Ensuite on s'attaque au “<strong>pré-requis</strong>” avant l'installation
+          de GLPI, c'est a dire “Apache2”, php et mariadb-server :</p><pre><code class="language-text-plain">apt-get install apache2 php mariadb-server</code></pre>
+        <p>On install PHP 8.2 :</p><pre><code class="language-text-plain">apt-get install php8.2 php8.2-cli php8.2-common php8.2-imap php8.2-redis php8.2-snmp php8.2-xml php8.2-mysqli php8.2-zip php8.2-mbstring php8.2-curl libapache2-mod-php -y</code></pre>
+        <hr>
+        <p>On crée un Utilisateur avec un mot de passe pour Wordpress :</p><pre><code class="language-text-plain">mysql -U -p</code></pre><pre><code class="language-text-plain">CREATE USER 'wordpress'@'localhost' IDENTIFIED BY 'YourStrongPasswordHere';</code></pre>
+        <p>On crée la DataBase :</p><pre><code class="language-text-plain"> CREATE DATABASE wordpress;</code></pre>
+        <p>On donne les privileges a notre utilisateur :</p><pre><code class="language-text-plain"> GRANT ALL PRIVILEGES ON wordpress.* TO 'wordpress'@'localhost';</code></pre>
+        <p>Puis on refresh les privileges :</p><pre><code class="language-text-plain">FLUSH PRIVILEGES;</code></pre>
+        <p>Puis on exit :</p><pre><code class="language-text-plain">exit</code></pre>
+        <hr>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <figure class="image">
+          <img src="Pr%C3%A9-Requis/WindowsTerminal_fJsRVtPAMU.png">
+        </figure>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+      </div>
+    </div>
+  </body>
+
+</html>

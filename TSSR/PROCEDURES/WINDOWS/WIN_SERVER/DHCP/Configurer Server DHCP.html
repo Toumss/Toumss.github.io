@@ -1,0 +1,109 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>Configurer Server DHCP</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>Configurer Server DHCP</h1>
+
+      <div class="ck-content">
+        <p style="margin-left:160px;"><span class="text-big"><strong>Une fois l'option DHCP alloué au server il faut le configurer</strong></span>
+        </p>
+        <p style="margin-left:160px;">&nbsp;</p>
+        <p style="margin-left:40px;">&nbsp;1) Commencer par clic sur le drapeau blanc <span style="background-color:hsl(0, 75%, 60%);color:hsl(0, 0%, 100%);"><code>(1)</code></span>,
+          puis “Terminer la configuration DHCP” <span style="background-color:hsl(0, 75%, 60%);color:hsl(0, 0%, 100%);"><code>(2)</code></span> :</p>
+        <figure
+        class="image">
+          <img src="Configurer%20Server%20DHCP/1.png">
+          </figure>
+          <p>&nbsp;</p>
+          <p style="margin-left:40px;">2) La fenêtre “Assistant Configuration post-installation DHCP” s'ouvre,
+            Clic sur “Valider” <span style="background-color:hsl(0, 75%, 60%);color:hsl(0, 0%, 100%);"><code>(1)</code></span> :</p>
+          <figure
+          class="image">
+            <img src="Configurer%20Server%20DHCP/2.png">
+            </figure>
+            <p>&nbsp;</p>
+            <p style="margin-left:40px;">3)Rendez vous dans les outils “Outils d'administration” <span style="background-color:hsl(0, 75%, 60%);color:hsl(0, 0%, 100%);"><code>(1)</code></span>:</p>
+            <figure
+            class="image">
+              <img src="Configurer%20Server%20DHCP/3.png">
+              </figure>
+              <p>&nbsp;</p>
+              <p style="margin-left:40px;">4) Puis dans “DHCP” <span style="background-color:hsl(0, 75%, 60%);color:hsl(0, 0%, 100%);"><code>(1)</code></span> :</p>
+              <figure
+              class="image">
+                <img src="Configurer%20Server%20DHCP/4.png">
+                </figure>
+                <p>&nbsp;</p>
+                <p style="margin-left:40px;">5) Faire dérouler son server et trouver “IPv4”, clic droit et clic sur
+                  “Nouvelle étendu…” <span style="background-color:hsl(0, 75%, 60%);color:hsl(0, 0%, 100%);"><code>(1)</code></span> :</p>
+                <figure
+                class="image">
+                  <img src="Configurer%20Server%20DHCP/5.png">
+                  </figure>
+                  <p>&nbsp;</p>
+                  <p style="margin-left:40px;">6) “Assistant de nouvelle étendue” s'ouvre, donner un Nom <span style="background-color:hsl(0, 75%, 60%);color:hsl(0, 0%, 100%);"><code>(1)</code></span> et
+                    une Description <span style="background-color:hsl(0, 75%, 60%);color:hsl(0, 0%, 100%);"><code>(2)</code></span> à
+                    son étendue :</p>
+                  <figure class="image">
+                    <img src="Configurer%20Server%20DHCP/6.png">
+                  </figure>
+                  <p style="margin-left:40px;">&nbsp;</p>
+                  <p style="margin-left:40px;">7) Il faut désormais entrer la plage d'adresse avec une IP de début
+                    <span
+                    style="background-color:hsl(0, 75%, 60%);color:hsl(0, 0%, 100%);"><code>(1)</code>
+                      </span>, une IP de fin<span style="background-color:hsl(0, 75%, 60%);color:hsl(0, 0%, 100%);"><code>(2)</code></span>,
+                      la longueur du masque CIDR <span style="background-color:hsl(0, 75%, 60%);color:hsl(0, 0%, 100%);"><code>(3)</code></span>,
+                      le masque de sous réseau <span style="background-color:hsl(0, 75%, 60%);color:hsl(0, 0%, 100%);"><code>(4)</code></span>,
+                      puis “suivants” <span style="background-color:hsl(0, 75%, 60%);color:hsl(0, 0%, 100%);"><code>(5)</code></span> :</p>
+                  <figure
+                  class="image">
+                    <img src="Configurer%20Server%20DHCP/7.png">
+                    </figure>
+                    <p style="margin-left:40px;">&nbsp;</p>
+                    <p style="margin-left:80px;">8) Définir une durée de bail <span style="background-color:hsl(0, 75%, 60%);color:hsl(0, 0%, 100%);"><code>(1)</code></span>,
+                      puis suivant :</p>
+                    <figure class="image">
+                      <img src="Configurer%20Server%20DHCP/8.png">
+                    </figure>
+                    <p>&nbsp;</p>
+                    <p style="margin-left:40px;">9) Coché “oui, je veux configurer ces options maintenant” <span style="background-color:hsl(0, 75%, 60%);color:hsl(0, 0%, 100%);"><code>(1)</code></span>,
+                      puis suivant <span style="background-color:hsl(0, 75%, 60%);color:hsl(0, 0%, 100%);"><code>(2)</code></span> :</p>
+                    <figure
+                    class="image">
+                      <img src="Configurer%20Server%20DHCP/9.png">
+                      </figure>
+                      <p>&nbsp;</p>
+                      <p style="margin-left:40px;">10) Ajouter l'adresse IP du routeur (paserelle par défaut) <span style="background-color:hsl(0, 75%, 60%);color:hsl(0, 0%, 100%);"><code>(1)</code></span>,
+                        et clic “Ajouter”<span style="background-color:hsl(0, 75%, 60%);color:hsl(0, 0%, 100%);"><code>(2)</code></span>,
+                        puis “suivant”<span style="background-color:hsl(0, 75%, 60%);color:hsl(0, 0%, 100%);"><code>(3)</code></span> :</p>
+                      <figure
+                      class="image">
+                        <img src="Configurer%20Server%20DHCP/10.png">
+                        </figure>
+                        <p>&nbsp;</p>
+                        <p style="margin-left:40px;">11) Pour finir coché “Oui, je veux activer cette étendue maintenant”
+                          <span
+                          style="background-color:hsl(0, 75%, 60%);color:hsl(0, 0%, 100%);"><code>(1)</code>
+                            </span>, puis suivant <span style="background-color:hsl(0, 75%, 60%);color:hsl(0, 0%, 100%);"><code>(2)</code></span> :</p>
+                        <figure
+                        class="image">
+                          <img src="Configurer%20Server%20DHCP/11.png">
+                          </figure>
+                          <p style="margin-left:40px;">&nbsp;</p>
+                          <p style="margin-left:40px;"><strong>Ne pas oublier de mettre le DNS par défaut en IP server (ex :192.168.240.3)</strong>
+                          </p>
+                          <p style="margin-left:40px;">&nbsp;</p>
+                          <p style="margin-left:40px;">&nbsp;</p>
+      </div>
+    </div>
+  </body>
+
+</html>

@@ -1,0 +1,91 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>Entrer dans un domaine</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>Entrer dans un domaine</h1>
+
+      <div class="ck-content"><pre><code class="language-text-plain">apt-get install -y adcli</code></pre>
+        <p>&nbsp;</p>
+        <p><strong>Entrer dans un domaine :</strong>
+        </p>
+        <p><i><u>Si le server à un server DHCP</u> :</i>
+          <br>&nbsp;</p><pre><code class="language-text-plain">nano /etc/network/interfaces</code></pre>
+        <p>Au dessus d'allow-hotplug ens33
+          <br>auto ens33
+          <br>
+          <br>
+          <img src="Entrer%20dans%20un%20domaine/vmware_3NaCG1TcPm.png">
+        </p>
+        <hr>
+        <p><i><u>Si le server AD n'a pas de DHCP </u>:</i>
+        </p><pre><code class="language-text-plain">nano /etc/network/interfaces</code></pre>
+        <p>
+          <br>Dans #The primary network interface
+          <br>Ajouter : “auto ens33”
+          <br>
+          <img src="Entrer%20dans%20un%20domaine/1_vmware_3NaCG1TcPm.png">
+          <br>
+          <br>Pour retirer dhcp, enlever dhcp et mettre “static” a la place
+          <br>Retour a la ligne + TAB “</p>
+        <p style="margin-left:40px;">
+          <br>address "192.168.240.15”
+          <br>netmask “255.255.255.0”
+          <br>gateway "192.168.240.2"
+          <br>dns-nameservers “192.168.240.10” (Nom du server AD)
+          <br>dns-nameservers “1.1.1.1”</p>
+        <figure class="image">
+          <img src="Entrer%20dans%20un%20domaine/vmware_oQbRSIHEFy.png">
+        </figure>
+        <p>une fois les modification effectuer “ctrl o” ; “crtl x”</p>
+        <hr>
+        <p>systemctl restart networking</p>
+        <p><strong>Installer les packet nécéssaire pour rentrer dans le domaine</strong> :</p>
+        <p><code><strong>Commandes :</strong></code>
+        </p><pre><code class="language-text-plain">apt install packagekit samba-common-bin sssd-tools sssd libnss-sss libpam-sss policykit-1 sssd ntpdate ntp realmd -y</code></pre>
+        <figure
+        class="image">
+          <img src="Entrer%20dans%20un%20domaine/vmware_czigMdYauw.png">
+          </figure>
+          <p>Si le domaine possède un DHCP “oui” <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(1)</code></span> sinon
+            “non” <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(2)</code></span>
+          </p><pre><code class="language-text-plain">nano /etc/resolv.conf</code></pre>
+          <p
+          style="margin-left:40px;">
+            <br>Dans le dossier “Resolv.con” :
+            <br>domain : nomdudomaine.com
+            <br>nameserver “192.168.240.10” (Adresse server)</p>
+            <figure class="image">
+              <img src="Entrer%20dans%20un%20domaine/vmware_v5cEDCa51i.png">
+            </figure>
+            <p>“Ctrl o” + “Ctrl x”</p><pre><code class="language-text-plain">nano /etc/hostname</code></pre>
+            <p>
+              <br>Dans le fichier hostname :
+              <br>nomdelaVMLinux.nomdudomaine.com</p>
+            <figure class="image">
+              <img src="Entrer%20dans%20un%20domaine/vmware_dbqk3ontLy.png">
+            </figure>
+            <p>“Ctrl o” + “Ctrl x”</p><pre><code class="language-text-plain">realm join --user=administrateur “nomDuDomaine.com”</code></pre>
+            <p>
+              <br><i>(Si ca fonctionne demande le mdp de l'admin du domaine)</i>
+            </p>
+            <figure class="image">
+              <img src="Entrer%20dans%20un%20domaine/vmware_ggt7diLWgB.png">
+            </figure>
+            <p>&nbsp;</p>
+            <p>Pour sortir du domaine utilisé la commande :&nbsp;</p><pre><code class="language-text-plain">realm leave "ad.example.com"</code></pre>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+      </div>
+    </div>
+  </body>
+
+</html>

@@ -1,0 +1,461 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>Crée server FTP</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>Crée server FTP</h1>
+
+      <div class="ck-content">
+        <p>On va crée un server ftp avec vsftp</p>
+        <p>On passe en root :</p><pre><code class="language-text-plain">Su -</code></pre>
+        <p><span style="color:rgb(33,37,41);">Avant d'installer vsftp, on met notre système à jour :</span>
+        </p><pre><code class="language-text-plain">apt update &amp;&amp; sudo apt -y upgrade</code></pre>
+        <p>On install le packet :</p><pre><code class="language-text-plain">apt install vsftpd</code></pre>
+        <p>On peux vérifier la version avec la commande :</p><pre><code class="language-text-plain">vsftpd -versions</code></pre>
+        <p>On peux vérifier l'état avec la commande&nbsp;</p><pre><code class="language-text-plain">systemctl status vsftpd</code></pre>
+        <p>&nbsp;</p>
+        <p>Le server est pret il suffit de se connécter avec son ip pour y avoir
+          accés</p>
+        <p>&nbsp;</p>
+        <p>La template pour Zabbix :</p>
+        <p><a href="https://github.com/thecamels/zabbix/blob/master/templates/Template%20App%20vsftpd.xml">https://github.com/thecamels/zabbix/blob/master/templates/Template%20App%20vsftpd.xml</a>
+        </p>
+        <p>&nbsp;</p><pre><code class="language-text-plain">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+
+&lt;zabbix_export&gt;
+
+    &lt;version&gt;3.0&lt;/version&gt;
+
+    &lt;date&gt;2016-05-02T08:45:41Z&lt;/date&gt;
+
+    &lt;groups&gt;
+
+        &lt;group&gt;
+
+            &lt;name&gt;Zabbix Templates&lt;/name&gt;
+
+        &lt;/group&gt;
+
+    &lt;/groups&gt;
+
+    &lt;templates&gt;
+
+        &lt;template&gt;
+
+            &lt;template&gt;Template App vsftpd&lt;/template&gt;
+
+            &lt;name&gt;Template App vsftpd&lt;/name&gt;
+
+            &lt;description/&gt;
+
+            &lt;groups&gt;
+
+                &lt;group&gt;
+
+                    &lt;name&gt;Zabbix Templates&lt;/name&gt;
+
+                &lt;/group&gt;
+
+            &lt;/groups&gt;
+
+            &lt;applications&gt;
+
+                &lt;application&gt;
+
+                    &lt;name&gt;vsftpd&lt;/name&gt;
+
+                &lt;/application&gt;
+
+            &lt;/applications&gt;
+
+            &lt;items&gt;
+
+                &lt;item&gt;
+
+                    &lt;name&gt;vsftpd is enabled in autostart&lt;/name&gt;
+
+                    &lt;type&gt;0&lt;/type&gt;
+
+                    &lt;snmp_community/&gt;
+
+                    &lt;multiplier&gt;0&lt;/multiplier&gt;
+
+                    &lt;snmp_oid/&gt;
+
+                    &lt;key&gt;chkconfig[vsftpd]&lt;/key&gt;
+
+                    &lt;delay&gt;3600&lt;/delay&gt;
+
+                    &lt;history&gt;30&lt;/history&gt;
+
+                    &lt;trends&gt;365&lt;/trends&gt;
+
+                    &lt;status&gt;0&lt;/status&gt;
+
+                    &lt;value_type&gt;3&lt;/value_type&gt;
+
+                    &lt;allowed_hosts/&gt;
+
+                    &lt;units/&gt;
+
+                    &lt;delta&gt;0&lt;/delta&gt;
+
+                    &lt;snmpv3_contextname/&gt;
+
+                    &lt;snmpv3_securityname/&gt;
+
+                    &lt;snmpv3_securitylevel&gt;0&lt;/snmpv3_securitylevel&gt;
+
+                    &lt;snmpv3_authprotocol&gt;0&lt;/snmpv3_authprotocol&gt;
+
+                    &lt;snmpv3_authpassphrase/&gt;
+
+                    &lt;snmpv3_privprotocol&gt;0&lt;/snmpv3_privprotocol&gt;
+
+                    &lt;snmpv3_privpassphrase/&gt;
+
+                    &lt;formula&gt;1&lt;/formula&gt;
+
+                    &lt;delay_flex/&gt;
+
+                    &lt;params/&gt;
+
+                    &lt;ipmi_sensor/&gt;
+
+                    &lt;data_type&gt;3&lt;/data_type&gt;
+
+                    &lt;authtype&gt;0&lt;/authtype&gt;
+
+                    &lt;username/&gt;
+
+                    &lt;password/&gt;
+
+                    &lt;publickey/&gt;
+
+                    &lt;privatekey/&gt;
+
+                    &lt;port/&gt;
+
+                    &lt;description/&gt;
+
+                    &lt;inventory_link&gt;0&lt;/inventory_link&gt;
+
+                    &lt;applications&gt;
+
+                        &lt;application&gt;
+
+                            &lt;name&gt;vsftpd&lt;/name&gt;
+
+                        &lt;/application&gt;
+
+                    &lt;/applications&gt;
+
+                    &lt;valuemap/&gt;
+
+                    &lt;logtimefmt/&gt;
+
+                &lt;/item&gt;
+
+                &lt;item&gt;
+
+                    &lt;name&gt;vsftpd server is listening&lt;/name&gt;
+
+                    &lt;type&gt;0&lt;/type&gt;
+
+                    &lt;snmp_community/&gt;
+
+                    &lt;multiplier&gt;0&lt;/multiplier&gt;
+
+                    &lt;snmp_oid/&gt;
+
+                    &lt;key&gt;net.tcp.service[ftp]&lt;/key&gt;
+
+                    &lt;delay&gt;60&lt;/delay&gt;
+
+                    &lt;history&gt;30&lt;/history&gt;
+
+                    &lt;trends&gt;365&lt;/trends&gt;
+
+                    &lt;status&gt;0&lt;/status&gt;
+
+                    &lt;value_type&gt;3&lt;/value_type&gt;
+
+                    &lt;allowed_hosts/&gt;
+
+                    &lt;units/&gt;
+
+                    &lt;delta&gt;0&lt;/delta&gt;
+
+                    &lt;snmpv3_contextname/&gt;
+
+                    &lt;snmpv3_securityname/&gt;
+
+                    &lt;snmpv3_securitylevel&gt;0&lt;/snmpv3_securitylevel&gt;
+
+                    &lt;snmpv3_authprotocol&gt;0&lt;/snmpv3_authprotocol&gt;
+
+                    &lt;snmpv3_authpassphrase/&gt;
+
+                    &lt;snmpv3_privprotocol&gt;0&lt;/snmpv3_privprotocol&gt;
+
+                    &lt;snmpv3_privpassphrase/&gt;
+
+                    &lt;formula&gt;1&lt;/formula&gt;
+
+                    &lt;delay_flex/&gt;
+
+                    &lt;params/&gt;
+
+                    &lt;ipmi_sensor/&gt;
+
+                    &lt;data_type&gt;0&lt;/data_type&gt;
+
+                    &lt;authtype&gt;0&lt;/authtype&gt;
+
+                    &lt;username/&gt;
+
+                    &lt;password/&gt;
+
+                    &lt;publickey/&gt;
+
+                    &lt;privatekey/&gt;
+
+                    &lt;port/&gt;
+
+                    &lt;description/&gt;
+
+                    &lt;inventory_link&gt;0&lt;/inventory_link&gt;
+
+                    &lt;applications&gt;
+
+                        &lt;application&gt;
+
+                            &lt;name&gt;vsftpd&lt;/name&gt;
+
+                        &lt;/application&gt;
+
+                    &lt;/applications&gt;
+
+                    &lt;valuemap&gt;
+
+                        &lt;name&gt;Service state&lt;/name&gt;
+
+                    &lt;/valuemap&gt;
+
+                    &lt;logtimefmt/&gt;
+
+                &lt;/item&gt;
+
+                &lt;item&gt;
+
+                    &lt;name&gt;vsftpd is running&lt;/name&gt;
+
+                    &lt;type&gt;0&lt;/type&gt;
+
+                    &lt;snmp_community/&gt;
+
+                    &lt;multiplier&gt;0&lt;/multiplier&gt;
+
+                    &lt;snmp_oid/&gt;
+
+                    &lt;key&gt;proc.num[vsftpd]&lt;/key&gt;
+
+                    &lt;delay&gt;60&lt;/delay&gt;
+
+                    &lt;history&gt;30&lt;/history&gt;
+
+                    &lt;trends&gt;365&lt;/trends&gt;
+
+                    &lt;status&gt;0&lt;/status&gt;
+
+                    &lt;value_type&gt;3&lt;/value_type&gt;
+
+                    &lt;allowed_hosts/&gt;
+
+                    &lt;units/&gt;
+
+                    &lt;delta&gt;0&lt;/delta&gt;
+
+                    &lt;snmpv3_contextname/&gt;
+
+                    &lt;snmpv3_securityname/&gt;
+
+                    &lt;snmpv3_securitylevel&gt;0&lt;/snmpv3_securitylevel&gt;
+
+                    &lt;snmpv3_authprotocol&gt;0&lt;/snmpv3_authprotocol&gt;
+
+                    &lt;snmpv3_authpassphrase/&gt;
+
+                    &lt;snmpv3_privprotocol&gt;0&lt;/snmpv3_privprotocol&gt;
+
+                    &lt;snmpv3_privpassphrase/&gt;
+
+                    &lt;formula&gt;1&lt;/formula&gt;
+
+                    &lt;delay_flex/&gt;
+
+                    &lt;params/&gt;
+
+                    &lt;ipmi_sensor/&gt;
+
+                    &lt;data_type&gt;0&lt;/data_type&gt;
+
+                    &lt;authtype&gt;0&lt;/authtype&gt;
+
+                    &lt;username/&gt;
+
+                    &lt;password/&gt;
+
+                    &lt;publickey/&gt;
+
+                    &lt;privatekey/&gt;
+
+                    &lt;port/&gt;
+
+                    &lt;description/&gt;
+
+                    &lt;inventory_link&gt;0&lt;/inventory_link&gt;
+
+                    &lt;applications&gt;
+
+                        &lt;application&gt;
+
+                            &lt;name&gt;vsftpd&lt;/name&gt;
+
+                        &lt;/application&gt;
+
+                    &lt;/applications&gt;
+
+                    &lt;valuemap&gt;
+
+                        &lt;name&gt;Service state&lt;/name&gt;
+
+                    &lt;/valuemap&gt;
+
+                    &lt;logtimefmt/&gt;
+
+                &lt;/item&gt;
+
+            &lt;/items&gt;
+
+            &lt;discovery_rules/&gt;
+
+            &lt;macros/&gt;
+
+            &lt;templates/&gt;
+
+            &lt;screens/&gt;
+
+        &lt;/template&gt;
+
+    &lt;/templates&gt;
+
+    &lt;triggers&gt;
+
+        &lt;trigger&gt;
+
+            &lt;expression&gt;{Template App vsftpd:proc.num[vsftpd].last(0)}=0&lt;/expression&gt;
+
+            &lt;name&gt;vsftpd is down&lt;/name&gt;
+
+            &lt;url/&gt;
+
+            &lt;status&gt;0&lt;/status&gt;
+
+            &lt;priority&gt;3&lt;/priority&gt;
+
+            &lt;description/&gt;
+
+            &lt;type&gt;0&lt;/type&gt;
+
+            &lt;dependencies/&gt;
+
+        &lt;/trigger&gt;
+
+        &lt;trigger&gt;
+
+            &lt;expression&gt;{Template App vsftpd:chkconfig[vsftpd].last(0)}=0&lt;/expression&gt;
+
+            &lt;name&gt;vsftpd is not enabled in autostart&lt;/name&gt;
+
+            &lt;url/&gt;
+
+            &lt;status&gt;0&lt;/status&gt;
+
+            &lt;priority&gt;2&lt;/priority&gt;
+
+            &lt;description/&gt;
+
+            &lt;type&gt;0&lt;/type&gt;
+
+            &lt;dependencies/&gt;
+
+        &lt;/trigger&gt;
+
+        &lt;trigger&gt;
+
+            &lt;expression&gt;{Template App vsftpd:net.tcp.service[ftp].last(0)}=0&lt;/expression&gt;
+
+            &lt;name&gt;vsftpd server is down&lt;/name&gt;
+
+            &lt;url/&gt;
+
+            &lt;status&gt;0&lt;/status&gt;
+
+            &lt;priority&gt;3&lt;/priority&gt;
+
+            &lt;description/&gt;
+
+            &lt;type&gt;0&lt;/type&gt;
+
+            &lt;dependencies/&gt;
+
+        &lt;/trigger&gt;
+
+    &lt;/triggers&gt;
+
+    &lt;value_maps&gt;
+
+        &lt;value_map&gt;
+
+            &lt;name&gt;Service state&lt;/name&gt;
+
+            &lt;mappings&gt;
+
+                &lt;mapping&gt;
+
+                    &lt;value&gt;0&lt;/value&gt;
+
+                    &lt;newvalue&gt;Down&lt;/newvalue&gt;
+
+                &lt;/mapping&gt;
+
+                &lt;mapping&gt;
+
+                    &lt;value&gt;1&lt;/value&gt;
+
+                    &lt;newvalue&gt;Up&lt;/newvalue&gt;
+
+                &lt;/mapping&gt;
+
+            &lt;/mappings&gt;
+
+        &lt;/value_map&gt;
+
+    &lt;/value_maps&gt;
+
+&lt;/zabbix_export&gt;</code></pre>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+      </div>
+    </div>
+  </body>
+
+</html>

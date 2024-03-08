@@ -1,0 +1,46 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>Calcul IP théorie</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>Calcul IP théorie</h1>
+
+      <div class="ck-content">
+        <p>1- Prendre l’adresse IP, que l’on nous donne</p>
+        <p>2- La passer en binaire</p>
+        <p>3- Prendre le masque de sous réseaux et ou CIDR</p>
+        <p>4- Le passer en binaire</p>
+        <p>5- Faire un ET logique de l’adresse IP et du masque sachant que chaque
+          octet doit correspondre</p>
+        <p>octet 1 IP avec l’octet 1 du masque. Et ainsi de suite</p>
+        <p>
+          <img src="Calcul%20IP%20th%C3%A9orie/image.png">
+        </p>
+        <p>6- Une fois le ET logique fait vous avez votre adresse réseaux, rajoutés
+          lui +1 et vous avez votre première adresse IP hôte</p>
+        <p>
+          <br>7- prendre le masque de sous réseaux et inversé les 1 et les 0&nbsp;
+          <br>Pourquoi&nbsp;? Car sur un masque en /24 (255.255.255.0) les 24 premiers
+          bits sont les netID et les 8 autres sont les hostID, comme nous allons
+          passer à la recherche du broadcast nous avons besoin des hostID et non
+          des netID, c’est pour cela qu’on inverse</p>
+        <p>
+          <br>8- Une fois le masque inversé, prendre l’adresse réseaux et faire un OU
+          logique</p>
+        <p>
+          <img src="Calcul%20IP%20th%C3%A9orie/1_image.png">
+        </p>
+        <p>9- Cela va vous donner votre adresse de broadcast. Vous faites -1 et vous
+          avez votre dernière adresse IP hôte</p>
+      </div>
+    </div>
+  </body>
+
+</html>

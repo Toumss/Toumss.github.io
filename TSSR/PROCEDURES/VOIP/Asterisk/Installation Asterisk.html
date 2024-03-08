@@ -1,0 +1,114 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>Installation Asterisk</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>Installation Asterisk</h1>
+
+      <div class="ck-content">
+        <p style="margin-left:40px;"><strong>Ce connecter en SSH puis ce mettre en root</strong>
+        </p>
+        <p style="margin-left:40px;">Commandes&nbsp;:&nbsp;</p><pre><code class="language-text-plain">apt update &amp;&amp; apt upgrade -y</code></pre>
+        <p
+        style="margin-left:40px;"><strong>Ce placer dans le dossier</strong>
+          </p><pre><code class="language-text-plain">cd /usr/src/</code></pre>
+          <p style="margin-left:40px;"><strong>Télécharger la version 16&nbsp;</strong>
+            <br><i>(il est possible que d’autre version soit disponible ici nous travaillons avec la v16)</i>
+          </p><pre><code class="language-text-plain">wget&nbsp;https://downloads.asterisk.org/pub/telephony/asterisk/asterisk-16-current.tar.gz</code></pre>
+          <p
+          style="margin-left:40px;"><strong>On extrait l’archive</strong>
+            </p><pre><code class="language-text-plain">tar xzvf asterisk-16-current.tar.gz</code></pre>
+            <p
+            style="margin-left:40px;"><strong>On va commencer l’installation, placer vous dans le dossier asterisk</strong>
+              </p><pre><code class="language-text-plain">cd asterisk-16.10.0</code></pre>
+              <p
+              style="margin-left:40px;"><strong>Puis taper la commande&nbsp;</strong>
+                </p><pre><code class="language-text-plain">contrib/scripts/install_prereq install</code></pre>
+                <p
+                style="margin-left:40px;"><strong>Utilisation du préfixe 33</strong>
+                  </p>
+                  <p>
+                    <img src="Installation%20Asterisk/image.png">
+                  </p>
+                  <p style="margin-left:40px;"><strong>Une fois les pré requis installé vous devez recevoir le message suivant&nbsp;:&nbsp;</strong>
+                  </p>
+                  <p>
+                    <img src="Installation%20Asterisk/1_image.png">
+                  </p>
+                  <p style="margin-left:40px;"><strong>On vérifie et on met à jour les pré requis pour les formats mp3</strong>&nbsp;</p><pre><code class="language-text-plain">contrib/scripts/get_mp3_source.sh</code></pre>
+                  <p
+                  style="margin-left:40px;"><strong>Une fois fait&nbsp;</strong>
+                    </p><pre><code class="language-text-plain">./configure --with-jansson-bundled</code></pre>
+                    <p
+                    style="margin-left:40px;"><strong>On s’attaque au plus gros parti&nbsp;</strong>
+                      </p><pre><code class="language-text-plain">make menuselect</code></pre>
+                      <p
+                      style="margin-left:40px;"><strong>Une fois le menu suivant qui s’affiche </strong><code><strong><u>bien faire attention&nbsp;</u></strong></code>
+                        </p>
+                        <p>
+                          <img src="Installation%20Asterisk/2_image.png">
+                        </p>
+                        <p><strong>Il faut choisir dans Add-ons :</strong>
+                        </p>
+                        <p>[*] format_mp3</p>
+                        <p><i># pour les packages de sons, décocher tous les autres et ne prendre que les modules en français</i>
+                        </p>
+                        <p><strong>Il faut choisir dans « Core Sound Packages » :</strong>
+                        </p>
+                        <p>[*] CORE-SOUNDS-FR-ULAW</p>
+                        <p>[*] CORE-SOUNDS-FR-ALAW</p>
+                        <p><strong>Il faut choisir dans « Music On Hold File Packages » :</strong>
+                        </p>
+                        <p>[*] MOH-OPSOUND-ULAW</p>
+                        <p>[*] MOH-OPSOUND_ALAW</p>
+                        <p><strong>Il faut choisir dans « Extras Sound Packages » :</strong>
+                        </p>
+                        <p>[*} EXTRA-SOUNDS-FR-ULAW</p>
+                        <p>[*] EXTRA-SOUNDS-FR_ALAW</p>
+                        <p><strong>faire "esc" puis "Save &amp; Exit" et valider.</strong>
+                        </p>
+                        <p>
+                          <img src="Installation%20Asterisk/3_image.png">
+                        </p>
+                        <p>&nbsp;</p>
+                        <p style="margin-left:40px;"><strong>Nous reste qu’a compilé</strong>
+                        </p><pre><code class="language-text-plain">make -j2</code></pre>
+                        <p>
+                          <img src="Installation%20Asterisk/4_image.png">
+                        </p>
+                        <p style="margin-left:40px;"><strong>On lance l’installation&nbsp;</strong>
+                        </p><pre><code class="language-text-plain">make install</code></pre>
+                        <p>
+                          <img src="Installation%20Asterisk/5_image.png">
+                        </p>
+                        <p style="margin-left:40px;"><strong>Taper les commandes suivantes&nbsp;</strong>
+                        </p><pre><code class="language-text-plain">make samples</code></pre><pre><code class="language-text-plain">make config</code></pre><pre><code class="language-text-plain">ldconfig</code></pre><pre><code class="language-text-plain">make install-logrotate</code></pre><pre><code class="language-text-plain">systemctl start asterisk</code></pre><pre><code class="language-text-plain">systemctl status asterisk</code></pre>
+                        <p>
+                          <img src="Installation%20Asterisk/6_image.png">
+                        </p>
+                        <p>&nbsp;</p>
+                        <p>&nbsp;</p>
+                        <p style="margin-left:40px;"><strong>La commande pour ouvrir la console Asterisk</strong>
+                        </p><pre><code class="language-text-plain">asterisk –rvv</code></pre>
+                        <p style="margin-left:40px;"><strong>Pour quitter la console&nbsp;</strong>
+                        </p><pre><code class="language-text-plain">Exit</code></pre>
+                        <p style="margin-left:40px;"><strong>Pour voir les fichiers de bases d’asterisk&nbsp;</strong>
+                        </p><pre><code class="language-text-plain">cd /etc/asterisk</code></pre><pre><code class="language-text-plain">ls</code></pre>
+                        <p>&nbsp;</p>
+                        <p>
+                          <img src="Installation%20Asterisk/7_image.png">
+                        </p>
+                        <p>&nbsp;</p>
+                        <p>&nbsp;</p>
+      </div>
+    </div>
+  </body>
+
+</html>

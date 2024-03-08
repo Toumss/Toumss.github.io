@@ -1,0 +1,77 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>Crée un server RDS</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>Crée un server RDS</h1>
+
+      <div class="ck-content">
+        <h2 style="margin-left:0px;">Prérequis</h2>
+        <p style="margin-left:0px;">Le déploiement standard des services de bureau à distance nécessite un
+          <a
+          href="https://247-it.io/mise-en-place-environnement-active-directory/">domaine Active Directory</a>.</p>
+        <p style="margin-left:0px;">Pour le serveur RDS (celui que l’on va installer), il doit être membre
+          du domaine et de préférence avoir une adresse IP fixe.</p>
+        <h2 style="margin-left:0px;">Installation des services Bureau à distance</h2>
+        <p style="margin-left:0px;">Depuis le gestionnaire de serveur du futur serveur RDS, cliquer sur Ajouter
+          des rôles des fonctionnalités <span style="background-color:hsl(0, 75%, 60%);color:hsl(0, 0%, 100%);"><code>(<strong>1)</strong></code></span>.</p>
+        <p><a href="https://247-it.io/wp-content/uploads/2020/02/rds-install-01.png"><img src="Cr%C3%A9e%20un%20server%20RDS/rds-install-01-600x280.png" alt="Gestionnaire de serveur, lancer l'assistant d'installation de rôle et fonctionnalités." srcset="https://247-it.io/wp-content/uploads/2020/02/rds-install-01-600x280.png 600w, https://247-it.io/wp-content/uploads/2020/02/rds-install-01-300x140.png 300w, https://247-it.io/wp-content/uploads/2020/02/rds-install-01-1024x478.png 1024w, https://247-it.io/wp-content/uploads/2020/02/rds-install-01-768x359.png 768w, https://247-it.io/wp-content/uploads/2020/02/rds-install-01-1536x717.png 1536w, https://247-it.io/wp-content/uploads/2020/02/rds-install-01-800x374.png 800w, https://247-it.io/wp-content/uploads/2020/02/rds-install-01-400x187.png 400w, https://247-it.io/wp-content/uploads/2020/02/rds-install-01.png 1893w" sizes="100vw" width="600"></a>
+        </p>
+        <p style="margin-left:0px;">Au lancement de l’assistant, cliquer sur Suivant <span style="background-color:hsl(0, 75%, 60%);color:hsl(0, 0%, 100%);"><code>(<strong>1)</strong></code></span>.</p>
+        <p><a href="https://247-it.io/wp-content/uploads/2020/03/rds-install-02-wizard.png"><img src="Cr%C3%A9e%20un%20server%20RDS/rds-install-02-wizard-562x400." alt="Assistant installation de rôles et fonctionnalités" srcset="https://247-it.io/wp-content/uploads/2020/03/rds-install-02-wizard-562x400.png 562w, https://247-it.io/wp-content/uploads/2020/03/rds-install-02-wizard-300x214.png 300w, https://247-it.io/wp-content/uploads/2020/03/rds-install-02-wizard-768x547.png 768w, https://247-it.io/wp-content/uploads/2020/03/rds-install-02-wizard-702x500.png 702w, https://247-it.io/wp-content/uploads/2020/03/rds-install-02-wizard-400x285.png 400w, https://247-it.io/wp-content/uploads/2020/03/rds-install-02-wizard.png 785w" sizes="100vw" width="562"></a>
+        </p>
+        <p style="margin-left:0px;">Choisir le type d’installation : Installation des services Bureau à distance
+          <span
+          style="background-color:hsl(0, 75%, 60%);color:hsl(0, 0%, 100%);"><code>(<strong>1)</strong></code>
+            </span>et cliquer sur Suivant <span style="background-color:hsl(0, 75%, 60%);color:hsl(0, 0%, 100%);"><code>(<strong>2)</strong></code></span>.</p>
+        <p><a href="https://247-it.io/wp-content/uploads/2020/03/rds-install-03-install-type.png"><img src="Cr%C3%A9e%20un%20server%20RDS/rds-install-03-install-type-56" alt="Choix du type d'installation" srcset="https://247-it.io/wp-content/uploads/2020/03/rds-install-03-install-type-562x400.png 562w, https://247-it.io/wp-content/uploads/2020/03/rds-install-03-install-type-300x214.png 300w, https://247-it.io/wp-content/uploads/2020/03/rds-install-03-install-type-768x547.png 768w, https://247-it.io/wp-content/uploads/2020/03/rds-install-03-install-type-702x500.png 702w, https://247-it.io/wp-content/uploads/2020/03/rds-install-03-install-type-400x285.png 400w, https://247-it.io/wp-content/uploads/2020/03/rds-install-03-install-type.png 785w" sizes="100vw" width="562"></a>
+        </p>
+        <p style="margin-left:0px;">Sélectionner Démarrage rapide <span style="background-color:hsl(0, 75%, 60%);color:hsl(0, 0%, 100%);"><code>(<strong>1)</strong></code></span> et
+          cliquer sur Suivant <span style="background-color:hsl(0, 75%, 60%);color:hsl(0, 0%, 100%);"><code>(<strong>2)</strong></code></span>.</p>
+        <p><a href="https://247-it.io/wp-content/uploads/2020/03/rds-install-04-type-install.png"><img src="Cr%C3%A9e%20un%20server%20RDS/rds-install-04-type-install-56" alt="Type de déploiement" srcset="https://247-it.io/wp-content/uploads/2020/03/rds-install-04-type-install-566x400.png 566w, https://247-it.io/wp-content/uploads/2020/03/rds-install-04-type-install-300x212.png 300w, https://247-it.io/wp-content/uploads/2020/03/rds-install-04-type-install-768x543.png 768w, https://247-it.io/wp-content/uploads/2020/03/rds-install-04-type-install-707x500.png 707w, https://247-it.io/wp-content/uploads/2020/03/rds-install-04-type-install-400x283.png 400w, https://247-it.io/wp-content/uploads/2020/03/rds-install-04-type-install.png 785w" sizes="100vw" width="566"></a>
+        </p>
+        <blockquote>
+          <p style="margin-left:0px;"><i>Le démarrage rapide installe l’ensemble des rôles (broker, hôte de bureau à distance et accès web) sur le même serveur.</i>
+          </p>
+        </blockquote>
+        <p style="margin-left:0px;">Choisir le scénario Déploiement de bureaux basés sur une session
+          <span
+          style="background-color:hsl(0, 75%, 60%);color:hsl(0, 0%, 100%);"><code>(<strong>1)</strong></code>
+            </span>puis cliquer sur Suivant <span style="background-color:hsl(0, 75%, 60%);color:hsl(0, 0%, 100%);"><code>(<strong>2)</strong></code></span>.</p>
+        <p><a href="https://247-it.io/wp-content/uploads/2020/03/rds-install-05-type-install.png"><img src="Cr%C3%A9e%20un%20server%20RDS/rds-install-05-type-install-56" alt="Choisir le scénario de déploiement" srcset="https://247-it.io/wp-content/uploads/2020/03/rds-install-05-type-install-562x400.png 562w, https://247-it.io/wp-content/uploads/2020/03/rds-install-05-type-install-300x214.png 300w, https://247-it.io/wp-content/uploads/2020/03/rds-install-05-type-install-768x547.png 768w, https://247-it.io/wp-content/uploads/2020/03/rds-install-05-type-install-703x500.png 703w, https://247-it.io/wp-content/uploads/2020/03/rds-install-05-type-install-400x285.png 400w, https://247-it.io/wp-content/uploads/2020/03/rds-install-05-type-install.png 784w" sizes="100vw" width="562"></a>
+        </p>
+        <p style="margin-left:0px;">Sélectionner le serveur <span style="background-color:hsl(0, 75%, 60%);color:hsl(0, 0%, 100%);"><code>(<strong>1)</strong></code></span> et
+          cliquer sur Suivant <span style="background-color:hsl(0, 75%, 60%);color:hsl(0, 0%, 100%);"><code>(<strong>2)</strong></code></span>.</p>
+        <p><a href="https://247-it.io/wp-content/uploads/2020/03/rds-install-06-select-server.png"><img src="Cr%C3%A9e%20un%20server%20RDS/rds-install-06-select-server-5" alt="Sélectionner le serveur" srcset="https://247-it.io/wp-content/uploads/2020/03/rds-install-06-select-server-561x400.png 561w, https://247-it.io/wp-content/uploads/2020/03/rds-install-06-select-server-300x214.png 300w, https://247-it.io/wp-content/uploads/2020/03/rds-install-06-select-server-768x547.png 768w, https://247-it.io/wp-content/uploads/2020/03/rds-install-06-select-server-702x500.png 702w, https://247-it.io/wp-content/uploads/2020/03/rds-install-06-select-server-400x285.png 400w, https://247-it.io/wp-content/uploads/2020/03/rds-install-06-select-server.png 786w" sizes="100vw" width="561"></a>
+        </p>
+        <p style="margin-left:0px;">Un résumé de la configuration s’affiche, cocher la case <span style="background-color:hsl(0, 75%, 60%);color:hsl(0, 0%, 100%);"><code>(<strong>1)</strong></code></span> pour
+          redémarrer le serveur automatiquement et cliquer sur le bouton Déployer
+          <span
+          style="background-color:hsl(0, 75%, 60%);color:hsl(0, 0%, 100%);"><code>(<strong>2)</strong></code>
+            </span>pour commencer l’installation.</p>
+        <p><a href="https://247-it.io/wp-content/uploads/2020/03/rds-install-07-confirm-install.png"><img src="Cr%C3%A9e%20un%20server%20RDS/image.png" alt="Confirmer l'installation" srcset="https://247-it.io/wp-content/uploads/2020/03/rds-install-07-confirm-install-561x400.png 561w, https://247-it.io/wp-content/uploads/2020/03/rds-install-07-confirm-install-300x214.png 300w, https://247-it.io/wp-content/uploads/2020/03/rds-install-07-confirm-install-768x548.png 768w, https://247-it.io/wp-content/uploads/2020/03/rds-install-07-confirm-install-701x500.png 701w, https://247-it.io/wp-content/uploads/2020/03/rds-install-07-confirm-install-400x285.png 400w, https://247-it.io/wp-content/uploads/2020/03/rds-install-07-confirm-install.png 785w" sizes="100vw" width="561"></a>
+        </p>
+        <p style="margin-left:0px;">Patienter pendant l’installation, le serveur devrait redémarrer…</p>
+        <p
+        style="margin-left:0px;">L’installation est terminée, quitter l’assistant en cliquant sur Fermer
+          <span
+          style="background-color:hsl(0, 75%, 60%);color:hsl(0, 0%, 100%);"><code>(<strong>1)</strong></code>
+            </span>.</p>
+            <p><a href="https://247-it.io/wp-content/uploads/2020/03/rds-install-12-install-completed.png"><img src="Cr%C3%A9e%20un%20server%20RDS/image.jpg" alt="Installation terminée" srcset="https://247-it.io/wp-content/uploads/2020/03/rds-install-12-install-completed-562x400.png 562w, https://247-it.io/wp-content/uploads/2020/03/rds-install-12-install-completed-300x214.png 300w, https://247-it.io/wp-content/uploads/2020/03/rds-install-12-install-completed-768x547.png 768w, https://247-it.io/wp-content/uploads/2020/03/rds-install-12-install-completed-702x500.png 702w, https://247-it.io/wp-content/uploads/2020/03/rds-install-12-install-completed-400x285.png 400w, https://247-it.io/wp-content/uploads/2020/03/rds-install-12-install-completed.png 785w" sizes="100vw" width="562"></a>
+            </p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+      </div>
+    </div>
+  </body>
+
+</html>

@@ -1,0 +1,100 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>Configuration Pfsense Graphique</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>Configuration Pfsense Graphique</h1>
+
+      <div class="ck-content">
+        <p><strong>Premiere connexion</strong> : admin / pfsense</p>
+        <p>On met en premier DNS 1.1.1.1</p>
+        <p>Puis on clique sur Next <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code><strong>(1)</strong></code></span> :</p>
+        <figure
+        class="image">
+          <img src="Configuration%20Pfsense%20Graphique/brave_vqL1tDPspN.png">
+          </figure>
+          <p>&nbsp;</p>
+          <p>On met la TimeZone sur “Europe/Paris” :</p>
+          <p>Puis on clique sur Next <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code><strong>(1)</strong></code></span> :</p>
+          <figure
+          class="image">
+            <img src="Configuration%20Pfsense%20Graphique/brave_XpqthabCZg.png">
+            </figure>
+            <p>&nbsp;</p>
+            <p>Prochaine étape on ajoute la gateway :</p>
+            <figure class="image">
+              <img src="Configuration%20Pfsense%20Graphique/brave_jHPcBsaDWm.png">
+            </figure>
+            <p>&nbsp;</p>
+            <p>Cette étape on ne touche a rien puis Next <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code><strong>(1)</strong></code></span> :</p>
+            <figure
+            class="image">
+              <img src="Configuration%20Pfsense%20Graphique/brave_9qEJlp7y6n.png">
+              </figure>
+              <p>&nbsp;</p>
+              <p>Ici on ajoute un mot de passe administrateur et on clique sur Next
+                <span
+                style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code><strong>(1)</strong></code>
+                  </span>:</p>
+              <figure class="image">
+                <img src="Configuration%20Pfsense%20Graphique/brave_ENsAsqFwLe.png">
+              </figure>
+              <p>&nbsp;</p>
+              <p>Arrivé ici on ne clique pas sur “Check for updates” puis “Finih”
+                <span
+                style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code><strong>(1)</strong></code>
+                  </span>:</p>
+              <figure class="image">
+                <img src="Configuration%20Pfsense%20Graphique/brave_Oj1pKj3bTz.png">
+              </figure>
+              <p>&nbsp;</p>
+              <p>Une fois fini pour vérifier on clique sur “Diagnostics ” <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code><strong>(1)</strong></code></span> puis
+                dans le menu déroulant on choisi “Ping” <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code><strong>(2)</strong></code></span>,
+                dans “Hostname" <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code><strong>(3)</strong></code></span> on
+                marque 1.1.1.1 puis on test le “ping” <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code><strong>(4)</strong></code></span>,
+                si le ping fonctionne on est tout bon :&nbsp;</p>
+              <figure class="image">
+                <img src="Configuration%20Pfsense%20Graphique/brave_FkZ47HhsnF.png">
+              </figure>
+              <hr>
+              <p>Pour éviter tout problème :</p>
+              <p>On se rend dans “interfaces” puis dans “WAN” <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code><strong>(1)</strong></code></span> et
+                “LAN” <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code><strong>(2)</strong></code></span> :</p>
+              <figure
+              class="image">
+                <img src="Configuration%20Pfsense%20Graphique/brave_iCknpe7urT.png">
+                </figure>
+                <p>&nbsp;</p>
+                <p>Pour décocher plus bas <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code><strong>(1)</strong></code></span> et
+                  <span
+                  style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code><strong>(2)</strong></code>
+                    </span>:</p>
+                <figure class="image">
+                  <img src="Configuration%20Pfsense%20Graphique/brave_WDcmWDePGz.png">
+                </figure>
+                <hr>
+                <p>&nbsp;</p>
+                <p>Pour que notre hote passe par la passerelle pfsense on lui met en gateway
+                  l'adresse LAN de notre pfsense précedement configurer.</p>
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+      </div>
+    </div>
+  </body>
+
+</html>

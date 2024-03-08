@@ -1,0 +1,51 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>Crée un Alias</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>Crée un Alias</h1>
+
+      <div class="ck-content">
+        <p><span style="background-color:#ffff00;color:#000000;"><strong>Créer un alias ssh</strong></span>
+        </p>
+        <p><span style="background-color:transparent;color:#000000;">Créer un alias srv1 sur le PC Windows pour se connecter directement avec la clé de chiffrement SSH :&nbsp;</span>
+        </p>
+        <ul>
+          <li><span style="background-color:transparent;color:#000000;">Mettre la clé privée dans C:\Users\Candidat\.ssh</span>
+          </li>
+          <li><span style="background-color:transparent;color:#000000;">Créer un fichier&nbsp;<strong>config</strong> (sans extension) dans le dossier C:\Users\Candidat\.ssh</span>
+          </li>
+        </ul>
+        <p><span style="background-color:transparent;color:#000000;">Copier les informations pour l’alias dans le fichier config :&nbsp;</span>
+        </p>
+        <p><span style="background-color:transparent;color:#0000ff;">Host&nbsp;<strong>srv1&nbsp;</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;# You will use it to login</span>
+        </p>
+        <p><span style="background-color:transparent;color:#0000ff;">HostName&nbsp;<strong>192.168.240.147</strong> &nbsp; &nbsp; &nbsp; &nbsp; # host domain orip</span>
+        </p>
+        <p><span style="background-color:transparent;color:#0000ff;">Port&nbsp;<strong>22</strong> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;# ssh port</span>
+        </p>
+        <p><span style="background-color:transparent;color:#0000ff;">IdentitiesOnly&nbsp;<strong>yes</strong> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;# Use ssh key or not</span>
+        </p>
+        <p><span style="background-color:transparent;color:#0000ff;">IdentityFile&nbsp;<strong>C:\Users\Candidat\.ssh\ssh1</strong> &nbsp; # Path of pub key</span>
+        </p>
+        <p><span style="background-color:transparent;color:#0000ff;">User&nbsp;<strong>debian&nbsp;</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;# (選填)登入 SSH 的 username，</span>
+        </p>
+        <p><span style="background-color:transparent;color:#0000ff;">ForwardX11&nbsp;<strong>yes</strong></span>
+        </p>
+        <p>&nbsp;</p><pre><code class="language-text-plain">nano .ssh/config</code></pre>
+        <p><span style="background-color:transparent;color:#0000ff;"><strong>host ratio</strong></span>
+          <br><span style="background-color:transparent;color:#0000ff;"><strong>hostname 192.168.240.30</strong></span>
+          <br><span style="background-color:transparent;color:#0000ff;"><strong>User debian</strong></span>
+        </p>
+      </div>
+    </div>
+  </body>
+
+</html>

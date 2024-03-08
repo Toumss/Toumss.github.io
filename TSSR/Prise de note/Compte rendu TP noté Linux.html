@@ -1,0 +1,87 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>Compte rendu TP noté Linux</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>Compte rendu TP noté Linux</h1>
+
+      <div class="ck-content">
+        <p><strong><u>installer gdmap :</u></strong>
+        </p><pre><code class="language-text-plain">su -
+apt get install gdmap</code></pre>
+        <p><strong>Ajouter utilisateur :</strong>
+        </p><pre><code class="language-text-plain">adduser tom
+adduser jerry</code></pre>
+        <p><strong>Donner les droits que à tom sur le dossier tom :</strong>
+        </p>
+        <p style="margin-left:40px;">
+          <br>chown tom:user tom
+          <br>chmod 700 tom</p>
+        <p><strong>Donner les droits que à jerry sur le dossier jerry :</strong>
+        </p>
+        <p style="margin-left:40px;">chown jerry:user jerry
+          <br>chmod 700 jerry</p>
+        <p><strong>Enlever tom du groupe scanner :</strong>
+        </p>
+        <p style="margin-left:40px;">gpasswd -d tom scanner</p>
+        <p style="margin-left:40px;">Ajouter un support de stockage à la VM :
+          <br>Eteindre la VM linux et ajouter un HDD. Puis rallumer la VM</p>
+        <p><strong>Pour vérifier que le disque est bien pris en compte :&nbsp;</strong>
+        </p>
+        <p style="margin-left:40px;">fdisk -l (pour voir les disques présent sur la debian)</p>
+        <p style="margin-left:40px;">&nbsp;cfdisk /dev/sdb (Pour crée une partition sur le disque)
+          <br>=&gt; gpt =&gt; Nouvelle =&gt; Ecrire =&gt; Oui =&gt; Quitter</p>
+        <p style="margin-left:40px;">mkfs.ext4 /dev/sdb1
+          <br>=&gt; Yes/no = Y</p>
+        <p style="margin-left:40px;">Crée le dossier ou monter le hdd
+          <br>Se rendre dans /mnt puis crée le dossier voulu avec (mkdir ”nom du dossier")</p>
+        <p
+        style="margin-left:40px;">Blkid (Récupere l'UUID de ta partition de ton disque dur)</p>
+          <p style="margin-left:40px;">nano /etc/fstab
+            <br>UUID=ffedaa2c-94d3-4565-a03b-94948ae852f1 &nbsp; &nbsp; &nbsp; &nbsp;/mnt/data
+            ext4 rw,user,auto (ou default) &nbsp; &nbsp;0 &nbsp; &nbsp; &nbsp; 2
+            <br>ctrl-x (quitter) / sauvergarder ? O/Y / fstab… ? “ENTRER”</p>
+          <p><strong>Faire en sorte que que le support de stockage soit monté automatiquement a chaque redemarrage :</strong>
+          </p>
+          <p style="margin-left:40px;">mount -a (pour monter le disque) (daemon si nécéssaire)</p>
+          <p><strong>Faire en sorte que tous les utilisateurs puisse lire et écrire sur cet espace de stockage :</strong>
+          </p>
+          <p style="margin-left:40px;">cd /mnt
+            <br>chmod 777 data</p>
+          <p><strong>Crée un répertoire pour chaque utilisateur et faire en sorte que seul l'utilisateur puisse lire et écrire dans son répertoire :</strong>
+          </p>
+          <p style="margin-left:40px;">cd /mnt/data&nbsp;
+            <br>mkdir user
+            <br>cd /mnt/data&nbsp;
+            <br>mkdir tom
+            <br>cd /mnt/data&nbsp;
+            <br>mkdir jerry
+            <br>chown user:user user
+            <br>chmod 700 user
+            <br>chown tom:user tom
+            <br>chmod 700 tom
+            <br>chown jerry:user jerry
+            <br>chmod 700 jerry</p>
+          <p><strong>Installer rdiff-backup :</strong>
+          </p>
+          <p>apt install rdiff-backup</p>
+          <p><strong>Crée le répertoire /mnt/data/backup :</strong>
+          </p>
+          <p style="margin-left:40px;">cd /mnt/data
+            <br>mkdir backup</p>
+          <p><strong>Lancer une sauvegarde du répertoire /home/user vers /mnt/data/backup :</strong>
+          </p>
+          <p style="margin-left:40px;">rdiff-backup --print-statistics /home/user /mnt/data/backup
+            <br>&nbsp;</p>
+      </div>
+    </div>
+  </body>
+
+</html>

@@ -1,0 +1,103 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>Configuration Pfsense Terminal</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>Configuration Pfsense Terminal</h1>
+
+      <div class="ck-content">
+        <p>Avant toute chose ce rendre dans VMWARE puis “EDIT” “Virtual Network Editor”
+          puis clique sur “Change settings”, une fois fait le bridge apparait, on
+          clique dessus et on change la ligne qui est en "Automatic" en “Wifi” (si
+          notre ordi hôte est en wifi)</p>
+        <figure class="image">
+          <img src="Configuration%20Pfsense%20Terminal/vmnetcfg_ekmnVsEPqS.png">
+        </figure>
+        <p>&nbsp;</p>
+        <p><span style="background-color:rgb(255,255,255);color:rgb(102,102,102);">Une fois que le démarrage est finalisé, vous aurez la vue suivante sur la machine&nbsp;:</span>
+        </p>
+        <figure class="image">
+          <img src="Configuration%20Pfsense%20Terminal/brave_Jcyo7kDnM1.png">
+        </figure>
+        <p>Une fois arrivé ici il nous faudra surement configurer les ip de nos deux
+          interfaces, en appuyant sur 2 o<span style="background-color:rgb(255,255,255);color:rgb(102,102,102);">n me demande </span><strong>quelle interface je veux modifier</strong>
+          <span
+          style="background-color:rgb(255,255,255);color:rgb(102,102,102);">. L’interface LAN est ici la 2, donc je tape 2 et j’appuie sur Entrée
+            :</span>
+        </p>
+        <figure class="image">
+          <img src="Configuration%20Pfsense%20Terminal/brave_CCJ5oqPtgb.png">
+        </figure>
+        <p><span style="background-color:rgb(255,255,255);color:rgb(102,102,102);">La 1ère question posée concernant l’attribution d’une IP a l’interface LAN via un DHCP. Je veux l’attribuer manuellement, saisissez </span><strong>« n » pour répondre Non </strong>
+          <span
+          style="background-color:rgb(255,255,255);color:rgb(102,102,102);">et appuyez sur Entrée :</span>
+        </p>
+        <figure class="image">
+          <img src="Configuration%20Pfsense%20Terminal/brave_dAZU5rjzN3.png">
+        </figure>
+        <p><span style="background-color:rgb(255,255,255);color:rgb(102,102,102);">Ensuite </span><strong>saisissez l’adresse IP que vous donnez à cette interface</strong>
+          <span
+          style="background-color:rgb(255,255,255);color:rgb(102,102,102);">qui sera je le rappelle la <strong><u>passerelle de sortie de votre réseau local</u></strong>.
+            Quand vous avez saisi l’adresse IP, appuyez sur Entrée pour passer à la
+            suite :</span>
+        </p>
+        <figure class="image">
+          <img src="Configuration%20Pfsense%20Terminal/brave_mZd39nGEme.png">
+        </figure>
+        <p><span style="background-color:rgb(255,255,255);color:rgb(102,102,102);">Définissez le masque de sous-réseau du réseau local </span><strong>en notation CIDR uniquement</strong>
+          <span
+          style="background-color:rgb(255,255,255);color:rgb(102,102,102);">, donc 24 pour moi :</span>
+        </p>
+        <figure class="image">
+          <img src="Configuration%20Pfsense%20Terminal/brave_SFlAN3Enj9.png">
+        </figure>
+        <p><span style="background-color:rgb(255,255,255);color:rgb(102,102,102);">Pfsense demande ensuite si le réseau dispose d’une passerelle vers laquelle renvoyer les flux. Ce n’est pas le cas pour moi, l’interface WAN fait déjà le job et je n’ai pas d’autre routeur dans mon réseau donc j’appuie simplement sur </span><strong>Entrée pour laisser vide :</strong>
+        </p>
+        <figure class="image">
+          <img src="Configuration%20Pfsense%20Terminal/brave_frKaWu08nk.png">
+        </figure>
+        <p><span style="background-color:rgb(255,255,255);color:rgb(102,102,102);">Je ne souhaite pas configurer d’adresse en IPv6, je réponds donc </span><strong>« n » c’est à dire non </strong>
+          <span
+          style="background-color:rgb(255,255,255);color:rgb(102,102,102);">pour la question concernant le DHCP et j’appuie</span><strong>ensuite sur Entrée </strong>
+            <span
+            style="background-color:rgb(255,255,255);color:rgb(102,102,102);">quand il demande de définir une IPv6</span><strong> pour ignorer cette partie :</strong>
+        </p>
+        <figure class="image">
+          <img src="Configuration%20Pfsense%20Terminal/KanpULDJco.png">
+        </figure>
+        <p><span style="background-color:rgb(255,255,255);color:rgb(102,102,102);">Je ne souhaite pas non plus activer le service DHCP pour le réseau local donc </span><strong>je saisis « n » pour répondre encore une fois Non et Entrée :</strong>
+        </p>
+        <figure class="image">
+          <img src="Configuration%20Pfsense%20Terminal/brave_VioGcCLflx.png">
+        </figure>
+        <p><span style="background-color:rgb(255,255,255);color:rgb(102,102,102);">Et enfin, la dernière question concerne le </span><strong>protocole utilisé pour aller sur l’interface web</strong>
+          <span
+          style="background-color:rgb(255,255,255);color:rgb(102,102,102);">. Par défaut, il est en</span><strong>HTTPS</strong><span style="background-color:rgb(255,255,255);color:rgb(102,102,102);"> donc sécurisé. Vous pouvez choisir de le passer en HTTP si vous le souhaitez en répondant «&nbsp;y&nbsp;» pour «&nbsp;Yes&nbsp;». Personnellement je vais répondre «&nbsp;n&nbsp;» :</span>
+        </p>
+        <figure class="image">
+          <img src="Configuration%20Pfsense%20Terminal/brave_bMqIS9JvBE.png">
+        </figure>
+        <p><span style="background-color:rgb(255,255,255);color:rgb(102,102,102);">La configuration de l’interface LAN est terminée. Je vois à l’écran l’</span><strong>URL à utiliser pour aller sur pfsense qui est donc ici https://192.168.3.1/</strong>
+          <span
+          style="background-color:rgb(255,255,255);color:rgb(102,102,102);">, soit son adresse IP :</span>
+        </p>
+        <figure class="image">
+          <img src="Configuration%20Pfsense%20Terminal/brave_zkokMxIUzN.png">
+        </figure>
+        <p><span style="background-color:rgb(255,255,255);color:rgb(102,102,102);">La configuration de pfsense en </span><strong>lignes de command</strong>
+          <span
+          style="background-color:rgb(255,255,255);color:rgb(102,102,102);">e est maintenant terminée, passons sur l’interface web.</span>
+        </p>
+        <hr>
+      </div>
+    </div>
+  </body>
+
+</html>

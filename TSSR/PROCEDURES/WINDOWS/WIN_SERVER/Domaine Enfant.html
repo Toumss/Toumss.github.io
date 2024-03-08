@@ -1,0 +1,49 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>Domaine Enfant</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>Domaine Enfant</h1>
+
+      <div class="ck-content">
+        <ol>
+          <li>Pour intégrer un domaine enfant dans un domaine parent on commence par
+            configurer un server normalement (Nom/IP,DNS du domaine parent), puis de
+            redémarrer et de l'insérer dans le domaine parent comme un windows client
+            : “Mofidier” <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(1)</code></span>,
+            "membre d'un" coché domaine <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(2)</code></span> puis
+            choisir le domaine voulu, et enfin “OK” <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(3)</code></span> :</li>
+        </ol>
+        <figure class="image">
+          <img src="Domaine%20Enfant/1.png">
+        </figure>
+        <p>&nbsp;</p>
+        <p>Il faut ensuite installer le role AD DS sur le server enfant, puis la
+          configurer.
+          <br>On commence par choisir la 2eme option <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(1)</code></span>,
+          on choisi 'Domaine enfant" <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(2)</code></span>,
+          on clic sur “Sélectionner” <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(3)</code></span> pour
+          sélectionner le domaine parent, on indique un nom pour notre domaine enfant
+          <span
+          style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(4)</code>
+            </span>, puis on peu cliqué sur suivant <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(5)</code></span>.&nbsp;</p>
+        <p>&nbsp;</p>
+        <figure class="image">
+          <img src="Domaine%20Enfant/vmware_opjvmZ9DUz.png">
+        </figure>
+        <p>(<i>Ce connecter avec l'admin du server parent en cliquant sur “Modifier” et en entrant les identifiant</i>)</p>
+        <p>Puis cliquer sur “suivant” jusqu'à l'installation du server.</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+      </div>
+    </div>
+  </body>
+
+</html>

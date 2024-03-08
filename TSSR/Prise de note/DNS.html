@@ -1,0 +1,91 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>DNS</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>DNS</h1>
+
+      <div class="ck-content">
+        <p style="margin-left:320px;"><span class="text-big"><strong><u>DNS (Domaine Systeme Name) :</u></strong></span>
+        </p>
+        <p>Il permet d'associer un nom comprehensible (Nom de domaine) à une adresse
+          IP. Le nom de domaine et l'adresse IP sont unique.</p>
+        <p>Ce qui facilite la recherche d'un site donné sur internet.</p>
+        <p>Pour ce faire il y a 2 types de serveur qui sont utilisé :</p>
+        <ol>
+          <li>Le server faisant autorité, le serveur DNS qui connait le contenu d'un
+            domaine.</li>
+          <li>Le Résolveur (Serveur récursif), Le serveur DNS qui ne connait pas le
+            contenu d'un domaine, mais pose des questions aux serveur faisant autorité
+            et mémorise les réponses</li>
+        </ol>
+        <figure class="image">
+          <img src="DNS/DNS-768x419.png">
+        </figure>
+        <p>Le DNS utilise le port 53, pour les communication TCP / UDP. Lorsqu'un
+          client envoie une requete à un DNS, il utilise l'UDP sauf si il dépasse
+          la taille maximale d'un paquet UDP alors il utilise le TCP.</p>
+        <p>RR. Resource Recovery&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>Le DNS a beaucoup d'utilité différentes :</p>
+        <p style="margin-left:0px;"><strong>Résolution de noms</strong> : La fonction principale du DNS est
+          de traduire les noms de domaine (comme example.com) en adresses IP (comme
+          192.0.2.1) et vice versa. Cette traduction est nécessaire pour que les
+          ordinateurs puissent communiquer entre eux sur Internet.</p>
+        <p style="margin-left:0px;"><strong>Distribution de charge</strong> : Les serveurs DNS peuvent être
+          configurés pour distribuer la charge de requêtes DNS entre plusieurs serveurs,
+          ce qui permet de répartir la charge et d'améliorer les performances.</p>
+        <p
+        style="margin-left:0px;"><strong>Redirection de trafic</strong> : Les enregistrements DNS tels que
+          les enregistrements CNAME permettent de rediriger le trafic d'un nom de
+          domaine vers un autre. Cela est souvent utilisé pour diriger le trafic
+          vers un nouveau domaine ou vers un service tiers.</p>
+          <p style="margin-left:0px;"><strong>Filtrage et blocage</strong> : Les serveurs DNS peuvent être configurés
+            pour filtrer ou bloquer certains types de trafic en fonction des politiques
+            de sécurité de l'organisation. Par exemple, certains sites web malveillants
+            peuvent être bloqués en configurant le DNS pour ne pas résoudre leurs noms
+            de domaine.</p>
+          <p style="margin-left:0px;"><strong>Cache DNS</strong> : Les serveurs DNS conservent en cache les résultats
+            des requêtes précédentes pendant un certain temps. Cela permet de réduire
+            le temps de réponse des requêtes DNS répétitives et de réduire la charge
+            sur les serveurs DNS racine.</p>
+          <p style="margin-left:0px;"><strong>Autorité de domaine</strong> : Les serveurs DNS autoritaires contiennent
+            les enregistrements DNS officiels pour un domaine particulier. Ils sont
+            responsables de répondre aux requêtes de résolution DNS pour ce domaine
+            et de maintenir la cohérence des enregistrements DNS.</p>
+          <p style="margin-left:0px;"><strong>Support pour les services de messagerie</strong> : Le DNS joue
+            un rôle important dans la configuration des enregistrements MX (Mail Exchange)
+            qui dirigent le trafic de messagerie vers les serveurs de messagerie appropriés
+            pour un domaine donné.</p>
+          <p style="margin-left:0px;"><strong>Support pour les services de messagerie instantanée et de voix sur IP (VoIP)</strong> :
+            Les enregistrements SRV dans le DNS sont utilisés pour permettre la découverte
+            automatique des services de messagerie instantanée et de voix sur IP.</p>
+          <p
+          style="margin-left:0px;"><strong>Support pour les services de sécurité</strong> : Des technologies
+            telles que DNSSEC (Domain Name System Security Extensions) utilisent le
+            DNS pour fournir une vérification de l'authenticité et de l'intégrité des
+            données DNS, aidant à prévenir les attaques de type "cache poisoning" et
+            d'autres types de falsification DNS.</p>
+            <p style="margin-left:0px;"><strong>Analyse de trafic</strong> : Les serveurs DNS peuvent être configurés
+              pour enregistrer les requêtes DNS entrantes, ce qui peut être utile pour
+              surveiller et analyser le trafic réseau, ainsi que pour détecter les menaces
+              potentielles.</p>
+            <p style="margin-left:240px;">&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+      </div>
+    </div>
+  </body>
+
+</html>

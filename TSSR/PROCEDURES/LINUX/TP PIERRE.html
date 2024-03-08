@@ -1,0 +1,127 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>TP PIERRE</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>TP PIERRE</h1>
+
+      <div class="ck-content">
+        <p>Commencer par crée une VM linux Debian 12 sans interface Graphique
+          <br>Ajouter à la main</p>
+        <p>Au moment du partitionement choisir manuel,&nbsp;</p>
+        <p>Puis choisir sa partition SCSI3 (sda) :</p>
+        <figure class="image">
+          <img src="TP%20PIERRE/vmware_e5XeG3HXes.png">
+        </figure>
+        <p>Faut-il crée une table de partition sur ce disque ? "Oui"</p>
+        <figure class="image">
+          <img src="TP%20PIERRE/vmware_t1lHR5TpIF.png">
+        </figure>
+        <p>Crée une nouvelle partition, choisir la taille, Primaire, Début</p>
+        <figure
+        class="image">
+          <img src="TP%20PIERRE/vmware_t1TMcXUQQa.png">
+          </figure>
+          <p>&nbsp;</p>
+          <p>Pour la derniere partition "swap" choisir “swap” dans le menu “Utiliser
+            comme :”</p>
+          <figure class="image">
+            <img src="TP%20PIERRE/vmware_bpRyEMTgoK.png">
+          </figure>
+          <p>&nbsp;</p>
+          <p>Une fois les partitions crée ca doit nous donner ça :</p>
+          <figure class="image">
+            <img src="TP%20PIERRE/vmware_megfFcxNtW.png">
+          </figure>
+          <p>&nbsp;</p>
+          <p><strong>Dépôts Debian corrects</strong> :
+            <br>- apt update / apt upgrade</p>
+          <p>&nbsp;</p>
+          <p><strong>Ajout d'un dépôt et install d'un logiciel</strong> :</p>
+          <p>Ce rendre dans : nano /etc/apt/sources puis marqué “contrib non-free”
+            sur les 3 ligne “deb” :</p>
+          <figure class="image">
+            <img src="TP%20PIERRE/vmware_NWFZQpPcnQ.png">
+          </figure>
+          <p>apt update / apt install “le logiciel désiré”</p>
+          <p>&nbsp;</p>
+          <p><strong>Configuration réseau</strong> :
+            <br>&nbsp; &nbsp;carte 1 en host only, sans accès web et ip fixe.
+            <br>&nbsp; &nbsp;carte 2 en bridge, client dhcp, accès web.</p>
+          <p>Ajouter a la mano la 2eme carte réseau
+            <br>systemctl restart networking / Verifier avec ip -c a que les deux carte
+            existe</p>
+          <p><strong>Configuration</strong> :</p>
+          <p>Nano /etc/network/interfaces</p>
+          <figure class="image">
+            <img src="TP%20PIERRE/vmware_cB0qQdxLlg.png">
+          </figure>
+          <p>Ajouter la seconde “network interface”</p>
+          <p>systemctl restart networking</p>
+          <p>apt update (pour vérifier)</p>
+          <p>&nbsp; <strong>Connexion possible depuis le poste client</strong> :</p>
+          <p>apt install ssh</p>
+          <p>Sur le client “ssh debian@”ip"</p>
+          <figure class="image">
+            <img src="TP%20PIERRE/WindowsTerminal_xQAmqZKlhL.png">
+          </figure>
+          <p>&nbsp;</p>
+          <p><strong>Le service n'écoute que sur l'interface interne </strong>:</p>
+          <p>nano /etc/ssh/sshd_config</p>
+          <p>Décommenter “listen adress” et y ajouter l'address que l'on veux qu'il
+            écoute</p>
+          <figure class="image">
+            <img src="TP%20PIERRE/vmware_VYk8ObG6me.png">
+          </figure>
+          <p><strong>systemctl restart sshd</strong>
+          </p>
+          <p>&nbsp;</p>
+          <p>Sécurisé la connexion :</p>
+          <p>nano /etc/ssh/sshd</p>
+          <figure class="image">
+            <img src="TP%20PIERRE/vmware_5h8I6uij4H.png">
+          </figure>
+          <p>&nbsp;</p>
+          <p>Changer le port, pour s'y connecter ajouter à ssh debian@192.168.240.30 <strong>-p “numéro du port”</strong>
+          </p>
+          <p>Changer le maximum de séssion le mettre a “1”</p>
+          <p><strong>Alias</strong> :</p>
+          <p>nano .ssh/config</p>
+          <figure class="image">
+            <img src="TP%20PIERRE/vmware_N9EkSqdPSp.png">
+          </figure>
+          <p><strong>&nbsp;Sécurisé avec un couple de clé</strong> :</p>
+          <p>De linux a Linux :</p>
+          <ul>
+            <li><span style="background-color:#ffffff;color:#303030;">Créer une clé (sur le client, et sans être root) :</span>
+            </li>
+          </ul>
+          <p><span style="background-color:#ffffff;color:#303030;">$&nbsp;</span>
+            <span
+            style="background-color:#ffffff;color:#0000ff;">ssh-keygen</span>
+          </p>
+          <p><span style="background-color:#ffffff;color:#0000ff;">La copier dans /home/debian/.ssh</span>
+          </p>
+          <ul>
+            <li><span style="background-color:#ffffff;color:#303030;">Transférer la clé publique vers le serveur en utilisant l'outil dédié :</span>
+            </li>
+          </ul>
+          <p><span style="background-color:#ffffff;color:#303030;">$&nbsp;</span>
+            <span
+            style="background-color:#ffffff;color:#0000ff;">ssh-copy-id /home/debian/.ssh"nomdelaclef" debian@192.168.240.30</span>
+          </p>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+      </div>
+    </div>
+  </body>
+
+</html>

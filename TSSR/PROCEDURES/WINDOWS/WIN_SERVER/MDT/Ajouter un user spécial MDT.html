@@ -1,0 +1,59 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>Ajouter un user spécial MDT</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>Ajouter un user spécial MDT</h1>
+
+      <div class="ck-content">
+        <p>On crée un utilisateur, p<span style="background-color:rgb(255,255,255);color:rgb(68,68,68);">our gagner du temps, PowerShell sera utilisé pour</span><strong> créer un compte local nommé "Service_MDT"</strong>
+          <span
+          style="background-color:rgb(255,255,255);color:rgb(68,68,68);">sur le serveur. Le mot de passe est "P@ssword123!" mais vous devez le
+            personnaliser.</span><strong>Ce compte n'est pas administrateur</strong>
+            <span
+            style="background-color:rgb(255,255,255);color:rgb(68,68,68);">du serveur : on lui attribue</span><strong>uniquement des droits de lecture</strong>
+              <span
+              style="background-color:rgb(255,255,255);color:rgb(68,68,68);">et exécution sur le partage.</span>
+        </p><pre><code class="language-text-plain"># Spécifier le nom et le mot de passe du compte de service
+
+$ServiceAccountName = "Service_MDT"
+
+$ServiceAccountPassword = ConvertTo-SecureString "P@ssword123!" -AsPlainText -Force
+
+
+
+# Créer le compte local
+
+New-LocalUser $ServiceAccountName -Password $ServiceAccountPassword -FullName "MDT" -Description "Compte de service pour MDT"
+
+
+
+# Ajouter les droits en lecture sur le partage
+
+Grant-SmbShareAccess -Name "DeploymentShare$" -AccountName "Service_MDT" -AccessRight Read -Force
+
+
+
+# Attribuer au compte de service les permissions nécessaires pour accéder aux fichiers de déploiement MDT
+
+$MDTSharePath = "\\$env:COMPUTERNAME\DeploymentShare$"
+
+$Acl = Get-Acl $MDTSharePath
+
+$Rule = New-Object System.Security.AccessControl.FileSystemAccessRule("Service_MDT","ReadAndExecute", "ContainerInherit, ObjectInherit", "None", "Allow")
+
+$Acl.SetAccessRule($Rule)
+
+Set-Acl $MDTSharePath $Acl</code></pre>
+      </div>
+    </div>
+  </body>
+
+</html>

@@ -1,0 +1,124 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>Hyperviseur</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>Hyperviseur</h1>
+
+      <div class="ck-content">
+        <p><span class="text-big">Qu'est-ce que c'est ?</span>
+        </p>
+        <p>
+          <br><span style="color:hsl(0, 0%, 0%);">Un hyperviseur, également connu sous le nom de superviseur de machine virtuelle, est un logiciel ou une couche de virtualisation qui permet à un système informatique physique (appelé hôte) d'exécuter plusieurs machines virtuelles (VM) en même temps.</span>
+        </p>
+        <p><span style="color:hsl(0, 0%, 0%);">L'hyperviseur isole les différentes machines virtuelles les unes des autres et les gère indépendamment, permettant ainsi à plusieurs systèmes d'exploitation et applications de fonctionner sur un seul matériel physique.</span>
+        </p>
+        <p>&nbsp;</p>
+        <p style="margin-left:0px;"><span class="text-big">Il existe deux types principaux d'hyperviseurs</span>
+        </p>
+        <p style="margin-left:0px;"><strong>Hyperviseur de type 1 (ou bare-metal)</strong>
+        </p>
+        <p style="margin-left:0px;">Ce type d'hyperviseur s'exécute directement sur le matériel physique de
+          l'ordinateur sans nécessiter de système d'exploitation hôte supplémentaire.</p>
+        <p
+        style="margin-left:0px;">Il contrôle l'accès aux ressources matérielles et gère les machines virtuelles
+          directement. Des exemples d'hyperviseurs de type 1 incluent :&nbsp;</p>
+          <ul>
+            <li style="margin-left:0px;">VMware vSphere/ESXi</li>
+            <li style="margin-left:0px;">Microsoft Hyper-V&nbsp;</li>
+            <li style="margin-left:0px;">KVM (Kernel-based Virtual Machine).</li>
+          </ul>
+          <p style="margin-left:0px;"><strong>Hyperviseur de type 2 (ou hosted)</strong>
+          </p>
+          <p style="margin-left:0px;">Ce type d'hyperviseur s'exécute sur un système d'exploitation hôte standard.</p>
+          <p
+          style="margin-left:0px;">Il utilise les ressources du système d'exploitation hôte pour fournir
+            des fonctions de virtualisation.&nbsp;</p>
+            <p style="margin-left:0px;">Les machines virtuelles s'exécutent comme des processus sur le système
+              d'exploitation hôte.&nbsp;</p>
+            <p style="margin-left:0px;">Des exemples d'hyperviseurs de type 2 incluent :&nbsp;</p>
+            <ul>
+              <li style="margin-left:0px;">VMware Workstation&nbsp;</li>
+              <li style="margin-left:0px;">VirtualBox&nbsp;</li>
+              <li style="margin-left:0px;">Parallels Desktop.</li>
+            </ul>
+            <p>&nbsp;</p>
+            <figure class="image">
+              <img src="Hyperviseur/Hy1_2.png">
+            </figure>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <h3 style="margin-left:0px;"><strong>Open Source Hypervisors</strong></h3>
+            <p style="margin-left:0px;"><strong>KVM (Kernel-based Virtual Machine)</strong>
+            </p>
+            <p style="margin-left:0px;">KVM est une solution de virtualisation intégrée au noyau Linux, ce qui
+              signifie qu'elle est directement intégrée dans le noyau Linux et est disponible
+              gratuitement.</p>
+            <p style="margin-left:0px;">Elle est très populaire dans le domaine de la virtualisation d'entreprise
+              et est souvent utilisée avec des outils de gestion tels que libvirt et
+              oVirt.</p>
+            <p style="margin-left:0px;"><strong>Xen</strong>
+            </p>
+            <p style="margin-left:0px;">Xen est un hyperviseur de type 1 open source qui peut être exécuté sur
+              du matériel x86, x86-64 et ARM.&nbsp;</p>
+            <p style="margin-left:0px;">Il est également intégré dans le noyau Linux, mais nécessite une couche
+              de contrôle appelée Xen Project pour la gestion des VM.</p>
+            <p style="margin-left:0px;">Il est utilisé par de nombreux fournisseurs de cloud pour la virtualisation
+              des serveurs.</p>
+            <p style="margin-left:0px;"><strong>VirtualBox</strong>
+            </p>
+            <p style="margin-left:0px;">VirtualBox est un hyperviseur de type 2 open source développé par Oracle.&nbsp;</p>
+            <p
+            style="margin-left:0px;">Il peut être utilisé sur une variété de plates-formes hôtes, y compris
+              Windows, macOS, Linux et Solaris. VirtualBox est populaire pour la virtualisation
+              de bureau et le développement logiciel.</p>
+              <p style="margin-left:0px;"><strong>QEMU (Quick Emulator)</strong>
+              </p>
+              <p style="margin-left:0px;">QEMU est un émulateur et un hyperviseur open source qui peut être utilisé
+                pour la virtualisation.&nbsp;</p>
+              <p style="margin-left:0px;">Il prend en charge une variété de processeurs hôtes et invités et peut
+                être utilisé pour émuler des systèmes d'exploitation différents.&nbsp;</p>
+              <p
+              style="margin-left:0px;">KVM utilise également QEMU pour fournir la virtualisation matérielle.</p>
+                <p>&nbsp;</p>
+                <h3 style="margin-left:0px;"><strong>Hyperviseurs Propriétaires</strong></h3>
+                <p style="margin-left:0px;"><strong>VMware vSphere/ESXi</strong>
+                </p>
+                <p style="margin-left:0px;">VMware vSphere est une suite de virtualisation de serveur propriétaire
+                  qui comprend l'hyperviseur ESXi.&nbsp;</p>
+                <p style="margin-left:0px;">Il est largement utilisé dans les environnements d'entreprise pour la
+                  virtualisation des serveurs et des ressources informatiques.</p>
+                <p style="margin-left:0px;"><strong>Microsoft Hyper-V</strong>&nbsp;</p>
+                <p style="margin-left:0px;">Hyper-V est l'hyperviseur de Microsoft intégré dans les systèmes d'exploitation
+                  Windows Server.&nbsp;</p>
+                <p style="margin-left:0px;">Il prend en charge la virtualisation de serveur et est largement utilisé
+                  dans les environnements Windows.</p>
+                <p style="margin-left:0px;"><strong>Citrix Hypervisor (anciennement XenServer)</strong>&nbsp;</p>
+                <p
+                style="margin-left:0px;">Citrix Hypervisor est une solution de virtualisation de serveur basée
+                  sur Xen, mais avec des fonctionnalités supplémentaires et un support commercial
+                  fourni par Citrix Systems.</p>
+                  <p style="margin-left:0px;"><strong>Parallels Desktop for Mac</strong>&nbsp;</p>
+                  <p style="margin-left:0px;">Parallels Desktop est un hyperviseur de type 2 propriétaire conçu spécifiquement
+                    pour les utilisateurs de macOS.&nbsp;</p>
+                  <p style="margin-left:0px;">Il permet l'exécution de machines virtuelles Windows et d'autres systèmes
+                    d'exploitation sur un Mac.</p>
+                  <p>&nbsp;</p>
+                  <p>&nbsp;</p>
+                  <p>&nbsp;</p>
+                  <p>&nbsp;</p>
+                  <p>&nbsp;</p>
+                  <p>&nbsp;</p>
+                  <p>&nbsp;</p>
+      </div>
+    </div>
+  </body>
+
+</html>

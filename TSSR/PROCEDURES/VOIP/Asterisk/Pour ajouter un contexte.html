@@ -1,0 +1,57 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>Pour ajouter un contexte</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>Pour ajouter un contexte</h1>
+
+      <div class="ck-content">
+        <p>Ce rendre dans le fichier "extensions.conf"</p><pre><code class="language-text-plain">nano /etc/asterisk/extentions.conf</code></pre>
+        <figure
+        class="image">
+          <img src="Pour%20ajouter%20un%20contexte/WindowsTerminal_9guDxx61zY.png">
+          </figure>
+          <p>Donner un nom au contexte ici : [MECA]</p>
+          <p>Premier groupe de commande <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(1)</code></span> :</p>
+          <p
+          style="margin-left:40px;">1) Ouvre la ligne
+            <br>2) Compose le numéro, fait sonné 10sec
+            <br>3) EN cas de non réponse renvois sur boite mail
+            <br>4) Ferme la ligne&nbsp;</p>
+            <p>Deuxième commande <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(2)</code></span> :
+              Numéro a composé pour boite mail</p>
+            <p>Troisième commande <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(3)</code></span> :
+              Si un numéro entre 400 et 499 et composé renvois au contexte “it”&nbsp;</p>
+            <figure
+            class="image">
+              <img src="Pour%20ajouter%20un%20contexte/WindowsTerminal_Hib3Jk7nx5.png">
+              </figure>
+              <p>&nbsp;</p>
+              <p><strong><u>Exemple</u> :</strong>
+              </p>
+              <p>&nbsp;</p>
+              <p>[COMPTA]</p>
+              <p>exten =&gt; _1XX, 1, Answer()
+                <br>exten =&gt; _1XX, n, Dial(SIP/${EXTEN},10)
+                <br>exten =&gt; _1XX, n, Playback(standard)
+                <br>exten =&gt; _1XX, n, VoiceMail(${EXTEN},10)
+                <br>exten =&gt; _1XX, n, Hangup()</p>
+              <p>exten =&gt; 789, 1, VoicemailMain(${CALLERID(num)})</p>
+              <p>exten =&gt; 1000, 1, Dial(SIP/101&amp;SIP/102,10)
+                <br>exten =&gt; 1000, n, Hangup()
+                <br>exten =&gt; 11,1,Goto(IVR,11,1)</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+      </div>
+    </div>
+  </body>
+
+</html>

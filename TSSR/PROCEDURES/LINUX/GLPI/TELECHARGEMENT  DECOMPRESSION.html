@@ -1,0 +1,49 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>TELECHARGEMENT / DECOMPRESSION</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>TELECHARGEMENT / DECOMPRESSION</h1>
+
+      <div class="ck-content">
+        <p><span class="text-big"><strong>TELECHARGEMENT / DECOMPRESSION</strong></span>
+        </p>
+        <p>&nbsp;</p>
+        <p>On s'occupe ensuite de télécharger l'archive GLPI en .tar qu'il faudra
+          qu'on décompresse plus tard, dans l'exemple on passera par Github en utilisant
+          les commandes suivantes <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(1)</code></span> :</p><pre><code class="language-text-plain">cd /tmp</code></pre><pre><code class="language-text-plain">wget https://github.com/glpi-project/glpi/releases/download/10.0.10/glpi-10.0.10.tgz</code></pre>
+        <p>&nbsp;</p>
+        <p>Si la commande à bien fonctionner on doit voir ces lignes de commandes
+          avec la barre de progression <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(1)</code></span> :</p>
+        <figure
+        class="image">
+          <img src="TELECHARGEMENT%20%20DECOMPRESSION/image.png">
+          </figure>
+          <p>&nbsp;</p>
+          <p>Une fois télécharger on le décompresse donc dans le repertoire "/var/www/"
+            <span
+            style="background-color:rgb(255,255,255);color:rgb(68,68,68);">ce qui donnera le chemin d'accès <strong>"</strong>
+              </span><strong>/var/www/glpi</strong><span style="background-color:rgb(255,255,255);color:rgb(68,68,68);"><strong>"</strong> pour GLPI :</span>
+          </p><pre><code class="language-text-plain">tar -xzvf glpi-10.0.10.tgz -C /var/www/html</code></pre>
+          <p>&nbsp;</p>
+          <p><span style="background-color:rgb(255,255,255);color:rgb(68,68,68);">Nous allons définir l'utilisateur "www-data" correspondant à </span><strong>Apache2</strong>
+            <span
+            style="background-color:rgb(255,255,255);color:rgb(68,68,68);">, en tant que</span><strong>propriétaire </strong><span style="background-color:rgb(255,255,255);color:rgb(68,68,68);">sur les fichiers GLPI, avec la commande suivante :</span>
+          </p><pre><code class="language-text-plain">chown www-data:www-data -R /var/www/html
+chmod 755 -R /var/www/html
+systemctl restart mariadb apache2</code></pre>
+          <p>&nbsp;</p>
+          <p><span class="text-big"><strong>A partir d'ici on peu se rendre sur une page web et écrire son ip/glpi pour installer GLPI ! </strong><i><strong>(ex: 192.168.240.138/glpi)</strong></i></span>
+          </p>
+      </div>
+    </div>
+  </body>
+
+</html>

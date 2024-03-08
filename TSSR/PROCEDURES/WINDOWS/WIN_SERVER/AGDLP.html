@@ -1,0 +1,266 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>AGDLP</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>AGDLP</h1>
+
+      <div class="ck-content">
+        <p style="margin-left:40px;">1) Pour ajouter un utilisateur sur son Server Windows via l'AD, ce rendre
+          sur le Gestionaire de serveur, dans l'onglet “outils” <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(1)</code></span>,
+          puis seléctionner “Utilisateur et ordinateur Active Directory” <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(2)</code></span> :</p>
+        <figure
+        class="image">
+          <img src="AGDLP/1.png">
+          </figure>
+          <p>&nbsp;</p>
+          <p style="margin-left:40px;">2)La fenêtre “Utilisateur et ordinateurs Active Directory” s'ouvre, clic
+            sur son domaine ici “TSSR.LOCAL” puis sur la fenêtre de droite clic droit
+            “Nouveau” <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(1)</code></span>,
+            puis “Utilisateur” <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(2)</code></span> :</p>
+          <figure
+          class="image">
+            <img src="AGDLP/2.png">
+            </figure>
+            <p>&nbsp;</p>
+            <p style="margin-left:40px;">3) La fenêtre “Nouvel objet - Utilisateur” s'ouvre, Indiquer les informations
+              voulu <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(1)</code></span>,
+              puis clic sur suivant <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(2)</code></span> :&nbsp;</p>
+            <figure
+            class="image">
+              <img src="AGDLP/3.png">
+              </figure>
+              <p>&nbsp;</p>
+              <p style="margin-left:40px;">4) Indiquer un “mot de passe” <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(1)</code></span> et
+                le “confirmer” <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(2)</code></span>,
+                choisir les options à coché ou décocher, puis clic sur suivant :&nbsp;</p>
+              <figure
+              class="image">
+                <img src="AGDLP/4.png">
+                </figure>
+                <p>&nbsp;</p>
+                <p style="margin-left:40px;">5) On voit un descriptif de l'utilisateur que l'on vient de crée, il ne
+                  reste qu'a clic sur “terminé” <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(1)</code></span> et
+                  notre utilisateur est crée :</p>
+                <figure class="image">
+                  <img src="AGDLP/5.png">
+                </figure>
+                <p>&nbsp;</p>
+                <p style="margin-left:40px;">6) Pour intégrer notre utilisateur a une O.U, clic droit sur notre utilisateur
+                  fraichement crée &nbsp;<span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(1)</code></span>,
+                  puis “déplacer” <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(2)</code></span> :</p>
+                <figure
+                class="image">
+                  <img src="AGDLP/6.png">
+                  </figure>
+                  <p>&nbsp;</p>
+                  <p style="margin-left:40px;">7) La fenêtre “Déplacer” s'ouvre on choisi l'O.U dans laquelle on veux
+                    le déplacer <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(1)</code></span>,
+                    puis clic sur “OK” <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(2)</code></span> :</p>
+                  <figure
+                  class="image">
+                    <img src="AGDLP/7.png">
+                    </figure>
+                    <p>&nbsp;</p>
+                    <p style="margin-left:40px;">8) Notre utilisateur fais maintenant parti d'une OU, nous allons maintenant
+                      crée un Groupe Global pour ce faire, clic droit dans la fenêtre de gauche
+                      dans notre OU (ici Vente), puis “Nouveau” <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(1)</code></span>,
+                      et “Groupe” <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(2)</code></span> :&nbsp;</p>
+                    <figure
+                    class="image">
+                      <img src="AGDLP/8.png">
+                      </figure>
+                      <p>&nbsp;</p>
+                      <p style="margin-left:40px;">9) La fenêtre “Nouvel objet -Groupe” s'ouvre, ici on entre un Nom de groupe
+                        <span
+                        style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(1)</code>
+                          </span>, on coche bien “Globale” <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(2)</code></span>,
+                          on vérifie que c'est bien un groupe de type “Sécurité” <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(3)</code></span>,
+                          puis "OK" <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(4)</code></span> :</p>
+                      <figure
+                      class="image">
+                        <img src="AGDLP/9.png">
+                        </figure>
+                        <p>&nbsp;</p>
+                        <p style="margin-left:40px;">10) Maintenant on veux faire rentré notre utilisateur dans le groupe global
+                          que l'on vient de crée, pour ce faire on clic droit sur notre utilisateur
+                          <span
+                          style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(1)</code>
+                            </span>, puis “Ajouter à un groupe…” <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(2)</code></span> :</p>
+                        <figure
+                        class="image">
+                          <img src="AGDLP/10.png">
+                          </figure>
+                          <p>&nbsp;</p>
+                          <p style="margin-left:40px;">11) La fenêtre “<i>Selectionnez des groupes</i>” s'ouvre, dans l'encadrer
+                            “Entrer les noms des objets à séléctionner” mettre le nom du groupe auquel
+                            on veux l'intégrer <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(1)</code></span>,
+                            puis “Vérifier les noms” <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(2)</code></span>,
+                            si le nom du groupe a été corréctement entrer il suffit de cliqué sur ok,
+                            sinon une nouvelle fenetre s'ouvre ou l'on peux choisir le groupe dans
+                            lequel on veux l'interger puis OK :</p>
+                          <figure class="image">
+                            <img src="AGDLP/11.png">
+                          </figure>
+                          <p>&nbsp;</p>
+                          <p style="margin-left:40px;">12) Maintenant que notre utilisateur est dans un groupe global, nous allons
+                            crée 3 groupe “Domaine locale” un “RW” (Read &amp; Write) un “RO” (Read
+                            Only), et un “FA” pour (Full accès), on suis la procéure pour crée un groupe,
+                            on lui donne un “Nom du groupe” <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(1)</code></span> on
+                            choisi cette fois “Domaine locale” <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(2)</code></span> on
+                            vérifie qu'on est toujours en sécurité <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(3)</code></span> puis
+                            “OK” <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(4)</code></span>,
+                            on répete l'opération pour les 3 Groupe “Domaine Locale” :</p>
+                          <figure class="image">
+                            <img src="AGDLP/13.png">
+                          </figure>
+                          <p>&nbsp;</p>
+                          <p style="margin-left:40px;">13) Maintenant que nos 3 "GDL" sont crée on va vouloir allé mettre notre
+                            groupe global dans chaque “GDL”, pour se faire “Clic droit” sur notre groupe
+                            global <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(1)</code></span>,
+                            puis “Ajouter à un groupe” <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(2)</code></span> :</p>
+                          <figure
+                          class="image">
+                            <img src="AGDLP/1_13.png">
+                            </figure>
+                            <p>&nbsp;</p>
+                            <p style="margin-left:40px;">14) Dans l'encadrer “Entrer les noms des objets à séléctionner” entrer
+                              le début du nom de nos "GDL" <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(1)</code></span>,
+                              puis “Vérifier les noms” <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(2)</code></span>,
+                              la nouvelle fenêtre “Nom multiples trouvés” s'ouvre et ici séléctionner
+                              les "GDL" dans lesquelles on veut l'implimenter <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(3)</code></span> 
+                              <span
+                              style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(4)</code>
+                                </span> <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(5)</code></span>,
+                                (on peut laisser appuyer sur “ctrl” et séléctionner plusieurs groupe en
+                                même temps, sinon repeter l'opération pour tous les groupes), puis OK :</p>
+                            <figure
+                            class="image">
+                              <img src="AGDLP/14.png">
+                              </figure>
+                              <p>&nbsp;</p>
+                              <p style="margin-left:40px;">15) Maintenant nous allons crée un dossier dans notre Disque partager
+                                <span
+                                style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(1)</code>
+                                  </span>, pour l'exemple ce sera “Vente” <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(2)</code></span> :</p>
+                              <figure
+                              class="image">
+                                <img src="AGDLP/15.png">
+                                </figure>
+                                <p>&nbsp;</p>
+                                <p style="margin-left:40px;">16) C'est ici que nous allons gérer les permissions du dossier, pour ce
+                                  faire clic droit sur le dossier <span style="background-color:hsl(0,75%,60%);color:hsl(0, 0%, 100%);"><code>(1)</code></span>,
+                                  puis “Propriétés” <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(2)</code></span> :</p>
+                                <figure
+                                class="image">
+                                  <img src="AGDLP/16.png">
+                                  </figure>
+                                  <p>&nbsp;</p>
+                                  <p><i>(Il y a deux façon de faire en passant par l'onglet <strong>“Partage”</strong> ou en passant par l'onglet <strong>“Sécurité”</strong>)</i>
+                                  </p>
+                                  <p>&nbsp;</p>
+                                  <p style="margin-left:40px;">17) La fenêtre “Propriété de vente” s'ouvre, clic sur l'onglet “Partage”
+                                    <span
+                                    style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(1)</code>
+                                      </span>puis “Partage avancé...” <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(2)</code></span> :</p>
+                                  <figure
+                                  class="image">
+                                    <img src="AGDLP/17.png">
+                                    </figure>
+                                    <p>&nbsp;</p>
+                                    <p style="margin-left:40px;">18) La fenêtre “Partage avancé” s'ouvre, on commence par coché “Partager
+                                      ce dossier” <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(1)</code></span>,
+                                      puis on va gérer les “Autorisation” <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(2)</code></span> :</p>
+                                    <figure
+                                    class="image">
+                                      <img src="AGDLP/18.png">
+                                      </figure>
+                                      <p>&nbsp;</p>
+                                      <p style="margin-left:40px;">19) La fenêtre “Autorisation pour Vente” s'ouvre, on clic sur “Ajouter…”
+                                        <span
+                                        style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(1)</code>
+                                          </span>:</p>
+                                      <figure class="image">
+                                        <img src="AGDLP/19.png">
+                                      </figure>
+                                      <p>&nbsp;</p>
+                                      <p style="margin-left:40px;">20) La fenêtre “Sélectionnez des utilisateur …" s'ouvre, Dans l'encadrer
+                                        ”Entrer les noms des objets à selectionnner" <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(1)</code></span> écrire
+                                        le début du groupe désiré ici “GDL” puis, “Vérifier les noms” <span style="background-color:hsl(0, 75%, 60%);color:hsl(0, 0%, 100%);"><code>(2)</code></span>,
+                                        la fenêtre “Noms multiples trouvés” s'ouvre, séléctionner le ou les groupe(s)
+                                        voulu <span style="background-color:hsl(0, 75%, 60%);color:hsl(0, 0%, 100%);"><code>(3)</code></span>,
+                                        puis OK :</p>
+                                      <figure class="image">
+                                        <img src="AGDLP/20.png">
+                                      </figure>
+                                      <p>&nbsp;</p>
+                                      <p style="margin-left:40px;">21) Dans la fenêtre “Autorisaions pour vente”, en fonction du groupe qu'on
+                                        a choisi <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(1)</code></span>,
+                                        on accorde les droits en fonction <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(2)</code></span>,
+                                        puis on clic sur “Appliquer” <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(3)</code></span> et
+                                        OK :</p>
+                                      <p>
+                                        <img src="AGDLP/21.png">
+                                        <br>&nbsp;</p>
+                                      <p style="margin-left:40px;">22) Dans le disque partager, on repete l'opération clic droit “Propriété”,
+                                        “Partage”, “Parage avancé”, “Autorisation” on ajoute notre GDL(Groupe domaine
+                                        locale) voulu <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(1)</code></span>,
+                                        et on lui donne les droits adéquate <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(2)</code></span> :</p>
+                                      <figure
+                                      class="image">
+                                        <img src="AGDLP/22.png">
+                                        </figure>
+                                        <p>&nbsp;</p>
+                                        <p style="margin-left:40px;">23) Pour la séconde méthode on retourne sur notre disque partager, sur
+                                          le dossier vente clic droit, “Propriété” et se rendre sur l'onglet “Sécurité”
+                                          <span
+                                          style="background-color:hsl(0, 75%, 60%);color:hsl(0, 0%, 100%);"><code>(1)</code>
+                                            </span>, puis “Avancé” <span style="background-color:hsl(0, 75%, 60%);color:hsl(0, 0%, 100%);"><code>(2)</code></span> :</p>
+                                        <figure
+                                        class="image">
+                                          <img src="AGDLP/1_22.png">
+                                          </figure>
+                                          <p>&nbsp;</p>
+                                          <p style="margin-left:40px;">24) On clic sur “Désactivé l'héritage” <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(1)</code></span>,
+                                            puis on supprime toutes les autorisations héritées de cet objet <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(2)</code></span> :</p>
+                                          <figure
+                                          class="image">
+                                            <img src="AGDLP/24.png">
+                                            </figure>
+                                            <p>&nbsp;</p>
+                                            <p style="margin-left:40px;">25) Ensuite, on clic sur “Ajouter" <span style="background-color:hsl(0, 75%, 60%);color:hsl(0, 0%, 100%);"><code>(1)</code></span>,
+                                              puis “Sélectionnez un principal” <span style="background-color:hsl(0, 75%, 60%);color:hsl(0, 0%, 100%);"><code>(2)</code></span>,
+                                              on entre le début du nom de notre GDL dans l'encadrer “Entrer le nom de
+                                              l'objet à sélectionner” <span style="background-color:hsl(0, 75%, 60%);color:hsl(0, 0%, 100%);"><code>(3)</code></span>,
+                                              puis “Vérifier les noms” <span style="background-color:hsl(0, 75%, 60%);color:hsl(0, 0%, 100%);"><code>(4)</code></span>,
+                                              on choisi la GDL que l'on veut <span style="background-color:hsl(0, 75%, 60%);color:hsl(0, 0%, 100%);"><code>(5)</code></span> puis
+                                              OK :</p>
+                                            <figure class="image image_resized" style="width:87.46%;">
+                                              <img src="AGDLP/25.png">
+                                            </figure>
+                                            <p>&nbsp;</p>
+                                            <p style="margin-left:40px;">26) On choisis les droits adéquate à accorder en fonction de la GDL qu'on
+                                              a choisi <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(1)</code></span>,
+                                              puis “OK” <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(2)</code></span> :</p>
+                                            <figure
+                                            class="image">
+                                              <img src="AGDLP/26.png">
+                                              </figure>
+                                              <p>&nbsp;</p>
+                                              <p>&nbsp;</p>
+                                              <p>&nbsp;</p>
+                                              <p>&nbsp;</p>
+                                              <p>&nbsp;</p>
+                                              <p>&nbsp;</p>
+      </div>
+    </div>
+  </body>
+
+</html>

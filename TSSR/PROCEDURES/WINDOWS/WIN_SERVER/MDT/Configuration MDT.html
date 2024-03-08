@@ -1,0 +1,110 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>Configuration MDT</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>Configuration MDT</h1>
+
+      <div class="ck-content">
+        <hr>
+        <p>Une fois installer, on se retrouve dans la barre de recherche on tape
+          “<strong>deployment workbench</strong>” <span style="background-color:hsl(0, 75%, 60%);color:hsl(0, 0%, 100%);"><code>(1)</code></span> et
+          on clique sur le programme <span style="background-color:hsl(0, 75%, 60%);color:hsl(0, 0%, 100%);"><code>(2)</code></span>
+        </p>
+        <figure class="image">
+          <img src="Configuration%20MDT/vmware_FL98sUdqqD.png">
+        </figure>
+        <p>&nbsp;</p>
+        <p>Une fois le programme lancé on clique droit sur "<strong>Deployment Shares</strong>"
+          <span
+          style="background-color:hsl(0, 75%, 60%);color:hsl(0, 0%, 100%);"><code>(1)</code>
+            </span>puis on clique sur “<strong>New Deployment Share</strong>” <span style="background-color:hsl(0, 75%, 60%);color:hsl(0, 0%, 100%);"><code>(2)</code></span>
+        </p>
+        <figure class="image">
+          <img src="Configuration%20MDT/vmware_nLKQkhNin9.png">
+        </figure>
+        <p>&nbsp;</p>
+        <p>On se retrouve sur cette page <span style="background-color:hsl(0, 75%, 60%);color:hsl(0, 0%, 100%);"><code>(1)</code></span>,
+          l<span style="background-color:rgb(255,255,255);color:rgb(68,68,68);">a première étape consiste à </span><strong>indiquer l'emplacement du Deployment Share</strong>
+          <span
+          style="background-color:rgb(255,255,255);color:rgb(68,68,68);">.&nbsp;</span>
+        </p>
+        <p><span style="background-color:rgb(255,255,255);color:rgb(68,68,68);">Ce dossier sera partagé et il va contenir l'ensemble des données de MDT : images, pilotes, applications, séquences de tâches, etc...&nbsp;</span>
+        </p>
+        <p><span style="background-color:rgb(255,255,255);color:rgb(68,68,68);">Ici, utilisez un volume différent de celui du système, comme "E:\DeploymentShare" dans cet exemple. </span>
+          <span
+          style="background-color:hsl(0, 75%, 60%);color:hsl(0, 0%, 100%);"><code>(2)</code>
+            </span>
+        </p>
+        <p><span style="background-color:rgb(255,255,255);color:rgb(68,68,68);">Puis on clique sur “Next” </span>
+          <span
+          style="background-color:hsl(0, 75%, 60%);color:hsl(0, 0%, 100%);"><code>(3)</code>
+            </span>
+        </p>
+        <figure class="image">
+          <img src="Configuration%20MDT/vmware_GXBh3QDBxc.png">
+        </figure>
+        <p>&nbsp;</p>
+        <p><span style="background-color:rgb(255,255,255);color:rgb(68,68,68);">Pour le nom du partage, conservez la valeur par défaut. Le partage caché "</span><strong>DeploymentShare$</strong>
+          <span
+          style="background-color:rgb(255,255,255);color:rgb(68,68,68);">" sera créé</span><span style="background-color:hsl(0, 75%, 60%);color:hsl(0, 0%, 100%);"><code>(1)</code></span>
+            <span
+            style="background-color:rgb(255,255,255);color:rgb(68,68,68);">puis on clique sur “Next”</span><span style="background-color:hsl(0, 75%, 60%);color:hsl(0, 0%, 100%);"><code>(2)</code></span>
+        </p>
+        <figure class="image">
+          <img src="Configuration%20MDT/vmware_1FENndGYfH.png">
+        </figure>
+        <p>&nbsp;</p>
+        <p>On laisse les valeurs <span style="background-color:hsl(0, 75%, 60%);color:hsl(0, 0%, 100%);"><code>(1)</code></span> et
+          on clique sur “Next" <span style="background-color:hsl(0, 75%, 60%);color:hsl(0, 0%, 100%);"><code>(2)</code></span>
+        </p>
+        <figure class="image">
+          <img src="Configuration%20MDT/vmware_2Vdhg3pPF4.png">
+        </figure>
+        <p>&nbsp;</p>
+        <p><span style="background-color:rgb(255,255,255);color:rgb(68,68,68);">En ce qui concerne les "</span><strong>Options</strong>
+          <span
+          style="background-color:rgb(255,255,255);color:rgb(68,68,68);">", cela permet d'</span><strong>activer ou non certaines étapes de l'assistant de déploiement</strong>
+            <span
+            style="background-color:rgb(255,255,255);color:rgb(68,68,68);"></span><span style="background-color:hsl(0, 75%, 60%);color:hsl(0, 0%, 100%);"><code>(1)</code></span>
+              <span
+              style="background-color:rgb(255,255,255);color:rgb(68,68,68);">Les choix effectués ici ne sont pas définitifs, comme nous le verrons
+                par la suite.</span>
+        </p>
+        <p><span style="background-color:rgb(255,255,255);color:rgb(68,68,68);">Une fois choisi on clique sur “Next" </span>
+          <span
+          style="background-color:hsl(0, 75%, 60%);color:hsl(0, 0%, 100%);"><code>(2)</code>
+            </span>
+        </p>
+        <figure class="image">
+          <img src="Configuration%20MDT/vmware_c1E9l1itLy.png">
+        </figure>
+        <p>&nbsp;</p>
+        <p><span style="background-color:rgb(255,255,255);color:rgb(68,68,68);">On prend connaissance du résumé et on clique sur "</span><strong>Next</strong>
+          <span
+          style="background-color:rgb(255,255,255);color:rgb(68,68,68);">".</span><span style="background-color:hsl(0, 75%, 60%);color:hsl(0, 0%, 100%);"><code>(1)</code></span>
+        </p>
+        <figure class="image">
+          <img src="Configuration%20MDT/vmware_a4Ieh20CCl.png">
+        </figure>
+        <p>&nbsp;</p>
+        <p>Une fois l'installation effectué on peu cliqué sur “Finish” <span style="background-color:hsl(0, 75%, 60%);color:hsl(0, 0%, 100%);"><code>(1)</code></span>
+        </p>
+        <figure class="image">
+          <img src="Configuration%20MDT/vmware_9cKayvvXyz.png">
+        </figure>
+        <hr>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+      </div>
+    </div>
+  </body>
+
+</html>

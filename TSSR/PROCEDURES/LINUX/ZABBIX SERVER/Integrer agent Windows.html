@@ -1,0 +1,97 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>Integrer agent Windows</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>Integrer agent Windows</h1>
+
+      <div class="ck-content">
+        <p>Integrer l'agent dans les hôte voulu :</p>
+        <p>Télécharge l'agent :</p>
+        <p><a href="https://www.zabbix.com/fr/download_agents?version=6.4&amp;release=6.4.10&amp;os=Windows&amp;os_version=Any&amp;hardware=amd64&amp;encryption=OpenSSL&amp;packaging=MSI&amp;show_legacy=0">https://www.zabbix.com/fr/download_agents?version=6.4&amp;release=6.4.10&amp;os=Windows&amp;os_version=Any&amp;hardware=amd64&amp;encryption=OpenSSL&amp;packaging=MSI&amp;show_legacy=0</a>
+        </p>
+        <p>&nbsp;On lance le logiciel sur la machine que l'on veux surveiller, arrivé
+          à cette étape on indique l'ip de notre server zabbix <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(1)</code></span> également
+          sur la ligne “Server or proxy…”, puis on clique sur “Next” <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(2)</code></span>,
+          puis on l'install :</p>
+        <figure class="image">
+          <img src="vmware_ejyVZHq8cE.png">
+        </figure>
+        <p>&nbsp;</p>
+        <p>Une fois installer on se rend dans les pare-feu windows de notre machine
+          <span
+          style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(2)</code>
+            </span>, puis no clique sur “Autoriser une application ou une fonctionnalité
+            via le Pare-feu Windows Defender” <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(1)</code></span> :</p>
+        <p>&nbsp;</p>
+        <figure class="image">
+          <img src="vmware_wbb55Ftz13.png">
+        </figure>
+        <p>&nbsp;</p>
+        <p>On vérifie que Zabbix agent soit bien coché avec toutes les autorisation
+          <span
+          style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(1)</code>
+            </span>, puis on clique sur “Autoriser une autre application…” <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(2)</code></span> :</p>
+        <figure
+        class="image">
+          <img src="vmware_W1C104WXB9.png">
+          </figure>
+          <p>&nbsp;</p>
+          <p>Cette fenêtre s'ouvre on clique sur “Parcourir” <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(1)</code></span> :</p>
+          <figure
+          class="image">
+            <img src="vmware_KLLTA44KAl.png">
+            </figure>
+            <p>&nbsp;</p>
+            <p>Puis on va chercher le chemin jusqu'à <i>(C:\Program Files\Zabbix Agent)</i> “zabbix_agentd”
+              <span
+              style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(1)</code>
+                </span>, on le séléctionne <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(2)</code></span>,
+                puis on clique sur “ouvrir” <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(3)</code></span> :</p>
+            <figure
+            class="image">
+              <img src="vmware_aHbkB0rYWu.png">
+              </figure>
+              <p>&nbsp;</p>
+              <p>Une fois ajouter on lui donne tous les droits (1), puis on clique sur
+                “ok” (2) :&nbsp;</p>
+              <figure class="image">
+                <img src="vmware_D9d5f4rAq0.png">
+              </figure>
+              <hr>
+              <p>&nbsp;</p>
+              <p>On retourne sur notre Zabbix on clique sur “surveillance” <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(1)</code></span>,
+                puis sur “crée un hôte” <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(2)</code></span> :</p>
+              <figure
+              class="image">
+                <img src="brave_2fm5iCTxFJ.png">
+                </figure>
+                <p>&nbsp;</p>
+                <p>Arrivé sur cette page on indique le nom de l'hôte que l'on veut surveiller
+                  <span
+                  style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(1)</code>
+                    </span>, dans les modèles on clique sur “sélectionner” <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(2)</code></span> puis
+                    on choisis “Windows by zabbix agents”, dans les groupes d'hôtes on clique
+                    sur “sélectionner” <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(3)</code></span> puis
+                    on choisis “Discovered hosts” pour finir dans interfaces, on clique sur
+                    “ajouter” <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(4)</code></span> puis
+                    on indique l'adresse ip de l'hôte en question, on peux enfin cliquer sur
+                    “Ajouter” en bas à droite.</p>
+                <figure class="image">
+                  <img src="brave_vCT05LziCB.png">
+                </figure>
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+      </div>
+    </div>
+  </body>
+
+</html>

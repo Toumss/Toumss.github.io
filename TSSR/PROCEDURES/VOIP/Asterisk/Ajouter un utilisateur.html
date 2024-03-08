@@ -1,0 +1,56 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>Ajouter un utilisateur</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>Ajouter un utilisateur</h1>
+
+      <div class="ck-content">
+        <p style="margin-left:40px;"><strong>Copier le fichier de base pour pas le perdre</strong>&nbsp;</p><pre><code class="language-text-plain">cp /etc/asterisk/sip.conf /etc/asterisk/sip.conf.original</code></pre>
+        <p
+        style="margin-left:40px;"><strong>Vider le fichier sip.conf</strong>
+          </p><pre><code class="language-text-plain">&gt; /etc/asterisk/sip.conf</code></pre>
+          <p
+          style="margin-left:40px;"><strong>On édite le fichier&nbsp;</strong>
+            </p><pre><code class="language-text-plain">nano /etc/asterisk/sip.conf</code></pre>
+            <p>
+              <br>
+              <img src="Ajouter%20un%20utilisateur/2_image.png">
+            </p>
+            <p><i>(Pour pouvoir tester comme il ce doit créer une utilisateur 101)</i>
+            </p>
+            <p>&nbsp;</p>
+            <p style="margin-left:40px;"><strong>Faire une copie du fichier extensions</strong>
+            </p><pre><code class="language-text-plain">cp /etc/asterisk/extensions.conf /etc/asterisk/extensions.conf.original</code></pre>
+            <p
+            style="margin-left:40px;"><strong>On vide le fichier&nbsp;</strong>
+              </p><pre><code class="language-text-plain">&gt; /etc/asterisk/extensions.conf</code></pre>
+              <p
+              style="margin-left:40px;"><strong>On édite le fichier</strong>
+                </p><pre><code class="language-text-plain">nano /etc/asterisk/extensions.conf</code></pre>
+                <p>
+                  <img src="Ajouter%20un%20utilisateur/image.png">
+                </p>
+                <p><span style="color:red;"><i>(tout ce qui se trouve après « ; » est un commentaire. Il n’est donc pas obligatoire de le mettre.</i></span>
+                  <br><span style="color:red;"><i>Le motif « _1XX » permet de prendre en compte tous les numéros allant de 100 à 199)</i></span>
+                </p>
+                <p style="margin-left:40px;"><i><strong>Aller dans la console d’asterisk pour voir les utilisateurs créer&nbsp;</strong></i>
+                </p><pre><code class="language-text-plain">asterisk -rvv&nbsp;; (ouvrir la console)</code></pre>
+                <p>Pour recharger pour prendre en compte les changements</p><pre><code class="language-text-plain">reload&nbsp;; </code></pre>
+                <p>Permet de voir les utilisateurs créés :</p><pre><code class="language-text-plain">sip show users ; </code></pre>
+                <p><i><img src="Ajouter%20un%20utilisateur/1_image.png"></i>
+                </p>
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+      </div>
+    </div>
+  </body>
+
+</html>

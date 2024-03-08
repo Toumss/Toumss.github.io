@@ -1,0 +1,91 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>Installer Pfsense</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>Installer Pfsense</h1>
+
+      <div class="ck-content">
+        <p>On commence par aller chercher l'iso a cette address :</p>
+        <p><a href="https://www.pfsense.org/download/">https://www.pfsense.org/download/</a>
+        </p>
+        <p>Et on entre la configuration suivante :</p>
+        <figure class="image">
+          <img src="Installer%20Pfsense/brave_j9pa0jj78m.png">
+        </figure>
+        <hr>
+        <p>Une fois télécharger on crée une Vm avec deux carte réseaux (Une en bridge
+          &amp; une en hostonly) on choisi comme OS (Other kernel linux 5)&nbsp;</p>
+        <p>On choisi l'iso qu'on a télécharger pour le mettre comme CD dans notre
+          nouvelle VM puis on la lance, apr_s quelque seconde l'install commence
+          et on suis les étapes suivante :</p>
+        <figure class="image">
+          <img src="Installer%20Pfsense/brave_0UUmDcBusk.png">
+        </figure>
+        <p><span style="background-color:rgb(255,255,255);color:rgb(102,102,102);">Le setup va vous demander de </span><strong>partitionner le disque</strong>
+          <span
+          style="background-color:rgb(255,255,255);color:rgb(102,102,102);">de stockage de la machine. Avec les touches fléchées de votre clavier,
+            allez sur</span><strong>&nbsp;«&nbsp;Auto (UFS) » et appuyez sur Entrée :</strong>
+        </p>
+        <figure class="image">
+          <img src="Installer%20Pfsense/brave_tjR1xbMiTD.png">
+        </figure>
+        <p><span style="background-color:rgb(255,255,255);color:rgb(102,102,102);">Vous pouvez confirmer que vous voulez utiliser le disque entier pour installer le système d’exploitation, pour cela, placez vous sur </span><strong>« Entire Disk » et appuyez sur Entrée :</strong>
+        </p>
+        <figure class="image">
+          <img src="Installer%20Pfsense/brave_xU9SvISfYp.png">
+        </figure>
+        <p><span style="background-color:rgb(255,255,255);color:rgb(102,102,102);">Selon vos besoins </span><i>(nécessite des connaissances pouvez en partitionnement !)</i>
+          <span
+          style="background-color:rgb(255,255,255);color:rgb(102,102,102);">, sélectionnez le type de partition. Ici je reste simplement sur</span><strong>« MBR DOS Partitions » et appuyez sur Entrée </strong>
+            <span
+            style="background-color:rgb(255,255,255);color:rgb(102,102,102);">pour valider :</span>
+        </p>
+        <figure class="image">
+          <img src="Installer%20Pfsense/brave_qVbsRDU0ll.png">
+        </figure>
+        <p><span style="background-color:rgb(255,255,255);color:rgb(102,102,102);">L’installer propose un découpage&nbsp; sur le disque 0 </span><i>(nommé ici da0)</i>
+          <span
+          style="background-color:rgb(255,255,255);color:rgb(102,102,102);">, je n’ai pas besoin de modifier la proposition faites, placez vous sur</span><strong>« Finish » </strong>
+            <span
+            style="background-color:rgb(255,255,255);color:rgb(102,102,102);">et appuyez sur Entrée :</span>
+        </p>
+        <figure class="image">
+          <img src="Installer%20Pfsense/brave_1hwnTHdZGv.png">
+        </figure>
+        <p><span style="background-color:rgb(255,255,255);color:rgb(102,102,102);">Un ultime avertissement sur le fait que le disque sera effacé pour faire face au système d’exploitation de pfsense. Placez vous sur </span><strong>« Commit »</strong>
+          <span
+          style="background-color:rgb(255,255,255);color:rgb(102,102,102);">et appuyez sur Entrée :</span>
+        </p>
+        <figure class="image">
+          <img src="Installer%20Pfsense/brave_hiAKdG6h4x.png">
+        </figure>
+        <p><span style="background-color:rgb(255,255,255);color:rgb(102,102,102);">L’installation est désormais lancée. </span><strong>Patientez quelques secondes</strong>
+          <span
+          style="background-color:rgb(255,255,255);color:rgb(102,102,102);">, c’est très rapide :</span>
+        </p>
+        <figure class="image">
+          <img src="Installer%20Pfsense/brave_JBLdLbNwdy.png">
+        </figure>
+        <p><span style="background-color:rgb(255,255,255);color:rgb(102,102,102);">Il vous sera ensuite proposer d’ouvrir un shell </span><i>(terminal)</i>
+          <span
+          style="background-color:rgb(255,255,255);color:rgb(102,102,102);">si vous souhaitez apporter des modifications. Sinon, placez vous directement
+            sur «</span><strong>Reboot</strong><span style="background-color:rgb(255,255,255);color:rgb(102,102,102);">&nbsp;» et appuyez sur Entrée :</span>
+        </p>
+        <figure class="image">
+          <img src="Installer%20Pfsense/brave_kXxZapJ20l.png">
+        </figure>
+        <hr>
+        <p>&nbsp;</p>
+      </div>
+    </div>
+  </body>
+
+</html>

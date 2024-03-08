@@ -1,0 +1,68 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>Configuration Switch niv.3 (MLS)</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>Configuration Switch niv.3 (MLS)</h1>
+
+      <div class="ck-content">
+        <p>Quand on met en place un switch de niveau 3 (MLS) <span style="background-color:hsl(0, 75%, 60%);color:hsl(0, 0%, 100%);"><code>(1)</code></span> qui
+          est donc capable de faire du routage, on commence déja par connécter les
+          switch déja éxistant sur les interfaces voulu <span style="background-color:hsl(0, 75%, 60%);color:hsl(0, 0%, 100%);"><code>(2)</code></span> 
+          <span
+          style="background-color:hsl(0, 75%, 60%);color:hsl(0, 0%, 100%);"><code>(3)</code>
+            </span> <span style="background-color:hsl(0, 75%, 60%);color:hsl(0, 0%, 100%);"><code>(4)</code></span> qu'on
+            va passé en mode trunk pour quelle puisse communiquer de trunk à trunk
+            :</p>
+        <figure class="image">
+          <img src="Configuration%20Switch%20niv.3%20(MLS)/PacketTracer_TMzGBOxSUq.png">
+        </figure><pre><code class="language-text-plain">Switch&gt;enable
+Switch#configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)#ip routing
+Switch(config)#interface G 1/0/1
+Switch(config)#ip address 192.168.10.254 255.255.255.0
+Switch(config-if)#switchport nonegotiate
+Switch(config-if)#switchport mode trunk
+Switch(config-if)#exit</code></pre><pre><code class="language-text-plain">Switch(config)#interface G 1/0/2
+Switch(config)#ip address 192.168.20.254 255.255.255.0
+Switch(config-if)#switchport nonegotiate
+Switch(config-if)#switchport mode trunk
+Switch(config-if)#exit</code></pre><pre><code class="language-text-plain">Switch(config)#ip address 192.168.10.254interface G 1/0/3
+Switch(config)#ip address 192.168.30.254 255.255.255.0
+Switch(config-if)#switchport nonegotiate
+Switch(config-if)#switchport mode trunk
+Switch(config-if)#exit</code></pre>
+        <p>Ensuite on crée nos vlan qui sont déja éxistante sur les autre switch
+          :</p><pre><code class="language-text-plain">Switch#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)#vlan 10
+Switch(config-vlan)#name VLAN10</code></pre><pre><code class="language-text-plain">Switch(config)#vlan 20
+Switch(config-vlan)#name VLAN20</code></pre><pre><code class="language-text-plain">Switch(config)#vlan 30
+Switch(config-vlan)#name VLAN30</code></pre>
+        <p>Une fois fais bien vérifier que les interfaces des switch qui son connecter
+          ai MLS soit bien en mode trunk (1) (2) (3) :</p>
+        <figure class="image">
+          <img src="Configuration%20Switch%20niv.3%20(MLS)/PacketTracer_Vjuyjjcu8J.png">
+        </figure>
+        <p>&nbsp;Sur chaque routeur taper les commandes suivante :</p><pre><code class="language-text-plain">SW-1#configure terminal
+SW-1(config)#interface "g0/1" 
+SW-1(config)#switchport mode trunk
+SW-1(config)#exit</code></pre>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+      </div>
+    </div>
+  </body>
+
+</html>

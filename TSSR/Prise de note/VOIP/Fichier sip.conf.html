@@ -1,0 +1,72 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>Fichier sip.conf</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>Fichier sip.conf</h1>
+
+      <div class="ck-content">
+        <p>[general]
+          <br>language=fr
+          <br>bindaddr=0.0.0.0
+          <br>dtmfmode=rfc2833
+          <br>disallow=all
+          <br>allow=ulaw
+          <br>allow=alaw
+          <br>hassip=yes
+          <br>hasiax=no
+          <br>callwaiting=yes
+          <br>transfer=yes
+          <br>canpark=yes
+          <br>hasvoicemail=yes
+          <br>deny=0.0.0.0/0.0.0.0
+          <br>permit=X.X.X.X/255.255.255.0
+          <br>qualify=yes</p>
+        <p>[100]
+          <br>
+          <br>secret=1234
+          <br>callrid= 'Gabriel' &lt;100&gt;
+          <br>mailbox=100@default
+          <br>type=friend
+          <br>host=dynamic
+          <br>nat=no
+          <br>context=local</p>
+        <p>[200]
+          <br>
+          <br>secret=1234
+          <br>callrid= 'Thomas' &lt;200&gt;
+          <br>mailbox=200@default
+          <br>type=friend
+          <br>host=dynamic
+          <br>nat=no
+          <br>context=local</p>
+        <p>[300]
+          <br>
+          <br>secret=1234
+          <br>callrid= 'Thomas' &lt;300&gt;
+          <br>mailbox=300@default
+          <br>type=friend
+          <br>host=dynamic
+          <br>nat=no
+          <br>context=local</p>
+        <p>[400]
+          <br>
+          <br>secret=1234
+          <br>callrid= 'Thomas' &lt;400&gt;
+          <br>mailbox=400@default
+          <br>type=friend
+          <br>host=dynamic
+          <br>nat=no
+          <br>context=local</p>
+      </div>
+    </div>
+  </body>
+
+</html>

@@ -1,0 +1,84 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>Monitoring</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>Monitoring</h1>
+
+      <div class="ck-content">
+        <p><span class="text-huge"><strong>MONITORING</strong></span>
+        </p>
+        <p><span style="background-color:rgb(255,255,255);color:rgb(68,68,68);">Le </span><strong>monitoring</strong>
+          <span
+          style="background-color:rgb(255,255,255);color:rgb(68,68,68);">, désigne le fait de "</span><i>surveiller</i><span style="background-color:rgb(255,255,255);color:rgb(68,68,68);">" , ou "</span><i>garder un oeil sur</i>
+            <span
+            style="background-color:rgb(255,255,255);color:rgb(68,68,68);">". Cependant,</span><strong>le fait de surveiller quelque chose revient à connaître sont état actuel mais aussi l'historique de ses états passés</strong>
+              <span
+              style="background-color:rgb(255,255,255);color:rgb(68,68,68);">, par l'intermédiaire de valeurs (UP/DOWN) et de données chiffrées (des
+                pourcentages par exemple).</span>
+                <br><span style="background-color:rgb(255,255,255);color:rgb(68,68,68);">C'est ici que l'on retrouve une distinction entre</span><strong> deux notions que sont la supervision et la métrologie</strong>
+                <span
+                style="background-color:rgb(255,255,255);color:rgb(68,68,68);">.</span>
+        </p>
+        <p>&nbsp;</p>
+        <p><span class="text-big"><strong>Métrologie</strong></span>
+        </p>
+        <p><strong>La métrologie</strong><span style="background-color:rgb(255,255,255);color:rgb(68,68,68);">, dans laquelle on retrouve la notion de mètre/métrique, est le fait d’obtenir, de garder et de tracer la valeur numérique d'une charge.</span>
+        </p>
+        <p><span style="background-color:rgb(255,255,255);color:rgb(68,68,68);">Par exemple le pourcentage de CPU utilisé sur un serveur, le nombre de personnes connectées sur une site web, le trafic sortant et entrant sur un switch. Bien souvent, <strong>la métrologie</strong> permet tout simplement de tracer des graphiques, bien connus dans le domaine du monitoring.</span>
+        </p>
+        <p><strong>La métrologie est donc le fait de récupérer la charge (chiffrée), permettant de tracer son évolution dans le temps</strong>
+          <span
+          style="background-color:rgb(255,255,255);color:rgb(68,68,68);">. Elle est donc caractérisée non pas par le fait de récupérer une valeur
+            à l'instant T, mais de pouvoir afficher et tracer l'évolution d'une charge,
+            construite par un ensemble de métrique récupérées dans le temps.</span>
+        </p>
+        <p>&nbsp;</p>
+        <p><span class="text-big"><strong>La supervision</strong></span>
+        </p>
+        <p><strong>La supervision, en revanche, est le fait de récupérer l'état d'un service à l'instant T.</strong>
+        </p>
+        <p><span style="background-color:rgb(255,255,255);color:rgb(68,68,68);">La supervision vise à répondre à la question <strong>"</strong></span><i><strong>Le service est-il joignable ?</strong></i>
+          <span
+          style="background-color:rgb(255,255,255);color:rgb(68,68,68);"><strong>"</strong> . Au sens strict du terme, aucune valeur numérique n'entre
+            en compte, et l'aspect historique de charge ne fait donc pas partie de
+            la supervision.&nbsp;</span>
+        </p>
+        <p><span style="background-color:rgb(255,255,255);color:rgb(68,68,68);">L'exemple le plus frappant est </span><i><strong>Nagios</strong></i>
+          <span
+          style="background-color:rgb(255,255,255);color:rgb(68,68,68);">qui, par défaut, ne possède aucune fonctionnalité permettant de tracer
+            des graphiques ou obtenir l'historique de la charge d'un service/serveur.</span>
+        </p>
+        <p><span style="background-color:rgb(255,255,255);color:rgb(68,68,68);">Une "</span><i>extension</i>
+          <span
+          style="background-color:rgb(255,255,255);color:rgb(68,68,68);">" de la supervision porte sur le fait de récupérer une valeur chiffrée
+            comme une charge mémoire et de lui appliquer un seuil d'alerte. Dans ce
+            cas, aucun historique n'est gardé mais l'on est capable d'obtenir et de
+            surveiller non plus des états, mais des valeurs numériques.</span>
+        </p>
+        <p><strong>La supervision se caractérise d'ailleurs aussi par son système d'alerte, conséquence directe de la vision "à l'instant T"</strong>
+          <span
+          style="background-color:rgb(255,255,255);color:rgb(68,68,68);">.</span>
+        </p>
+        <p><span style="background-color:rgb(255,255,255);color:rgb(68,68,68);">On peut alors avertir l'administrateur si un système passe de UP à DOWN et inversement.</span>
+          <br><span style="background-color:rgb(255,255,255);color:rgb(68,68,68);">Au contraire, dans le concept pure de la métrologie, le système d'alerte n'est pas pris en compte car la récupération des valeurs/charges n'est pas forcément faite à l'instant T.</span>
+        </p>
+        <p>&nbsp;</p>
+        <p><u>Logiciel de monitoring</u> :</p>
+        <p><span style="background-color:rgb(255,255,255);color:rgb(68,68,68);">Nagios, Nagvis, Shinken ou Icinga</span>
+        </p>
+        <p><span style="background-color:rgb(255,255,255);color:rgb(68,68,68);">Solution proprietaire PRTG.</span>
+        </p>
+        <p>&nbsp;</p>
+      </div>
+    </div>
+  </body>
+
+</html>

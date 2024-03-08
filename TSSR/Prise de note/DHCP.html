@@ -1,0 +1,49 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>DHCP</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>DHCP</h1>
+
+      <div class="ck-content">
+        <p style="margin-left:240px;"><span class="text-big"><strong><u>DHCP (Dynamic Host Configuration protocol) :</u></strong></span>
+        </p>
+        <p>&nbsp;S'occupe d'automatiser l'attribution d'une adresse IP, d'un masque
+          de sous réseau, de la passerelle par défaut et du DNS à une machine.</p>
+        <p>On peut désactivé le DHCP pour amélioré la sécurité de son réseau WIFI.
+          En le désactivant ça compliquera la tache des éventuels pirates.</p>
+        <p>Pour vérifier si le DHCP est activé on peux se rendre dans l'invite de
+          commande (Win+R / cmd) et taper “ipconfig /all” on aura alors une ligne
+          “DHCP : Activé / Désactivé”.</p>
+        <p>C'est un protocole applicatif de la <strong>couche 7 du modèle OSI</strong>.</p>
+        <p>Il fonctionne en client/serveur, il se sert du <strong>port 68</strong> en
+          UDP client.</p>
+        <p style="margin-left:240px;">il se sert du <strong>port 67</strong> en UDP server.</p>
+        <p><u>Il fonctionne en 4 points principaux</u> :</p>
+        <ol>
+          <li>L'interface réseau envoie une requête (message DHCPDISCOVER) sur 255.255.255.255
+            (broadcast), c'est à dire à tous les ordinateurs du réseau.</li>
+          <li>Le server DHCP reçoit le message et transmet une proposition de config
+            IP au client (DHCOFFER)</li>
+          <li>&nbsp;Cette config d'IP est proposée à une durée limitée, le client accepte
+            celle-ci par un message (DHCPACK) qu'il transmet au serveur DHCP.</li>
+          <li>S'il redémarre le client doit renouveler son bail (DHCPREQUEST), si le
+            serveur DHCP refuse alors le client continue d'utiliser l'IP actuelle.</li>
+        </ol>
+        <p><u>Exemple</u> :</p>
+        <figure class="image">
+          <img src="api/images/jkWR5YpDxQ31/brave_KzslEKJIQx.png">
+        </figure>
+        <p>&nbsp;</p>
+      </div>
+    </div>
+  </body>
+
+</html>

@@ -1,0 +1,127 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>Sa connecter en SSH avec clef de chiffrement</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>Sa connecter en SSH avec clef de chiffrement</h1>
+
+      <div class="ck-content">
+        <h2><span style="background-color:transparent;color:#000000;">Se connecter en SSH avec une clé de chiffrement :&nbsp;</span></h2>
+        <ol>
+          <li><span style="background-color:#ffffff;color:#303030;">Créer une clé de chiffrement SSH depuis le client (Windows ou Linux)</span>
+          </li>
+          <li><span style="background-color:#ffffff;color:#303030;">Copier la clé de chiffrement sur le Linux qu’on veut prendre en main</span>
+          </li>
+        </ol>
+        <p>&nbsp;</p>
+        <p><span style="background-color:#ffff00;color:#303030;"><strong>De Linux à Linux :&nbsp;</strong></span>
+        </p>
+        <ul>
+          <li><span style="background-color:#ffffff;color:#303030;">Créer une clé (sur le client, et sans être root) :</span>
+          </li>
+        </ul><pre><code class="language-text-plain">$&nbsp;ssh-keygen</code></pre>
+        <ul>
+          <li><span style="background-color:#ffffff;color:#303030;">Transférer la clé publique vers le serveur en utilisant l'outil dédié :</span>
+          </li>
+        </ul><pre><code class="language-text-plain">$&nbsp;ssh-copy-id 192.168.0.1</code></pre>
+        <ul>
+          <li><span style="background-color:#ffffff;color:#303030;">Tester la connexion : c'est le mot de passe de la clé qui devrait être demandé (plus celui de l'utilisateur).</span>
+          </li>
+        </ul>
+        <p><span style="background-color:#ffffff;color:#303030;"><strong><u>Si la clé n'est pas utilisée, il est possible</u></strong> :</span>
+        </p>
+        <p><span style="background-color:#ffffff;color:#303030;">- de charger la clé en mémoire dans l'agent ssh (côté client) : $ ssh-add</span>
+        </p>
+        <p><span style="background-color:#ffffff;color:#303030;">- de préciser quelle clé on veut utiliser, en utilisant l'option -i pour se connecter.</span>
+        </p>
+        <p>&nbsp;</p>
+        <p><span style="background-color:#ffff00;color:#303030;"><strong>De Windows à Linux</strong></span>
+          <span
+          style="background-color:#ffffff;color:#303030;">(donc sans la commande ssh-copy-id qui est une commande Unix) :&nbsp;</span>
+        </p>
+        <p><a href="https://unix.stackexchange.com/questions/502432/adding-a-ssh-key-to-a-user-without-ssh-copy-id"><span style="background-color:#ffffff;color:#1155cc;"><u>https://unix.stackexchange.com/questions/502432/adding-a-ssh-key-to-a-user-without-ssh-copy-id</u></span></a>
+        </p>
+        <p>&nbsp;</p>
+        <ol>
+          <li><span style="background-color:#ffffff;color:#303030;"><strong>créer la clé sur le windows</strong> :&nbsp;</span>
+          </li>
+        </ol><pre><code class="language-text-plain">ssh-keygen</code></pre>
+        <p><span style="background-color:#ffffff;color:#303030;"><i>quand c’est demandé, indiquer le chemin où sauvegarder la clé</i></span>
+        </p>
+        <p><span style="background-color:#ffffff;color:#303030;"><img src="Sa%20connecter%20en%20SSH%20avec%20clef%20de%20chiffrement/image.jpg"></span>
+        </p>
+        <p>&nbsp;</p>
+        <p><span style="background-color:#ffffff;color:#303030;">2 clés sont créées&nbsp;</span>
+        </p>
+        <ol>
+          <li><span style="background-color:#ffffff;color:#303030;">serveur</span>
+          </li>
+          <li><span style="background-color:#ffffff;color:#303030;">client :&nbsp;</span>
+          </li>
+        </ol>
+        <p><span style="background-color:#ffffff;color:#303030;"><img src="Sa%20connecter%20en%20SSH%20avec%20clef%20de%20chiffrement/3_image.png"></span>
+        </p>
+        <ol>
+          <li><span style="background-color:#ffffff;color:#303030;"><strong>copier la clé .pub sur la machine sur laquelle on veut se connecter, en filezilla ou avec la commande scp :&nbsp;&nbsp;</strong></span>
+          </li>
+        </ol><pre><code class="language-text-plain">scp c:\temp\ssh1.pub seb@192.168.240.147:/home/seb</code></pre>
+        <p><span style="background-color:transparent;color:#000000;"><img src="Sa%20connecter%20en%20SSH%20avec%20clef%20de%20chiffrement/image.png"></span>
+        </p>
+        <ol start="2">
+          <li><span style="background-color:transparent;color:#000000;">Copier le contenu de la clé dans un fichier $HOME/.ssh/authorized_keys :&nbsp;</span>
+          </li>
+        </ol>
+        <ul>
+          <li><span style="background-color:#ffffff;color:#303030;"><strong>Créer le répertoire .ssh dans la bonne arborescence (/home/seb/.ssh) :&nbsp;</strong></span>
+          </li>
+        </ul><pre><code class="language-text-plain">mkdir .ssh</code></pre>
+        <ul>
+          <li><span style="background-color:#ffffff;color:#303030;"><strong>se déplacer dans le dossier .ssh créé :&nbsp;</strong></span>
+          </li>
+        </ul><pre><code class="language-text-plain">cd .ssh/</code></pre>
+        <ul>
+          <li><span style="background-color:#ffffff;color:#303030;"><strong>copier le contenu du fichier ssh dans un fichier authorized_keys :&nbsp;</strong></span>
+          </li>
+        </ul><pre><code class="language-text-plain">cat /home/seb/ssh1.pub &gt; authorized_keys</code></pre>
+        <p>&nbsp;</p>
+        <p><span style="background-color:#ffffff;color:#303030;">Se connecter en SSH depuis le Windows, en utilisant la clé serveur :&nbsp;</span>
+        </p><pre><code class="language-text-plain">ssh -i c:\temp\ssh1 seb@192.168.240.147</code></pre>
+        <p>&nbsp;</p>
+        <p><span style="background-color:#ffff00;color:#303030;"><strong>Pour sécuriser la connexion SSH</strong></span>
+        </p>
+        <p><span style="background-color:#ffffff;color:#303030;">On peut désactiver la possibilité de se connecter avec un password dans le fichier de config ssh, ou changer le port : décommenter les lignes et changer le paramètre :&nbsp;</span>
+        </p>
+        <p><span style="background-color:#ffffff;color:#303030;">ouvrir le fichier de configuration SSH :&nbsp;</span>
+        </p><pre><code class="language-text-plain">nano /etc/ssh/sshd_config</code></pre>
+        <ul>
+          <li><span style="background-color:#ffffff;color:#303030;">décommenter la ligne du port (enlebver le #) et modifier le port 22 :&nbsp;</span>
+          </li>
+        </ul>
+        <p><span style="background-color:#ffffff;color:#303030;"><img src="Sa%20connecter%20en%20SSH%20avec%20clef%20de%20chiffrement/2_image.png"></span>
+        </p>
+        <ul>
+          <li><span style="background-color:#ffffff;color:#303030;">Décommenter la ligne PasswordAuthentication et remplacer “yes” par “no” :&nbsp;</span>
+          </li>
+        </ul>
+        <p><span style="background-color:#ffffff;color:#303030;"><img src="Sa%20connecter%20en%20SSH%20avec%20clef%20de%20chiffrement/1_image.png"></span>
+        </p>
+        <p>&nbsp;</p>
+        <ul>
+          <li><span style="background-color:#ffffff;color:#303030;">redémarrer le service ssh pour prise en compte :&nbsp;</span>
+          </li>
+        </ul><pre><code class="language-text-plain">systemctl restart ssh</code></pre>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+      </div>
+    </div>
+  </body>
+
+</html>

@@ -1,0 +1,65 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../../../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>Importer utilisateur par script</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>Importer utilisateur par script</h1>
+
+      <div class="ck-content">
+        <p>Voici le Script pour ajouter des utilisateurs :</p>
+        <p>Crée un fichier .csv à l'endroit ou l'on indique au script de chercher
+          "<strong>$Csvfile = "C:\TEST1.csv</strong>" avec les donnée voulu, ici
+          nom,prénom,mail&nbsp;</p><pre><code class="language-text-plain">|# Définir le document CSV et l'importer dans la variable "user"
+
+$Csvfile = "C:\TEST1.csv" #Attention à l'emplacement
+
+$users = Import-Csv $Csvfile
+
+#Importer le module active Directory
+
+Import-Module ActiveDirectory
+
+# On ajoute EMS via snapin pour pouvoir l'utiliser sur powershell
+
+Add-PSSnapin Microsoft.Exchange.Management.Powershell.SnapIn;
+
+#La boucle qui va se repeter pour chaque utilisateur
+
+foreach ($User in $Users) {
+   #On défini les variables qu'on va utiliser par la suite (A définir dans le Documents CSV)
+   $Prenom = $User.prenom
+   $Nom = $User.nom
+   $Nomafficher = $User.prenom + " " + $User.nom
+   $identifiant = $User.prenom.ToLower()
+   $nomprincipal = $User.mail
+   $OU = "Exchange"
+   $Email = $User.mail
+   $Password = Read-Host "Entrer un mot de passe :" -AsSecureString
+
+# Puis on crée la boite au lettre exchange avec nos variable
+
+  New-mailBox -Name $Nomafficher `
+               -DisplayName $Nomafficher `
+               -FirstName $Prenom `
+               -LastName $Nom `
+               -SamAccountName $identifiant `
+               -UserPrincipalName $nomprincipal `
+               -OrganizationalUnit $OU `
+               -Password $Password `
+               -ResetPasswordOnNextLogon $false
+
+
+}</code></pre>
+        <p>&nbsp;</p>
+      </div>
+    </div>
+  </body>
+
+</html>

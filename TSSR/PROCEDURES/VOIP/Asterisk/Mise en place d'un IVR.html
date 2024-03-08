@@ -1,0 +1,106 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>Mise en place d&#39;un IVR</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>Mise en place d&#39;un IVR</h1>
+
+      <div class="ck-content">
+        <p style="margin-left:40px;"><strong>Installation des pré requis</strong>
+        </p>
+        <p>apt install perl</p>
+        <p>apt install libwww-perl</p>
+        <p>apt install sox</p>
+        <p>apt install mpg123</p>
+        <p>apt install flac</p>
+        <p>&nbsp;</p>
+        <p style="margin-left:40px;"><strong>On télécharge google.agi</strong>
+        </p>
+        <p>cd /var/lib/asterisk/agi-bin</p>
+        <p>wget https://raw.github.com/zaf/asterisk-googletts/master/googletts.agi</p>
+        <p>chmod +x googletts.agi</p>
+        <p>&nbsp;</p>
+        <p style="margin-left:40px;"><strong>On vérifie que le module est bien installé</strong>
+        </p>
+        <p>asterisk -rvv</p>
+        <p>module show</p>
+        <p>&nbsp;</p>
+        <p>
+          <img src="Mise%20en%20place%20d'un%20IVR/image.png">
+        </p>
+        <p>&nbsp;</p>
+        <p style="margin-left:40px;"><strong>On modifie le fichier SIP&nbsp;</strong>
+        </p>
+        <p>nano /etc/asterisk/sip.conf</p>
+        <p>&nbsp;</p>
+        <p>
+          <img src="Mise%20en%20place%20d'un%20IVR/3_image.png">
+        </p>
+        <p style="margin-left:40px;"><strong>On modifie le fichier extensions</strong>
+        </p>
+        <p>
+          <img src="Mise%20en%20place%20d'un%20IVR/1_image.png">
+        </p>
+        <p>&nbsp;</p>
+        <p style="margin-left:40px;"><strong>On copie le fichier VoiceMail&nbsp;</strong>
+        </p>
+        <p style="margin-left:0cm;">cp /etc/asterisk/voicemail.conf /etc/asterisk/voicemail.conf.original</p>
+        <p
+        style="margin-left:0cm;">&nbsp;</p>
+          <p style="margin-left:40px;"><strong>On vide le fichier VoiceMail&nbsp;</strong>
+          </p>
+          <p style="margin-left:0cm;">&gt; /etc/asterisk/voicemail.conf</p>
+          <p style="margin-left:0cm;">&nbsp;</p>
+          <p style="margin-left:40px;"><strong>On modifie le fichier voicemail.conf</strong>
+          </p>
+          <p style="margin-left:0cm;">nano /etc/asterisk/voicemail.conf</p>
+          <p style="margin-left:0cm;">&nbsp;</p>
+          <p style="margin-left:0cm;">
+            <img src="Mise%20en%20place%20d'un%20IVR/2_image.png">
+          </p>
+          <p style="margin-left:0cm;">&nbsp;</p>
+          <p style="margin-left:40px;"><strong>On ouvre la console Asterisk et on reload les paramètres&nbsp;</strong>
+          </p>
+          <p>asterisk -rvv&nbsp;; <i>(ouvrir la console)</i>
+          </p>
+          <p>reload&nbsp;; <i>(recharger pour prendre en compte les changements)</i>
+          </p>
+          <p>&nbsp;</p>
+          <p><strong><u>Exemple</u></strong> :</p>
+          <p>[IVR]</p>
+          <p>exten =&gt; 11,1,Answer()
+            <br>exten =&gt; 11,2,Set(TIMEOUT(response)=10)
+            <br>exten =&gt; 11,3,agi(googletts.agi,"Bienvenue dans l'entreprise ALLSAFE",fr,any)
+            <br>exten =&gt; 11,4,agi(googletts.agi,"Qui souhaitez vous joindre?",fr,any)
+            <br>exten =&gt; 11,5,agi(googletts.agi,"Pour IT tapez 1",fr,any)
+            <br>exten =&gt; 11,6,agi(googletts.agi,"Pour DEV tapez 2",fr,any)
+            <br>exten =&gt; 11,7,agi(googletts.agi,"Pour COMPTA tapez 3",fr,any)
+            <br>exten =&gt; 11,8,agi(googletts.agi,"Pour SECRETARIAT tapez 4",fr,any)
+            <br>exten =&gt; 11,9,agi(googletts.agi,"Appuyez sur dièse si vous souhaitez
+            réecouter ce message",fr,any)
+            <br>exten =&gt; 11,10,WaitExten()</p>
+          <p>&nbsp;</p>
+          <p>exten =&gt; 1,1,Goto(IT,1000,1)
+            <br>exten =&gt; 2,1,Goto(DEV,2000,1)
+            <br>exten =&gt; 3,1,Goto(COMPTA,3000,1)
+            <br>exten =&gt; 4,1,Goto(SECRETARIAT,4000,1)
+            <br>exten =&gt; _[5-9#],1,Goto(IVR,11,3)
+            <br>exten =&gt; t,1,Goto(local,100,3)</p>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+      </div>
+    </div>
+  </body>
+
+</html>

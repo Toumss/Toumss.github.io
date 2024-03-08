@@ -1,0 +1,97 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>Installation du rôle</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>Installation du rôle</h1>
+
+      <div class="ck-content">
+        <p><i>WDS sert à déployer des images windows a partir de fichier “.wim”</i>
+        </p>
+        <hr>
+        <p><i><strong>Au préalable on ajoute et on monte un second disque dur.</strong></i>
+          <br><i><strong>(Pour y installer nos images)</strong></i>
+        </p>
+        <p>A partir de la sélection des rôle server <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(1)</code></span> ,
+          on commence par intégrer le role DNS (on configure le dns inversé, DHCP
+          (On le configure avec une étendu) , AD DS ainsi que “Service de déploiement”
+          <span
+          style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(2)</code>
+            </span>sur un server windows a partir du Gestionnaire de serveur.</p>
+        <p>
+          <img src="Installation%20du%20r%C3%B4le/vmware_vdn39BNEFh.png">&nbsp;</p>
+        <p>Une fois le rôle WDS installer, on doit le configurer pour se faire, on
+          se rend sur l'onglet “WDS” <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(1)</code></span>,
+          puis on clic droit sur notre server WDS présent dans l'encart server pour
+          choisir “Contrôle de gestion des services de déploiement de windows”
+          <span
+          style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(2)</code>
+            </span>.</p>
+        <figure class="image">
+          <img src="Installation%20du%20r%C3%B4le/vmware_YO3L2TBHeT.png">
+        </figure>
+        <p>&nbsp;</p>
+        <p>On arrive sur cette page on déroule l'onglet server <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(1)</code></span>,
+          pour trouver notre serveur, puis on clic droit dessus et on clic sur “Configurer
+          le serveur” <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(2)</code></span>
+        </p>
+        <figure class="image">
+          <img src="Installation%20du%20r%C3%B4le/vmware_GC1vWtMWq0.png">
+        </figure>
+        <p>&nbsp;</p>
+        <p>On entre dans l'Assistant Configuration des services de déploiement Windows,
+          on commence par cliqué sur suivant <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(1)</code></span>
+        </p>
+        <figure class="image">
+          <img src="Installation%20du%20r%C3%B4le/vmware_VeFO3iLRwo.png">
+        </figure>
+        <p>&nbsp;</p>
+        <p>Puis on coche “Intégré à Active Directory” <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(1)</code></span>,
+          et ensuite “Suivant” <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(2)</code></span>
+        </p>
+        <figure class="image">
+          <img src="Installation%20du%20r%C3%B4le/vmware_rjqpbjtGvm.png">
+        </figure>
+        <p>&nbsp;</p>
+        <p>On arrive sur “Emplacement du dossier d'installation à distance”, pour
+          choisir notre emplacement on clic sur parcourir <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(1)</code></span>,
+          on choisi notre disque qu'on a crée au préalable, dans lequel on crée un
+          fichier “WDS” <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(2)</code></span>,
+          puis on peu cliqué sur “OK” <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(3)</code></span>
+        </p>
+        <figure class="image">
+          <img src="Installation%20du%20r%C3%B4le/vmware_lbayecop86.png">
+        </figure>
+        <p>&nbsp;</p>
+        <p>On laisse coché ce qui est coché <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(1)</code></span> et
+          on clique sur “Suivant” <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(2)</code></span>
+        </p>
+        <figure class="image">
+          <img src="Installation%20du%20r%C3%B4le/vmware_blCE3ZlPoT.png">
+        </figure>
+        <p>&nbsp;</p>
+        <p>Ici on coche “Répondre à tous les ordinateurs" <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(1)</code></span>,
+          puis on clique sur “Suivant” <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(2)</code></span>
+        </p>
+        <figure class="image">
+          <img src="Installation%20du%20r%C3%B4le/vmware_lFq1z8i5Ak.png">
+        </figure>
+        <p>&nbsp;</p>
+        <p>On attend l'installation puis on clique sur “Terminer” <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(1)</code></span>
+        </p>
+        <figure class="image">
+          <img src="Installation%20du%20r%C3%B4le/vmware_ydthSK3Fpr.png">
+        </figure>
+        <p>&nbsp;</p>
+      </div>
+    </div>
+  </body>
+
+</html>

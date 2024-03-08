@@ -1,0 +1,43 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>Agent Linux</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>Agent Linux</h1>
+
+      <div class="ck-content">
+        <p>On commence par aller chercher le paquet :</p><pre><code class="language-text-plain">wget https://repo.zabbix.com/zabbix/6.4/debian/pool/main/z/zabbix-release/zabbix-release_6.4-1+debian12_all.deb</code></pre>
+        <p>On le décompresse :</p><pre><code class="language-text-plain">dpkg -i zabbix-release_6.4-1+debian12_all.deb</code></pre>
+        <p>On met &nbsp;jour :</p><pre><code class="language-text-plain">apt update</code></pre>
+        <p>On install l'agent :</p><pre><code class="language-text-plain">apt install zabbix-agent -y</code></pre>
+        <p>On lance l'agent et on fait en sorte qu'il se lance au boot&nbsp;</p><pre><code class="language-text-plain">systemctl restart zabbix-agent
+
+systemctl enable zabbix-agent</code></pre>
+        <hr>
+        <p>Ce rendre dans le fichier .conf de zabbix pour renseigner notre ip server
+          zabbix :</p><pre><code class="language-text-plain">nano /etc/zabbix/zabbix_agentd.conf</code></pre>
+        <p>&nbsp;</p>
+        <figure class="image">
+          <img src="Agent%20Linux/WindowsTerminal_1UYKYLb7wx.png">
+        </figure>
+        <p>&nbsp;</p>
+        <p>On descent encore pour chercher “ServerActive” on y renseigne également
+          notre ip du Server Zabbix : (Ctrl-w pour recherche rapide)</p>
+        <figure class="image">
+          <img src="Agent%20Linux/WindowsTerminal_Cj76nQbCPC.png">
+        </figure>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+      </div>
+    </div>
+  </body>
+
+</html>

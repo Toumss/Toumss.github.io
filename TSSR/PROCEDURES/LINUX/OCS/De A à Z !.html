@@ -1,0 +1,115 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>De A à Z !</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>De A à Z !</h1>
+
+      <div class="ck-content">
+        <p>On commence toujours par :</p><pre><code class="language-text-plain">apt update
+apt upgrade -y</code></pre>
+        <p>On install <strong>SSH</strong> si ce n'est pas déja fait à l'installation
+          de Debian :</p><pre><code class="language-text-plain">apt install ssh -y
+nano /etc/ssh/sshd_config
+service ssh restart</code></pre>
+        <p>On télécharge ensuite les logiciels pré-requis et les dépendances associé
+          :</p><pre><code class="language-text-plain">apt update
+apt upgrade -y
+apt install apache2 -y
+apt install mariadb-server -y
+apt install php -y</code></pre>
+        <hr>
+        <p><span class="text-big"><strong>MARIADB DATABASE</strong></span>
+        </p><pre><code class="language-text-plain">mysql -u root
+create database ocsweb;</code></pre>
+        <p>On crée l'<strong>utilisateur</strong> “ocs” avec le mdp : azerty et on
+          lui donne tous les privilèges</p><pre><code class="language-text-plain">grant all privileges on ocsweb.* to ocs@localhost identified by 'azerty';</code></pre>
+        <p>On refresh les privileges :
+          <br>&nbsp;</p><pre><code class="language-text-plain">flush privileges;
+</code></pre>
+        <p>Et on se retire de mariaDB</p><pre><code class="language-text-plain">exit</code></pre>
+        <hr>
+        <p><span class="text-big"><strong>INSTALLATION MODULE PHP 8.2</strong></span>
+        </p><pre><code class="language-text-plain">apt install php php-pclzip php-mbstring php-soap php-mysql php-curl php-xml php-zip php-gd -y</code></pre>
+        <hr>
+        <p><span class="text-big"><strong>INSTALLATION DU REPOSITORY OCS &amp; DE LA CLÉ GPG OCS</strong></span>
+        </p><pre><code class="language-text-plain">apt install gnupg2 curl wget -y</code></pre><pre><code class="language-text-plain">curl -sS http://deb.ocsinventory-ng.org/pubkey.gpg |
+\gpg --dearmor -o /etc/apt/trusted.gpg.d/ocs.gpg
+</code></pre><pre><code class="language-text-plain">echo "deb http://deb.ocsinventory-ng.org/debian/ bullseye main" |
+\tee /etc/apt/sources.list.d/ocsinventory.list</code></pre>
+        <hr>
+        <p><span class="text-big"><strong>INSTALLATION MODULE PERL</strong></span>&nbsp;</p><pre><code class="language-text-plain">perl -MCPAN -e 'install XML::Entities'
+Répondre "yes"</code></pre>
+        <hr>
+        <p><span class="text-big"><strong>INSTALLATION OCS INVENTORY</strong></span>
+        </p><pre><code class="language-text-plain">apt update
+apt install ocsinventory -y</code></pre>
+        <p>On vérifie le fichier de configuration “<strong>z-ocsinventory-server</strong>”
+          :</p><pre><code class="language-text-plain">nano /etc/apache2/conf-available/z-ocsinventory-server.conf</code></pre>
+        <figure
+        class="image">
+          <img src="De%20A%20%C3%A0%20Z%20!/brave_407rBiVokZ.png">
+          </figure>
+          <p>On vérifie également le fichier de connexion à la base de donnée OCS :</p><pre><code class="language-text-plain">nano /etc/apache2/conf-available/zz-ocsinventory-restapi.conf</code></pre>
+          <figure
+          class="image">
+            <img src="De%20A%20%C3%A0%20Z%20!/brave_qhxZVsArK8.png">
+            </figure>
+            <p>On vérifie également le fichier de connexion à la console web :</p><pre><code class="language-text-plain">nano /etc/ocsinventory-reports/dbconfig.inc.php</code></pre>
+            <figure
+            class="image">
+              <img src="De%20A%20%C3%A0%20Z%20!/brave_3rjUCX5q9y.png">
+              </figure>
+              <hr>
+              <p><span class="text-big"><strong>OPTIMISATION&nbsp;</strong></span>
+              </p><pre><code class="language-text-plain">nano /etc/php/*/apache2/php.ini</code></pre>
+              <p>CTRL + W et saisir "<strong>max_execution_time</strong>" pour trouver
+                la rubrique</p>
+              <figure class="image">
+                <img src="De%20A%20%C3%A0%20Z%20!/brave_grj4JRqI4X.png">
+              </figure>
+              <p>On ajuste la taille limite de téléchargement des fichiers :</p>
+              <p>CTRL + W et rechercher "<strong>upload_max_filesize</strong>" et saisir
+                la valeur "50M"</p>
+              <figure class="image">
+                <img src="De%20A%20%C3%A0%20Z%20!/brave_qKGLgJ9eQ6.png">
+              </figure>
+              <p>CTRL + W et rechercher "<strong>post_max_size</strong>" et saisir la valeur
+                “50M”</p>
+              <figure class="image">
+                <img src="De%20A%20%C3%A0%20Z%20!/brave_Ja4gE35F36.png">
+              </figure>
+              <p>&nbsp;</p>
+              <p>On ajuste la taille de la mémoire du moteur PHP :</p>
+              <p>CTRL + W et rechercher "<strong>memory_limit</strong>" et saisir la valeur
+                “256M”</p>
+              <figure class="image">
+                <img src="De%20A%20%C3%A0%20Z%20!/brave_1OPQdUjjgL.png">
+              </figure>
+              <p>&nbsp;</p>
+              <hr>
+              <p><span class="text-big"><strong>ATTRIBUTION DES DROITS/PROPRIÉTAIRE POUR LES FICHIER DE CONFIGURATION OCS</strong></span>&nbsp;</p>
+              <p>&nbsp;</p><pre><code class="language-text-plain">chmod -R 766 /usr/share/ocsinventory-reports</code></pre><pre><code class="language-text-plain">chown -R www-data:www-data /usr/share/ocsinventory-reports \
+
+/var/lib/ocsinventory-reports</code></pre>
+              <p>&nbsp;On redémarre apache2 &amp; mariadb</p><pre><code class="language-text-plain">systemctl restart apache2 mariadb</code></pre>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+      </div>
+    </div>
+  </body>
+
+</html>

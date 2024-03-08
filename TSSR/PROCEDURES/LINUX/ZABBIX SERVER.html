@@ -1,0 +1,193 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>ZABBIX SERVER</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>ZABBIX SERVER</h1>
+
+      <div class="ck-content">
+        <h2 style="margin-left:0px;">Logiciel de monitoring</h2>
+        <h2 style="margin-left:0px;">&nbsp;</h2>
+        <h2 style="margin-left:0px;"><span class="text-big"><strong>Pré-requis</strong></span></h2>
+        <p style="margin-left:0px;">&nbsp;</p>
+        <hr>
+        <p style="margin-left:0px;">On commence par ajouter les dépots pour Debian 12</p><pre><code class="language-text-plain">wget https://repo.zabbix.com/zabbix/6.4/debian/pool/main/z/zabbix-release/zabbix-release_6.4-1+debian12_all.deb</code></pre><pre><code class="language-text-plain">dpkg -i zabbix-release_6.4-1+debian12_all.deb</code></pre><pre><code class="language-text-plain">apt update</code></pre>
+        <p>&nbsp;</p>
+        <p>On install les composants</p><pre><code class="language-text-plain">apt install zabbix-server-mysql zabbix-frontend-php zabbix-apache-conf zabbix-sql-scripts zabbix-agent -y</code></pre>
+        <p>&nbsp;</p>
+        <p>On modifie notre fuseau horaire</p>
+        <p><span style="color:hsl(0,0%,0%);"><code><i>#Dans nano vous pouvez rechercher en utilisant la combinaison des touches “Ctrl + w”</i></code></span>
+        </p><pre><code class="language-text-plain">nano /etc/php/8.2/apache2/php.ini
+date.timezone = Europe/Paris</code></pre>
+        <hr>
+        <p>&nbsp;</p>
+        <p>On install MariaDB</p><pre><code class="language-text-plain">apt-get install mariadb-server -y</code></pre>
+        <p>&nbsp;</p>
+        <p style="margin-left:0px;">Avant d’aller plus loin, on utilise <strong>le script de premier lancement de MariaDB</strong> pour
+          nettoyer la base et initialiser quelques paramètres comme le mot de passe
+          root pour l’instance <strong>MariaDB</strong>.</p>
+        <p style="margin-left:0px;">Ce script est déployé lors de l’installation de <strong>MariaDB</strong>.
+          <br>Il se lance à partir de votre terminal en tapant <strong>mariadb-secure-installation</strong>.</p><pre><code class="language-text-plain">root@debian:/# mariadb-secure-installation
+
+#NOTE: RUNNING ALL PARTS OF THIS SCRIPT IS RECOMMENDED FOR ALL MariaDB
+#      SERVERS IN PRODUCTION USE!  PLEASE READ EACH STEP CAREFULLY!
+
+#In order to log into MariaDB to secure it, we'll need the current
+#password for the root user. If you've just installed MariaDB, and
+#haven't set the root password yet, you should just press enter here.
+
+#A la première question vous laissez vide car on a pas encore de mot de passe root pour l'instance MariaDB
+
+Enter current password for root (enter for none): On laisse vide !!!
+
+#Authentification Unix, on tape n pour no
+Switch to unix_socket authentication [Y/n] n
+
+#On tape y pour change le mot de passe root de l'instance MariaDB.
+Change the root password? [Y/n] Y
+New password: azerty
+Re-enter new password: azerty
+Password updated successfully!
+Reloading privilege tables..
+ ... Success!
+
+#On supprime les utilisateurs anonymes enn tapant Y 
+Remove anonymous users? [Y/n] Y
+
+#On supprime l'accès distant pour le compte root de l'instance MariaDB par Y 
+Disallow root login remotely? [Y/n] Y
+
+#On supprime l'accès à la base de données de test par Y
+Remove test database and access to it? [Y/n] Y
+
+#On recharge les modification pour qu'elles soient prises en compte par Y
+Reload privilege tables now? [Y/n] Y
+ ... Success!
+
+Cleaning up...
+
+All done!  If you've completed all of the above steps, your MariaDB
+installation should now be secure.
+
+Thanks for using MariaDB!
+
+root@debian:/#</code></pre>
+        <p>&nbsp;</p>
+        <p><span style="background-color:rgb(255,255,255);color:rgb(63,63,70);">On se connecte à </span><strong>MariaDB</strong>
+          <span
+          style="background-color:rgb(255,255,255);color:rgb(63,63,70);">avec le</span><strong>compte root </strong><span style="background-color:rgb(255,255,255);color:rgb(63,63,70);">qu’on a créé avec le script </span><strong>mariadb-secure-installation</strong>
+            <span
+            style="background-color:rgb(255,255,255);color:rgb(63,63,70);">.</span>
+        </p><pre><code class="language-text-plain">mysql -u root -p
+password : azerty</code></pre>
+        <p>&nbsp;</p>
+        <p><span style="background-color:rgb(255,255,255);color:rgb(63,63,70);">Un fois connecté, on commence par créer la base de données, on va l’appeler </span><strong>zabbix</strong>
+          <span
+          style="background-color:rgb(255,255,255);color:rgb(63,63,70);">et on lui ajoute un encodage</span><strong>UTF8</strong><span style="background-color:rgb(255,255,255);color:rgb(63,63,70);">.</span>
+        </p><pre><code class="language-text-plain">create database zabbix character set utf8mb4 collate utf8mb4_bin;</code></pre>
+        <p>&nbsp;</p>
+        <p><span style="background-color:rgb(255,255,255);color:rgb(63,63,70);">Ensuite on va créer un utilisateur local à l’instance </span><strong>MariaDB</strong>
+          <span
+          style="background-color:rgb(255,255,255);color:rgb(63,63,70);">. on utilisera ce compte :</span><strong>zabbix@localhost </strong>
+            <span
+            style="background-color:rgb(255,255,255);color:rgb(63,63,70);">et on lui crée</span><strong> un mot de passe</strong><span style="background-color:rgb(255,255,255);color:rgb(63,63,70);">.</span>
+        </p><pre><code class="language-text-plain">create user zabbix@localhost identified by 'azerty';</code></pre>
+        <p>&nbsp;</p>
+        <p><span style="background-color:rgb(255,255,255);color:rgb(63,63,70);">On ajoute à l’utilisateur </span><strong>zabbix</strong>
+          <span
+          style="background-color:rgb(255,255,255);color:rgb(63,63,70);">les droits à la table</span><strong>zabbix</strong><span style="background-color:rgb(255,255,255);color:rgb(63,63,70);"> et à l’ensemble des sous tables.</span>
+        </p><pre><code class="language-text-plain">grant all privileges on zabbix.* to zabbix@localhost;</code></pre>
+        <p>&nbsp;</p>
+        <p><span style="background-color:rgb(255,255,255);color:rgb(63,63,70);">On active la journalisation des logs qui servira à importer le schéma de la table zabbix.</span>
+        </p><pre><code class="language-text-plain">set global log_bin_trust_function_creators = 1;</code></pre>
+        <p>&nbsp;</p>
+        <p><span style="background-color:rgb(255,255,255);color:rgb(63,63,70);">On applique les changements via la commande.</span>
+        </p><pre><code class="language-text-plain">flush  privileges;</code></pre>
+        <p>&nbsp;</p>
+        <p><span style="background-color:rgb(255,255,255);color:rgb(63,63,70);">On quitte l’instance </span><strong>MariaDB</strong>
+          <span
+          style="background-color:rgb(255,255,255);color:rgb(63,63,70);">.</span>
+        </p><pre><code class="language-text-plain">MariaDB [(none)]&gt; quit;
+</code></pre>
+        <p>&nbsp;</p>
+        <p><span style="background-color:rgb(255,255,255);color:rgb(63,63,70);">On va aller modifier le fichier de configuration afin d’y renseigner la variable </span><strong>DBPassword</strong>
+          <span
+          style="background-color:rgb(255,255,255);color:rgb(63,63,70);">.</span>
+            <br><span style="background-color:rgb(255,255,255);color:rgb(63,63,70);">Une fois la modification effectuée, vous enregistrez.</span>
+        </p><pre><code class="language-text-plain">nano /etc/zabbix/zabbix_server.conf
+
+#Modifier les lignes suivantes:
+DBName=zabbix
+DBUser=zabbix
+DBPassword=azerty</code></pre>
+        <p>&nbsp;</p>
+        <p><span style="background-color:rgb(255,255,255);color:rgb(63,63,70);">Sur le serveur Zabbix, on va importer le schéma initial et les données dans la base avec le script </span><strong>server.sql.gz</strong>
+          <span
+          style="background-color:rgb(255,255,255);color:rgb(63,63,70);">. Vous serez invité à entrer votre mot de passe du compte</span><strong>zabbix</strong>
+            <span
+            style="background-color:rgb(255,255,255);color:rgb(63,63,70);">à qui on a donné accès à la base de données</span><strong>zabbix</strong>
+              <span
+              style="background-color:rgb(255,255,255);color:rgb(63,63,70);">.</span>
+        </p><pre><code class="language-text-plain">zcat /usr/share/zabbix-sql-scripts/mysql/server.sql.gz | mysql -u zabbix -p zabbix
+
+Enter password: #Mot de passe à renseigner
+
+(Au moment du “zcat” il faut attendre un petit moment et surtout ne pas “ctrl-c” avant la fin)
+
+#On se reconnecte à la base de données et on désactive la journalisation des logs.
+
+mysql -u root -p
+password #Ici vous renseignez le mot de passe configuré plus tôt pour le compte root MariaDB.
+
+#On désactive les logs.
+set global log_bin_trust_function_creators = 0;
+
+#On quitte.
+MariaDB [(none)]&gt; quit;</code></pre>
+        <p><i>(Au moment du “zcat” il faut attendre un petit moment et surtout ne pas “ctrl-c” avant la fin)</i>
+        </p>
+        <p>&nbsp;</p>
+        <p><span style="background-color:rgb(255,255,255);color:rgb(63,63,70);">On redémarre les services du </span><strong>serveur ZABBIX</strong>
+          <span
+          style="background-color:rgb(255,255,255);color:rgb(63,63,70);">, de l’</span><strong>agent ZABBIX</strong><span style="background-color:rgb(255,255,255);color:rgb(63,63,70);"> et d’</span><strong>Apache2</strong>
+            <span
+            style="background-color:rgb(255,255,255);color:rgb(63,63,70);">.</span>
+        </p><pre><code class="language-text-plain">systemctl restart zabbix-server zabbix-agent apache2</code></pre>
+        <p>&nbsp;</p>
+        <p><span style="background-color:rgb(255,255,255);color:rgb(63,63,70);">On ajoute les services en redémarrage automatique, utile si le serveur doit être redémarré.</span>
+        </p><pre><code class="language-text-plain">systemctl enable zabbix-server zabbix-agent apache2</code></pre>
+        <p>&nbsp;</p>
+        <p><span style="background-color:rgb(255,255,255);color:rgb(63,63,70);">Maintenant, on vérifie l’état du serveur Zabbix.</span>
+        </p><pre><code class="language-text-plain">systemctl status zabbix-server</code></pre>
+        <hr>
+        <p>Si le server est bien up, on peu marqué l'adresse IP de notre server dans
+          un navigateur en rajoutant /zabbix/.
+          <br><i>(<u>Exemple</u> : http://192.168.240.100/zabbix/)</i>
+        </p>
+        <p>On doit attérir sur cette page :</p>
+        <figure class="image">
+          <img src="ZABBIX%20SERVER/brave_sd5erJp2Wb.png">
+        </figure>
+        <p>&nbsp;</p>
+        <p>L'utilisateur sera “Admin” et son mdp sera “zabbix”</p>
+        <hr>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+      </div>
+    </div>
+  </body>
+
+</html>

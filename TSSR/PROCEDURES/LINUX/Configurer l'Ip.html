@@ -1,0 +1,30 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>Configurer l&#39;Ip</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>Configurer l&#39;Ip</h1>
+
+      <div class="ck-content">
+        <p>Effectuer la commande suivante :</p><pre><code class="language-text-plain">nano /etc/network/interfaces</code></pre>
+        <p>
+          <br>Et pour la configurer en static suivre cette exemple :</p><pre><code class="language-text-plain">auto ens33
+allow-hotplug ens33
+iface ens33 inet static
+
+address 192.168.240.10/24
+gateway 192.168.240.2
+dns-nameservers 1.1.1.1</code></pre>
+        <p>&nbsp;</p>
+      </div>
+    </div>
+  </body>
+
+</html>

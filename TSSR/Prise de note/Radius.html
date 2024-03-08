@@ -1,0 +1,142 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>Radius</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>Radius</h1>
+
+      <div class="ck-content">
+        <p><span class="text-huge"><strong>C'est quoi ?!</strong></span>
+        </p>
+        <p><span style="background-color:rgb(255,255,255);color:rgb(0,0,0);"><strong>RADIUS</strong> est un protocole réseau utilisé pour authentifier et autoriser l’accès des utilisateurs à un réseau, qu’il soit distant ou sur site.&nbsp;</span>
+        </p>
+        <p><span style="background-color:rgb(255,255,255);color:rgb(0,0,0);"><strong>RADIUS</strong> est également le protocole utilisé pour accéder aux équipements d’infrastructure qui font fonctionner le réseau. Le terme RADIUS est un acronyme qui signifie <strong>R</strong>emote <strong>A</strong>uthentication <strong>D</strong>ial-In <strong>U</strong>ser <strong>S</strong>ervice.</span>
+        </p>
+        <p><span class="text-huge" style="background-color:rgb(255,255,255);color:rgb(0,0,0);"><strong>Comment ca fonctionne ?!</strong></span>
+        </p>
+        <p><span style="background-color:rgb(255,255,255);color:rgb(0,0,0);"><strong>RADIUS</strong> s’appuie sur le modèle <strong>client/serveur</strong> pour <strong>authentifier l’accès des utilisateurs au réseau</strong>. En pratique, une <strong>demande d’accès</strong> à un réseau par <strong>un utilisateur</strong> est envoyée par <strong>un client</strong>, tel qu’un système utilisateur ou un point d’accès WiFi, à un serveur RADIUS à des fins d’authentification.</span>
+        </p>
+        <p><span style="background-color:rgb(255,255,255);color:rgb(0,0,0);">Les serveurs RADIUS sont généralement couplés à une base de données (ou service d’annuaire) distincte du </span>
+          <span
+          style="color:hsl(0, 0%, 0%);">fournisseur d’identité</span><span style="background-color:rgb(255,255,255);color:rgb(0,0,0);"> (IdP) qui sert de source de vérité pour les identités des utilisateurs.&nbsp;</span>
+        </p>
+        <p><span style="background-color:rgb(255,255,255);color:rgb(0,0,0);">Notez qu’un serveur RADIUS peut stocker les identités des utilisateurs, mais la plupart des organisations ne choisissent pas cette avenue car l’identité est verrouillée dans la plateforme RADIUS au lieu d’être disponible pour tous les types de ressources informatiques.</span>
+        </p>
+        <figure class="image image_resized" style="width:68.63%;">
+          <img src="Radius/RADIUS-withProxy.png">
+        </figure>
+        <p>&nbsp;</p>
+        <p><span class="text-huge"><strong>Principales fonctionnalités</strong></span>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p style="margin-left:0px;"><strong>Authentification :</strong> RADIUS permet de<strong> vérifier l'identité</strong> d'un
+          utilisateur qui tente de se <strong>connecter au réseau</strong>. Il utilise
+          généralement un mécanisme de <strong>nom d'utilisateur et de mot de passe</strong>.</p>
+        <p
+        style="margin-left:0px;"><strong>Autorisation :</strong> Une fois que l'utilisateur est authentifié, <strong>RADIUS</strong> peut
+          déterminer les autorisations accordées à cet utilisateur. Cela peut inclure
+          des droits d'accès spécifiques au réseau ou des politiques de sécurité.</p>
+          <p
+          style="margin-left:0px;"><strong>Comptabilisation :</strong> RADIUS permet de <strong>collecter des informations</strong> sur
+            l'<strong>utilisation du réseau</strong> par les <strong>utilisateurs</strong>.
+            Cela peut inclure des données telles que la <strong>durée de la session</strong>,
+            la <strong>quantité de données transférées</strong>, etc.</p>
+            <p style="margin-left:0px;"><strong>Gestion centralisée :</strong> RADIUS permet une <strong>gestion centralisée</strong> des <strong>informations d'authentification</strong>,
+              d'autorisation et de comptabilisation.</p>
+            <p style="margin-left:0px;">Cela signifie qu'un serveur <strong>RADIUS centralisé</strong> peut être
+              utilisé pour <strong>gérer l'accès à plusieurs équipements réseau</strong>.</p>
+            <p><span style="color:hsl(0, 0%, 0%);">Le protocole RADIUS est largement utilisé dans les réseaux d'entreprise, les fournisseurs d'accès Internet (FAI) et d'autres environnements où une gestion centralisée et sécurisée de l'accès au réseau est nécessaire.</span>
+            </p>
+            <p>&nbsp;</p>
+            <p><span class="text-huge">Comment ca fonctionne ?!</span>
+            </p>
+            <p>&nbsp;</p>
+            <p style="margin-left:0px;">Le fonctionnement du protocole RADIUS (Remote Authentication Dial-In User
+              Service) implique généralement trois composants principaux :</p>
+            <p style="margin-left:0px;"><strong>Les clients RADIUS</strong>, <strong>les serveurs RADIUS</strong> et
+              les <strong>bases de données d'utilisateurs</strong>.</p>
+            <p style="margin-left:0px;">Voici une description générale du processus de fonctionnement de RADIUS
+              :</p>
+            <p style="margin-left:0px;"><strong>Authentification :</strong>
+            </p>
+            <ul>
+              <li>Lorsqu'un utilisateur tente de se connecter à un réseau, le périphérique
+                d'accès (comme un concentrateur VPN, un serveur d'accès sans fil, ou un
+                NAS - Network Access Server) agit en tant que client RADIUS.</li>
+              <li>Le client RADIUS envoie une demande d'authentification (Access-Request)
+                au serveur RADIUS. Cette demande contient des informations telles que le
+                nom d'utilisateur et le mot de passe de l'utilisateur.</li>
+            </ul>
+            <p style="margin-left:0px;"><strong>Serveur RADIUS :</strong>
+            </p>
+            <ul>
+              <li>Le serveur RADIUS reçoit la demande d'authentification et la traite.</li>
+              <li>Il vérifie les informations d'identification de l'utilisateur en les comparant
+                avec sa propre base de données locale ou en interrogeant des sources d'authentification
+                externes telles que des bases de données d'utilisateurs, des serveurs LDAP
+                (Lightweight Directory Access Protocol), ou d'autres mécanismes d'authentification.</li>
+            </ul>
+            <p style="margin-left:0px;"><strong>Autorisation :</strong>
+            </p>
+            <ul>
+              <li>Si l'authentification est réussie, le serveur RADIUS peut envoyer une
+                réponse d'autorisation au client. Cette réponse peut contenir des informations
+                sur les droits d'accès attribués à l'utilisateur, tels que des paramètres
+                de configuration de réseau spécifiques ou des politiques de sécurité.</li>
+            </ul>
+            <p style="margin-left:0px;"><strong>Comptabilisation :</strong>
+            </p>
+            <ul>
+              <li>Pendant la session, le serveur RADIUS peut également collecter des informations
+                de comptabilisation sur l'utilisation du réseau par l'utilisateur.</li>
+              <li>Ces informations de comptabilisation peuvent être stockées localement
+                ou envoyées à un serveur RADIUS comptable dédié.</li>
+            </ul>
+            <p style="margin-left:0px;"><strong>Réponse au client :</strong>
+            </p>
+            <ul>
+              <li>Le client RADIUS transmet la réponse au périphérique d'accès, qui prend
+                les mesures appropriées en fonction de la réponse reçue. Si l'authentification
+                réussit, l'utilisateur est autorisé à accéder au réseau conformément aux
+                paramètres définis dans la réponse d'autorisation.</li>
+            </ul>
+            <p style="margin-left:0px;">Ce processus permet une gestion centralisée et sécurisée de l'authentification
+              et de l'autorisation des utilisateurs dans un réseau, tout en fournissant
+              des fonctionnalités de comptabilisation pour suivre l'utilisation des ressources
+              réseau. Le protocole RADIUS est largement utilisé dans les environnements
+              où la gestion centralisée de l'accès réseau est nécessaire, tels que les
+              réseaux d'entreprise et les fournisseurs d'accès Internet.</p>
+            <p style="margin-left:0px;">&nbsp;</p>
+            <p><span class="text-huge">La différence entre l'Active directory et Radius ?!</span>
+            </p>
+            <p>&nbsp;</p>
+            <p style="margin-left:0px;"><strong>Différences principales :</strong>
+            </p>
+            <ul>
+              <li><strong>Fonction principale :</strong> Radius se concentre principalement
+                sur l'authentification et l'autorisation des utilisateurs lorsqu'ils accèdent
+                à un réseau, tandis qu'Active Directory offre un service d'annuaire complet
+                pour la gestion centralisée des objets du réseau.</li>
+              <li><strong>Portée :</strong> Radius est plus spécifique à l'authentification
+                réseau, tandis qu'Active Directory offre une solution complète pour la
+                gestion des ressources réseau et des politiques de sécurité.</li>
+              <li><strong>Déploiement :</strong> Les serveurs Radius sont souvent déployés
+                sur des équipements réseau spécifiques, tandis qu'Active Directory est
+                déployé sur des serveurs Windows dédiés.</li>
+            </ul>
+            <p style="margin-left:0px;">En pratique, ces deux technologies peuvent être intégrées pour fournir
+              une solution d'authentification réseau robuste et centralisée, où Radius
+              gère l'authentification spécifique du réseau et Active Directory gère la
+              gestion des utilisateurs et des autorisations.</p>
+            <p>&nbsp;</p>
+      </div>
+    </div>
+  </body>
+
+</html>

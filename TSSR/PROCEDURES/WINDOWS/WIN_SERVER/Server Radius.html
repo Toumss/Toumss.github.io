@@ -1,0 +1,181 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>Server Radius</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>Server Radius</h1>
+
+      <div class="ck-content">
+        <p>Serveur RADIUS</p>
+        <p>RADIUS (Remote AuthenticationDial-In User Service) est un protocole client-serveur
+          permettant de centraliser des données d’authentification.</p>
+        <p>Le fonctionnement du service RADIUS est basé sur un système client/serveur
+          qui va avoir pour rôle de définir les accès d’utilisateurs distants à un
+          réseau.</p>
+        <p>Dans ce tutoriel, nous allons mettre en place un serveur RADIUS &nbsp;pour
+          l’utiliser dans l’authentification WiFi, afin de sécuriser au &nbsp;maximum
+          l’accès au réseau sans fil.</p>
+        <p>A la place d’utiliser une clé pour &nbsp;se connecter au réseau, nous
+          allons utiliser les informations &nbsp;d’authentification d’un Active Directory.
+          &nbsp;</p>
+        <p>Schéma de l'infrastructure</p>
+        <p>
+          <img src="Server%20Radius/Reseau_Groupe_3.png">
+        </p>
+        <p>Lorsqu’un client va se connecter au réseau (SSID) présent sur la borne
+          Wifi. Celle-ci va transmettre la requête au serveur RADIUS.</p>
+        <p>Le serveur va ensuite vérifier si les identifiants de sessions de la personne
+          sont bien présents sur l’Active Directory, si c’est le cas l’accès est
+          autorisé sinon l’accès est refusé.&nbsp;</p>
+        <hr>
+        <p>Installation Rôle</p>
+        <p>Pour commencer, allez dans le gestionnaire de serveur, cliquez sur « Gérer
+          » puis « Ajouter des rôles et fonctionnalités ».</p>
+        <p>Sur la première fenêtre laissez coché « Installation basée sur un rôle
+          ou une fonctionnalité ».</p>
+        <p>
+          <img src="Server%20Radius/133-3.png">
+        </p>
+        <p>
+          <img src="Server%20Radius/133-4.png">
+        </p>
+        <p>Sur &nbsp;la fenêtre suivante « Sélection du serveur » laissez par défaut
+          et &nbsp;cliquez à nouveau sur « Suivant »</p>
+        <p>Vous arriverez sur la fenêtre de &nbsp;sélection des rôles, cochez « Services
+          de stratégie et d’accès réseau »</p>
+        <p>Cliquez sur « Ajouter des fonctionnalités » et cliquez sur « Suivant »</p>
+        <p>Cliquez sur « Suivant » jusqu’à arriver sur la fenêtre de confirmation
+          d’installation du rôle et cliquez sur « Installer »</p>
+        <p>
+          <img src="Server%20Radius/3_image.png">
+        </p>
+        <p>
+          <img src="Server%20Radius/4_image.png">
+        </p>
+        <p>
+          <img src="Server%20Radius/5_image.png">
+        </p>
+        <p>Configuration rôle</p>
+        <p>Définition du profil</p>
+        <p>Maintenant que le rôle est installé nous allons devoir le <strong>configurer</strong>.</p>
+        <p>Pour cela dans le <strong>gestionnaire de serveur</strong> cliquez sur « <strong>Outils</strong> »
+          puis sur &nbsp;« <strong>Serveur NPS</strong> (Network Policy Server) »</p>
+        <p>Vous arriverez sur la fenêtre d’administration de RADIUS.</p>
+        <p>Nous allons commencer par configurer la stratégie de connexion à notre
+          &nbsp;réseau Wifi.</p>
+        <p>Dépliez le menu « <strong>Stratégie</strong> », faites un clic droit sur
+          &nbsp;« <strong>Stratégies réseau</strong> » et sélectionnez « <strong>Nouveau</strong> »</p>
+        <p>Pour la condition cliquez sur « <strong>Ajouter</strong> » et sélectionnez
+          « <strong>Groupes Windows</strong> » et cliquez à nouveau sur « <strong>Ajouter</strong> »</p>
+        <p>Cliquez sur « <strong>Ajouter des groupes</strong> »</p>
+        <p>
+          <img src="Server%20Radius/133-8.png">
+        </p>
+        <p>
+          <img src="Server%20Radius/133-9.png">
+        </p>
+        <p>
+          <img src="Server%20Radius/133-10.png">
+        </p>
+        <p>
+          <img src="Server%20Radius/133-11.png">
+        </p>
+        <p>
+          <img src="Server%20Radius/133-12.png">
+        </p>
+        <p>Vous &nbsp;allez ensuite devoir sélectionnez le groupe. Sachez que je
+          vais prendre &nbsp;un groupe qui contient tous les utilisateurs du domaine</p>
+        <p>Vous pouvez &nbsp;restreindre l’accès en créant un groupe sur l’Active
+          Directory et en &nbsp;intégrant à ce groupe les utilisateurs pouvant se
+          connecter au réseau WiFi en question.</p>
+        <p>Écrivez utilisateurs et cliquez sur « Vérifier les noms »</p>
+        <p>Sélectionnez &nbsp;« Utilisateurs du domaine » et cliquez sur « OK » &nbsp;jusqu’à
+          revenir sur &nbsp;la fenêtre pour spécifier les conditions et cliquez de
+          nouveau sur &nbsp;« Ajouter »</p>
+        <p>Cette fois ci sélectionnez « Type de port NAS » et cliquez sur « Ajouter…
+          »</p>
+        <p>Sélectionnez les 2 options comme ci-dessous et cliquez sur « OK ». Cliquez
+          sur « Suivant » sur la fenêtre des conditions</p>
+        <p>Laissez coché « Accès accordé » et cliquez sur « Suivant »</p>
+        <p>Pour les méthodes authentification, cliquez sur « Ajouter… ».</p>
+        <p>Sélectionnez « Microsoft PEAP » cliquez sur « OK » et cliquez sur « Suivant
+          » sur l’autre fenêtre.</p>
+        <p>
+          <img src="Server%20Radius/133-13.png">
+        </p>
+        <p>
+          <img src="Server%20Radius/133-14.png">
+        </p>
+        <p>
+          <img src="Server%20Radius/133-15.png">
+        </p>
+        <p>
+          <img src="Server%20Radius/133-16.png">
+        </p>
+        <p>
+          <img src="Server%20Radius/133-17.png">
+        </p>
+        <p>
+          <img src="Server%20Radius/image.png">
+        </p>
+        <p>
+          <img src="Server%20Radius/133-19.png">
+        </p>
+        <p>Sur &nbsp;la fenêtre suivante « Configurer des contraintes », laissez
+          par défaut &nbsp;et cliquez sur « Suivant »</p>
+        <p>Faites de même pour la fenêtre « Configurer &nbsp;les paramètres »</p>
+        <p>Une fenêtre récapitulant la configuration va &nbsp;apparaître cliquez
+          sur « Terminer »</p>
+        <p>Ajout de la borne</p>
+        <p>Pour que l’accès fonctionne, nous allons devoir ajouter la borne WiFi
+          sur le serveur RADIUS.</p>
+        <p>Elle va avoir le rôle de NAS (Network Access Server) qui est un équipement
+          intermédiaire entre le serveur RADIUS et l’utilisateur.</p>
+        <p>Allez dans le gestionnaire de serveur et cliquez sur &nbsp;« Outils »
+          puis sur « Serveur NPS (Network Policy Server) »</p>
+        <p>Dans &nbsp;la fenêtre qui vient de s’ouvrir, déroulez le menu « Client
+          et serveurs &nbsp;RADIUS », faites un clic droit sur « Clients RADIUS »
+          et sélectionnez &nbsp;« Nouveau »</p>
+        <p>
+          <img src="Server%20Radius/133-20.png">
+        </p>
+        <p>
+          <img src="Server%20Radius/133-21.png">
+        </p>
+        <p>Nous allons renseigner les informations de la borne wifi sur le serveur</p>
+        <p>• Laissez coché « Activer ce client RADIUS »</p>
+        <p>• Nom convivial : Entrez le nom d’hôte de la borne WiFi</p>
+        <p>• Adresse IP : Renseignez l’adresse IP de la borne WiFi</p>
+        <p>• Pour le secret laissez coché « Manuel » et renseignez la clé que vous
+          saisirez aussi sur la borne WiFi</p>
+        <p>Cliquez ensuite sur « OK »</p>
+        <p>
+          <img src="Server%20Radius/2_image.png">
+        </p>
+        <p>Pour le certificat, ouvrir la console MMC puis suivre le screen</p>
+        <p>
+          <img src="Server%20Radius/6_image.png">
+        </p>
+        <p>
+          <img src="Server%20Radius/1_image.png">
+        </p>
+        <p>Parametrage ROUTEUR</p>
+        <p>
+          <img src="Server%20Radius/133-2.png">
+        </p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>En éssayant de se connecter avec un terminal, SURTOUT faire en sorte de
+          ne pas validé le certificat !</p>
+      </div>
+    </div>
+  </body>
+
+</html>

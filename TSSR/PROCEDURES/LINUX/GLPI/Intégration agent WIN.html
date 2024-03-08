@@ -1,0 +1,58 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>Intégration agent WIN</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>Intégration agent WIN</h1>
+
+      <div class="ck-content">
+        <p>Pour importer son ordi en tant qu'agent dans GLPI on commence a télécharger
+          l'agent :</p>
+        <p><a href="https://github.com/glpi-project/glpi-agent/releases/tag/1.6.1">https://github.com/glpi-project/glpi-agent/releases/tag/1.6.1</a>
+        </p>
+        <p>Une fois télécharger on lance l'installation :</p>
+        <p>On fait une installation typique, <i>“next” “next” “next”</i> arrivé à cette
+          fenêtre dans “Remote Targets” <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(1)</code></span> on
+          indique notre adresse ip accompagner de “http://” et finir par “/glpi” <i>(ex : </i>
+          <a
+          href="http://192.168.240.138/glpi),"><i>http://192.168.240.138/glpi)</i>,</a>puis on clic sur “next” <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(2)</code></span> :</p>
+        <figure
+        class="image">
+          <img src="Int%C3%A9gration%20agent%20WIN/msiexec_caFQGKVQxC.png">
+          </figure>
+          <p>&nbsp;</p>
+          <p>On oublie pas dans notre interface graphique GLPI d'activé l'inventaire
+            en passant par l'onglet “<strong>Administration</strong>” <span style="background-color:hsl(0, 75%, 60%);color:hsl(0, 0%, 100%);"><code>(1)</code></span>,
+            puis “<strong>Inventaire</strong>” <span style="background-color:hsl(0, 75%, 60%);color:hsl(0, 0%, 100%);"><code>(2)</code></span>,
+            et on active l'inventaire <span style="background-color:hsl(0, 75%, 60%);color:hsl(0, 0%, 100%);"><code>(3)</code></span>, <i>(on oublie pas de sauvegarder en bas de la page)</i> :</p>
+          <figure
+          class="image">
+            <img src="Int%C3%A9gration%20agent%20WIN/brave_kWW7dxhVao.png">
+            </figure>
+            <p>&nbsp;</p>
+            <p>Et pour finir pour faire entrer notre agent dans GLPI on se rend sur une
+              page web et on entre “<strong>http://localhost:62354/</strong>”, on clic
+              sur “Force an inventory” <span style="background-color:hsl(0, 75%, 60%);color:hsl(0, 0%, 100%);"><code>(1)</code></span> et
+              si ca se passe bien on a “The current status is running task inventory”
+              <span
+              style="background-color:hsl(0, 75%, 60%);color:hsl(0, 0%, 100%);"><code>(2)</code>
+                </span>:</p>
+            <figure class="image">
+              <img src="Int%C3%A9gration%20agent%20WIN/brave_kD6nZf4I3b.png">
+            </figure>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+      </div>
+    </div>
+  </body>
+
+</html>

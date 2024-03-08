@@ -1,0 +1,67 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>Configurer Switch</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>Configurer Switch</h1>
+
+      <div class="ck-content">
+        <p>A partir d'un switch sur packet tracer <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(1)</code></span>,
+          ce rendre dans le CLI <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(2)</code></span> puis
+          entrer les commandes suivantes :</p>
+        <figure class="image">
+          <img src="Configurer%20Switch/PacketTracer_Syq92r1W4j.png">
+        </figure>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>Avant tout :</p><pre><code class="language-text-plain">Switch&gt;enable
+Switch#configure terminal
+Enter configuration commands, one per line, End with CNTL/Z</code></pre>
+        <p>Pour changer le hostname du Switch taper la commande :</p><pre><code class="language-text-plain">hostname "SW-1"</code></pre>
+        <p>Pour crée les VLAN taper les commandes suivante :</p><pre><code class="language-text-plain">SW-1(config)#vlan 10
+SW-1(config)#name VLAN10
+SW-1(config)#vlan 20
+SW-1(config)#name VLAN20
+SW-1(config)#end</code></pre>
+        <p>Pour rediriger les ports en fonction des VLAN taper les commandes suivantes
+          :</p><pre><code class="language-text-plain">SW-1#configure terminal
+SW-1(config)#interface range FastEthernet 0/1-7
+SW-1(config-if-range)#switchport mode access
+SW-1(config-if-range)#switchport access vlan 10
+SW-1(config-if-range)#switchport nonegociate
+SW-1(config-if-range)#exit</code></pre>
+        <p>&nbsp;</p>
+        <p>Pour faire communiquer deux switch qui possède 2 réseaux en commun il
+          faut connecter le switch <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(1)</code></span> en
+          mode trunk, comme l'autre est automatiquement en mode dynamic auto cela
+          fonctionnera, mais le mieux et de mettre le switch <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(2)</code></span> en
+          mode trunk aussi :</p>
+        <figure class="image">
+          <img src="Configurer%20Switch/PacketTracer_HAAYdo7LRv.png">
+        </figure>
+        <p>&nbsp;</p>
+        <p>Pour changer le mode entre (<i>acces, trunk, mode dynamic désirable, dynamic auto…</i>)
+          :</p><pre><code class="language-text-plain">SW-1#configure terminal
+SW-1(config)#interface "g0/1" 
+SW-1(config)#switchport mode "trunk/acces/dynamic desirable..."
+SW-1(config)#exit</code></pre>
+        <p>&nbsp;</p>
+        <p>Pour que l'interface d'un switch en mode trunk n'autorise que certaine
+          VLAN taper les commandes suivante :</p><pre><code class="language-text-plain">SW-1#configure terminal
+SW-1(config)#interface "g0/1"
+SW-1(config)#switchport trunk allowed vlan 10,20 (...)
+SW-1(config)#exit</code></pre>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+      </div>
+    </div>
+  </body>
+
+</html>

@@ -1,0 +1,74 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>Conférence</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>Conférence</h1>
+
+      <div class="ck-content">
+        <p><strong>Crée un contexte “Conférence” :</strong>
+        </p>
+        <p>[CONFERENCE]</p>
+        <p>exten =&gt; 100, 1,Answer()
+          <br>exten =&gt; 100, n,Dial(SIP/100)&nbsp;
+          <br>exten =&gt; 100, n,Hangup()&nbsp;</p>
+        <p>
+          <br>exten =&gt; 200, 1,Answer() &nbsp;
+          <br>exten =&gt; 200, n,Dial(SIP/200)&nbsp;
+          <br>exten =&gt; 200, n,Hangup()&nbsp;</p>
+        <p>
+          <br>exten =&gt; 666,1,Progress() ; <i><strong>le numero 666 permet aux invités de se connecter (password 1234)</strong></i>&nbsp;
+          <br>exten =&gt; 666,2,Wait(1)&nbsp;
+          <br>exten =&gt; 666,3,ConfBridge(1,default_bridge,default_user)&nbsp;</p>
+        <p>
+          <br>exten =&gt; 777,1,Progress() ; <i><strong>le numero 777 permet à l'administrateur de se connecter (password 1234)</strong></i>&nbsp;
+          <br>exten =&gt; 777,2,Wait(1)&nbsp;
+          <br>exten =&gt; 777,3,ConfBridge(1,default_bridge,admin_user)</p>
+        <p><strong>Se rendre dans “confbridge” pour y coller le texte qui suis :</strong>
+        </p>
+        <p>nano /etc/asterisk/confbridge.conf</p>
+        <p>&nbsp;Puis copier-coller le texte suivant :&nbsp;</p>
+        <p>[general]</p>
+        <p>[admin_user]</p>
+        <p>type=user ; permet d'appeler / recevoir
+          <br>pin=1234 ; pin pour intégrer la conférence&nbsp;
+          <br>marked=yes ; je sais pas trop&nbsp;
+          <br>admin=yes ; c'est lui qui administre
+          <br>music_on_hold_when_empty=yes ; musique d'attente pendant que la conférence
+          est vide
+          <br>announce_user_count=yes ; annonce le nombre d'utilisateurs connectés sur
+          la conférence
+          <br>&nbsp;</p>
+        <p>[default_user]</p>
+        <p>type=user ; permet d'appeler / recevoir
+          <br>pin=1234 ; pin pour intégrer la conférence
+          <br>wait_marked=yes ; Met l'utilisateur en attente
+          <br>end_marked=yes ; previent qu'il quitte la conférence
+          <br>music_on_hold_when_empty=yes ; met une musique d'attente si l'administrateur
+          n'est pas en ligne
+          <br>announce_user_count=yes ; annonce le nombre d'utilisateurs connectés sur
+          la conférence
+          <br>
+          <br>[default_bridge]
+          <br>
+          <br>type=bridge ; permet de définir une conférence
+          <br>max_members=10 ; nombre d'utilisateurs maximum</p>
+        <p>Puis sauvegarder (ctrl + o) et quitter (ctrl + x)</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+      </div>
+    </div>
+  </body>
+
+</html>

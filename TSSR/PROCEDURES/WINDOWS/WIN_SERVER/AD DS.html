@@ -1,0 +1,99 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>AD DS</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>AD DS</h1>
+
+      <div class="ck-content">
+        <p><span class="text-big"><strong><u>INSTALLER SERVICE AD DS ET SERVER DNS :</u></strong></span>
+        </p>
+        <p>&nbsp;</p>
+        <p style="margin-left:40px;">1) Dans le géstionnaire de server clic sur “Gérer” <span style="background-color:hsl(0,75%,60%);">(1)</span> puis
+          "ajouter des rôles et fonctionnalité <span style="background-color:hsl(0,75%,60%);">(2)</span> :</p>
+        <figure
+        class="image">
+          <img src="AD%20DS/1.png">
+          </figure>
+          <p>&nbsp;</p>
+          <p style="margin-left:40px;">2) Clic sur “suivant” jusqu'a arrivé à l'ajout de “rôle de serveur”, sélectionner
+            “Server DNS” <span style="background-color:hsl(0,75%,60%);">(1)</span>,
+            Services AD DS <span style="background-color:hsl(0,75%,60%);">(2)</span>,
+            puis suivant <span style="background-color:hsl(0,75%,60%);">(3)</span> :</p>
+          <figure
+          class="image">
+            <img src="AD%20DS/2.png">
+            </figure>
+            <p>L'adresse IP du server doit être statique pour configurer le DNS.</p>
+            <p>&nbsp;</p>
+            <p style="margin-left:40px;">3) Une fois l'installation du DNS et du service AD/DS effectuer, clic
+              sur le petit drapeau <span style="background-color:hsl(0,75%,60%);">(1)</span> puis
+              Promouvr le server en contrôleur de domaine. <span style="background-color:hsl(0,75%,60%);">(2)</span>
+            </p>
+            <figure class="image">
+              <img src="AD%20DS/3.png">
+            </figure>
+            <p>&nbsp;</p>
+            <p style="margin-left:40px;">4) Si c'est une nouvelle forêt, ajouter une nouvelle forêt <span style="background-color:hsl(0,75%,60%);">(1)</span>,
+              puis donné un nom de domaine racine <span style="background-color:hsl(0,75%,60%);">(2)</span> :</p>
+            <figure
+            class="image">
+              <img src="AD%20DS/4.png">
+              </figure>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p style="margin-left:40px;">5) Définir un mot de passe <span style="background-color:hsl(0,75%,60%);">(1)</span> et
+                le confirmer <span style="background-color:hsl(0,75%,60%);">(2)</span> :</p>
+              <figure
+              class="image">
+                <img src="AD%20DS/5.png">
+                </figure>
+                <p>&nbsp;</p>
+                <p style="margin-left:40px;">6) Laisser le nom de domaine NetBIOS comme il est <span style="background-color:hsl(0,75%,60%);">(1)</span> et
+                  suivant :</p>
+                <figure class="image">
+                  <img src="AD%20DS/6.png">
+                </figure>
+                <p>&nbsp;</p>
+                <p style="margin-left:40px;">7) Suivant jusqu'a ce qu'on nous propose l'ction “installer"<span style="background-color:hsl(0,75%,60%);">(1)</span> et
+                  attendre que le PC redémarre :</p>
+                <figure class="image">
+                  <img src="AD%20DS/7.png">
+                </figure>
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+                <p><span class="text-big"><u>Script PowerShell</u></span> :</p>
+                <p>Import-Module ADDSDeployment
+                  <br>Install-ADDSForest `
+                  <br>-CreateDnsDelegation:$false `
+                  <br>-DatabasePath "C:\Windows\NTDS" `
+                  <br>-DomainMode "WinThreshold" `
+                  <br>-DomainName "TSSR.LOCAL" `
+                  <br>-DomainNetbiosName "TSSR" `
+                  <br>-ForestMode "WinThreshold" `
+                  <br>-InstallDns:$true `
+                  <br>-LogPath "C:\Windows\NTDS" `
+                  <br>-NoRebootOnCompletion:$false `
+                  <br>-SysvolPath "C:\Windows\SYSVOL" `
+                  <br>-Force:$true</p>
+      </div>
+    </div>
+  </body>
+
+</html>

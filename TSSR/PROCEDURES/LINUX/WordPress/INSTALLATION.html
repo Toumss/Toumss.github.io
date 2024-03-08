@@ -1,0 +1,74 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>INSTALLATION</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>INSTALLATION</h1>
+
+      <div class="ck-content">
+        <p>On install “unzip” :</p><pre><code class="language-text-plain">apt-get install unzip</code></pre>
+        <p>On se rend dans le bon repertoire :</p><pre><code class="language-text-plain">cd /var/www/</code></pre>
+        <p>Puis on télécharge le wordpress compréssé :</p><pre><code class="language-text-plain">wget https://wordpress.org/latest.zip</code></pre>
+        <p>On décompresse le fichier .zip :</p><pre><code class="language-text-plain">unzip latest.zip</code></pre>
+        <p>Puis on efface le dossier compresser :</p><pre><code class="language-text-plain">rm latest.zip</code></pre>
+        <hr>
+        <p>On active le rewrite :</p><pre><code class="language-text-plain">a2enmod rewrite</code></pre>
+        <p>On active le SSL :</p><pre><code class="language-text-plain">a2enmod SSL</code></pre>
+        <p>On active le server :</p><pre><code class="language-text-plain">a2ensite wordpress.conf</code></pre>
+        <p>On restart le server :</p><pre><code class="language-text-plain">systemctl restart apache2</code></pre>
+        <hr>
+        <p>On se rend dans le bon repertoire :</p><pre><code class="language-text-plain">cd /etc/apache2/sites-available/</code></pre>
+        <p>Puis on crée le dossier de configuration :</p><pre><code class="language-text-plain">touch wordpress.conf</code></pre>
+        <p>On le configure comme ceci :</p><pre><code class="language-text-plain">&lt;VirtualHost *:80&gt;
+
+Servername wordpress
+RewriteEngine on
+RewriteCond ${HTTPS} !on
+RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
+
+&lt;/VirtualHost&gt;
+
+&lt;VirtualHost *:443&gt;
+
+ServerName wordpress.com
+
+DocumentRoot /var/www/wordpress
+
+&lt;Directory /var/www/wordpress&gt;
+Options -Indexes
+AllowOverride All
+Order allow,deny
+allow from all
+&lt;/Directory&gt;
+
+ErrorLog ${APACHE_LOG_DIR}/wordpress_error.log
+CustomLog ${APACHE_LOG_DIR}/wordpress_access.log combined
+ServerSignature Off</code></pre>
+        <p>On active le site :</p><pre><code class="language-text-plain">a2ensite wordpress.site</code></pre>
+        <p>Et on désactive celui de base :</p><pre><code class="language-text-plain">a2dissite 000.default.site</code></pre>
+        <p>Puis on restart le server :</p><pre><code class="language-text-plain">systemctl restart apache2</code></pre>
+        <hr>
+        <p>On donne les droit a www-data :</p><pre><code class="language-text-plain">chown -R www-data:www-data wordpress/</code></pre>
+        <hr>
+        <p>Au cas ou on change le port ne pas oublier de se rendre dans :</p><pre><code class="language-text-plain">cd /etc/apache2</code></pre>
+        <p>Puis on va modifier le fichier “ports.conf” :</p><pre><code class="language-text-plain">nano ports.conf</code></pre>
+        <figure
+        class="image">
+          <img src="INSTALLATION/WindowsTerminal_oFnkkZSum6.png">
+          </figure>
+          <p>On ajoute les port que l'on veux utiliser.</p>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+      </div>
+    </div>
+  </body>
+
+</html>

@@ -1,0 +1,92 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../../../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>Profil itinérant GPO</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>Profil itinérant GPO</h1>
+
+      <div class="ck-content">
+        <p style="margin-left:40px;">1) Dans la modification GPO on se rend dans “Ordinateur” <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(1)</code></span>,
+          “Stratégie” <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(2)</code></span>,
+          “Modèles d'administration” <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(3)</code></span>,
+          “Système” <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(4)</code></span>,
+          on commence par “Ouverture de session” <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(5)</code></span> :</p>
+        <figure
+        class="image">
+          <img src="Profil%20itin%C3%A9rant%20GPO/1_image.png">
+          </figure>
+          <p style="margin-left:440px;"><i><strong>On va activer cette option</strong> :</i>
+          </p>
+          <figure class="image">
+            <img src="Profil%20itin%C3%A9rant%20GPO/image.png">
+          </figure>
+          <p>L’ordinateur <strong>attendra la réponse réseau du serveur pour ouvrir la session</strong> utilisateur.</p>
+          <p>Le processus de synchronisation des dossiers prendra effet lors de l’ouverture
+            de la session. Les dossiers itinérants seront créés lorsqu’un nouvel utilisateur <strong>se connectera sur le domaine.</strong>
+          </p>
+          <p style="margin-left:40px;">3) Dans “Profil utilisateur” on s'attardera sur 3 paramètres :</p>
+          <figure
+          class="image image_resized" style="width:59.88%;">
+            <img src="Profil%20itin%C3%A9rant%20GPO/2_image.png">
+            </figure>
+            <p style="margin-left:120px;"><i>Pour le <strong>premier paramètre</strong> "Ajouter le groupe de sécurité Administrateur aux profils utilisateur itinérants </i>
+              <span
+              style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code><i>(1)</i></code>
+                </span><i> :</i>
+            </p>
+            <figure class="image">
+              <img src="Profil%20itin%C3%A9rant%20GPO/3_image.png">
+            </figure>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p style="margin-left:40px;"><i>Pour le <strong>second paramètre</strong> “Définir un chemin d'accès de profil itinérant pour tous les utilisateurs ouvrant une session”, activé en <strong>spécifiant un chemin réseau pour le dossier utilisateurs à sauvegarder</strong>&nbsp;:</i>
+            </p>
+            <figure class="image">
+              <img src="Profil%20itin%C3%A9rant%20GPO/4_image.png">
+            </figure>
+            <p>&nbsp;</p>
+            <p style="margin-left:40px;"><i>La dernière stratégie spécifiera le <strong>chemin du dossier de base de l’utilisateur&nbsp;</strong>(ce qui <strong>créera un nouveau dossier pour chaque utilisateur.</strong> (Ici mon lecteur réseau spécifié est P et il est sur mon serveur) :</i>
+            </p>
+            <p>&nbsp;</p>
+            <figure class="image">
+              <img src="Profil%20itin%C3%A9rant%20GPO/5_image.png">
+            </figure>
+            <p>&nbsp;</p>
+            <p>On pourra enfin dans les <strong>GPO par utilisateurs&nbsp;</strong>définir
+              ce que l’on veut sauvegarder, ainsi que la limite de taille des dossiers&nbsp;:</p>
+            <figure
+            class="image">
+              <img src="Profil%20itin%C3%A9rant%20GPO/6_image.png">
+              </figure>
+              <p>&nbsp;</p>
+              <ul style="list-style-type:disc;">
+                <li><i>Les dossiers seront créés lors de la première connexion de chaque nouvel utilisateur</i>
+                </li>
+                <li><i>Les administrateurs en auront le contrôle total</i>
+                </li>
+                <li><i>L’ouverture de session ne se fera pas si le serveur n’a pas répondu pour redescendre les fichiers des utilisateurs&nbsp;</i>
+                </li>
+              </ul>
+              <p><i>(On peut modifier encore quelques stratégies pour les connexions lentes / relancer N fois la demande au serveur…)</i>
+              </p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+      </div>
+    </div>
+  </body>
+
+</html>

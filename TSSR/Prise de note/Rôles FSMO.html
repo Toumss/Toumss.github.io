@@ -1,0 +1,70 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>Rôles FSMO</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>Rôles FSMO</h1>
+
+      <div class="ck-content">
+        <p><i>Il ne peut être affecter qu'a un seul contrôleur de domaine.</i>
+        </p>
+        <p><strong><u>Il existe 5 rôles FSMO</u> :</strong>
+        </p>
+        <p>A la racine du domaine :</p>
+        <ul>
+          <li><strong>Maitre d'attribution des noms de domaine</strong>
+            <ul>
+              <li>Distribuer des noms de domaine aux contrôleur de domaine, il est unique
+                au sein d'une forêt.</li>
+            </ul>
+          </li>
+          <li><strong>Contrôleur de schéma (SM)</strong>
+            <ul>
+              <li>Gère la structure de l'annuaire Active Directory au sein de la forêt,
+                il est unique au sein d'une forêt.</li>
+            </ul>
+          </li>
+        </ul>
+        <p>Dans chaque domaine :</p>
+        <ul>
+          <li><strong>Maitre d'infrastructure</strong>
+            <ul>
+              <li>Gérer les références entre plusieurs objets, il est unique au sein du
+                domaine.</li>
+            </ul>
+          </li>
+          <li><strong>Maitre RID</strong>
+            <ul>
+              <li>Il attribut des blocs de RID aux Domaine Contrôleur pour générer les SID
+                des futurs objets</li>
+            </ul>
+          </li>
+          <li><strong>Emulateur PDC</strong>
+            <ul>
+              <li>Gestion de l'heure (serveur de temps) et mot de passe</li>
+            </ul>
+          </li>
+        </ul>
+        <p><span style="background-color:rgb(255,255,255);color:rgb(68,68,68);"><i>Pour transférer un rôle d’un contrôleur de domaine vers un autre, on pourra utiliser l’interface graphique de Windows ou encore l’utilitaire « ntdsutil ».</i></span>
+        </p>
+        <p><span style="background-color:rgb(255,255,255);color:rgb(68,68,68);">Au cas ou un contrôleur de domaine qui dispose d'un ou plusieurs rôles est corrompu, il faudra réaliser une opération de « </span><i>seizing</i>
+          <span
+          style="background-color:rgb(255,255,255);color:rgb(68,68,68);">» qui consiste en fait à forcer la récupération d’un ou de plusieurs rôles,
+            ce qui sera d’une utilité cruciale en cas de corruption d’un contrôleur
+            de domaine.&nbsp;</span>
+            <br><span style="background-color:rgb(255,255,255);color:rgb(68,68,68);">Là encore, on pourra procéder via l’utilitaire « </span><i>ntdsutil</i>
+            <span
+            style="background-color:rgb(255,255,255);color:rgb(68,68,68);">».</span>
+        </p>
+      </div>
+    </div>
+  </body>
+
+</html>

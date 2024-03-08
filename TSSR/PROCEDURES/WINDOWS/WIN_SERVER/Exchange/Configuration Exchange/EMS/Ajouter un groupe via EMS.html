@@ -1,0 +1,42 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../../../../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>Ajouter un groupe via EMS</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>Ajouter un groupe via EMS</h1>
+
+      <div class="ck-content">
+        <p>Pour ajouter un groupe via la console EMS, écrire la commande suivante
+          <span
+          style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(1)</code>
+            </span>:&nbsp;</p><pre><code class="language-text-plain">New-DistributionGroup -Name "Test" -Type "Security/Distribution/Distribution Dynamic"</code></pre>
+        <figure
+        class="image">
+          <img src="Ajouter%20un%20groupe%20via%20EMS/vmware_vtgUuiFcDZ.png">
+          </figure>
+          <p>Si la commande a fonctionner on doit voir “<strong>Name</strong>" ”<strong>Display</strong>"
+            “<strong>GroupType</strong>” “<strong>PrimarySmtpAddress</strong>”
+            <span
+            style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(2)</code>
+              </span>
+          </p>
+          <p>Pour ensuite ajouter un utilisateur dans un groupe utiliser la commande
+            :&nbsp;</p><pre><code class="language-text-plain">Add-DistributionGroupeMember -Identity “Test” -Member “Olivier@tssr.local”</code></pre>
+          <figure
+          class="image">
+            <img src="Ajouter%20un%20groupe%20via%20EMS/vmware_v50EoAv2H4.png">
+            </figure>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+      </div>
+    </div>
+  </body>
+
+</html>

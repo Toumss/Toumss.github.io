@@ -1,0 +1,41 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>Ajouter un User et lui donner des droits</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>Ajouter un User et lui donner des droits</h1>
+
+      <div class="ck-content">
+        <p style="margin-left:40px;">Mettre les droits Root</p><pre><code class="language-text-plain">su -</code></pre>
+        <p
+        style="margin-left:40px;">Ajouter un utilisateur</p><pre><code class="language-text-plain">adduser “Nom utilisateur”</code></pre>
+          <p
+          style="margin-left:40px;">Crée un groupe</p><pre><code class="language-text-plain">groupadd "NomDuGroupe"</code></pre>
+            <p
+            style="margin-left:40px;">Crée un utilisateur et l'ajouter directement a un groupe éxistant</p><pre><code class="language-text-plain">adduser "NomUser" --ingroup "NomDuGroupe"</code></pre>
+              <p
+              style="margin-left:40px;">Ajouter un utilisateur à un groupe</p><pre><code class="language-text-plain">usermod -aG "NomDugroupe"</code></pre>
+                <p
+                style="margin-left:40px;">Crée un dossier par éxemple dans “mnt/data”&nbsp;</p><pre><code class="language-text-plain">cd mnt/data 
+mkdir "nomdudossier"</code></pre>
+                  <p style="margin-left:40px;">&nbsp;Donne la propriété du dossier a l'utilisateur</p><pre><code class="language-text-plain">chown “nom_d'utilisateur”:"nom_du_groupe" “Nom_du_dossier”</code></pre>
+                  <p
+                  style="margin-left:40px;">5) Donne les droits TOTAL sur le dossier au propriétaire du dossier. “0.0.0”
+                    Proprio/group/user</p><pre><code class="language-text-plain">chmod 700 “nom_du_dossier”</code></pre>
+                    <p
+                    style="margin-left:40px;">Donner un fichier a un groupe</p><pre><code class="language-text-plain">chgrp "NomDugroup" "NomDuDossier"</code></pre>
+                      <p>&nbsp;</p>
+                      <p style="margin-left:40px;">&nbsp;</p>
+                      <p style="margin-left:40px;">&nbsp;</p>
+      </div>
+    </div>
+  </body>
+
+</html>

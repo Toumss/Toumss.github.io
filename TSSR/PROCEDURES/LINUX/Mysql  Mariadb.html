@@ -1,0 +1,32 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>Mysql / Mariadb</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>Mysql / Mariadb</h1>
+
+      <div class="ck-content">
+        <p>Dans son server linux taper la commande :</p><pre><code class="language-text-plain">apt install mariadb -server</code></pre>
+        <p>Pour crée une base de donnée utiliser la commande :</p><pre><code class="language-text-plain">CREATE DATABASE nomdeladatabase ;</code></pre>
+        <p>Pour crée un nouvel utilisateur utiliser la commande :</p><pre><code class="language-text-plain">CREATE USER 'nouveau_utilisateur'@'localhost' IDENTIFIED BY 'mot_de_passe';</code></pre>
+        <p>Pour donner tous les privilèges a u utilisateur utiliser la commande :</p><pre><code class="language-text-plain">GRANT ALL PRIVILEGES ON * . * TO 'nouveau_utilisateur'@'localhost';</code></pre>
+        <p>Pour voir les databases présente sur mariadb utiliser la commande :</p><pre><code class="language-text-plain">show databases ;</code></pre>
+        <p>Pour entrer dans une databases utiliser la commande :</p><pre><code class="language-text-plain">use nomdeladatabase</code></pre>
+        <p>Pour voir les utilisateur qui ont des priviliege dans cette database utiliser
+          la commande :</p><pre><code class="language-text-plain">show grants ;</code></pre>
+        <p>&nbsp;</p>
+        <p>Pour integrer un utilisateur dans une base de domaine il faut lui donner
+          des privilèges dans cette database a l'aide de la commande :</p><pre><code class="language-text-plain">GRANT ALL PRIVILEGES ON Nintendo.* TO 'mario'@'tssr.local';</code></pre>
+        <p>&nbsp;</p>
+      </div>
+    </div>
+  </body>
+
+</html>

@@ -1,0 +1,67 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>SPF</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>SPF</h1>
+
+      <div class="ck-content">
+        <p><strong>Sender Policy Framework</strong><span style="background-color:rgb(255,255,255);color:rgb(32,33,34);"> (</span><strong>SPF</strong>
+          <span
+          style="background-color:rgb(255,255,255);color:rgb(32,33,34);">) est une norme de vérification du</span><a href="https://fr.wikipedia.org/wiki/Nom_de_domaine">nom de domaine</a>
+            <span
+            style="background-color:rgb(255,255,255);color:rgb(32,33,34);">de l'expéditeur d'un</span><a href="https://fr.wikipedia.org/wiki/Courrier_%C3%A9lectronique">courrier électronique</a>
+              <span
+              style="background-color:rgb(255,255,255);color:rgb(32,33,34);">, normalisée dans la</span>RFC<span style="background-color:rgb(255,255,255);color:rgb(32,33,34);">&nbsp;7208</span>
+                <a
+                href="https://fr.wikipedia.org/wiki/Sender_Policy_Framework#cite_note-RFC-7208-t-d-1"><sup>1</sup>
+                  </a><span style="background-color:rgb(255,255,255);color:rgb(32,33,34);"> (section 3.1)</span>
+                  <a
+                  href="https://fr.wikipedia.org/wiki/Sender_Policy_Framework#cite_note-2"><sup>2</sup>
+                    </a><span style="background-color:rgb(255,255,255);color:rgb(32,33,34);">. L'adoption de cette norme est de nature à réduire le </span>
+                    <a
+                    href="https://fr.wikipedia.org/wiki/Spam">spam</a><span style="background-color:rgb(255,255,255);color:rgb(32,33,34);">.</span>
+        </p>
+        <p>&nbsp;</p>
+        <p style="margin-left:0px;">Le protocole <a href="https://fr.wikipedia.org/wiki/Simple_Mail_Transfer_Protocol">Simple Mail Transfer Protocol</a> (SMTP)
+          utilisé pour le transfert du courrier électronique sur Internet ne prévoit
+          pas de mécanisme de vérification de l'expéditeur, c'est-à-dire qu'il est
+          facile d'envoyer un courrier avec une adresse d'expéditeur factice, voire
+          usurpée. SPF vise à réduire les possibilités d'usurpation en publiant,
+          dans le <a href="https://fr.wikipedia.org/wiki/Domain_Name_System">DNS</a>,
+          un enregistrement (de type TXT)<a href="https://fr.wikipedia.org/wiki/Sender_Policy_Framework#cite_note-bortzmeyer-3"><sup>3</sup></a> indiquant
+          quelles <a href="https://fr.wikipedia.org/wiki/Adresses_IP">adresses IP</a> sont
+          autorisées ou interdites à envoyer du courrier pour le domaine considéré.</p>
+        <p
+        style="margin-left:0px;">L'identité testée par SPF est celle indiquée par la commande MAIL FROM
+          dans la session <a href="https://fr.wikipedia.org/wiki/Simple_Mail_Transfer_Protocol">SMTP</a>.
+          C'est donc une information qui appartient à l'enveloppe du courrier, pas
+          à ses en-têtes. (Dans certaines conditions, SPF peut aussi utiliser le
+          nom de la machine expéditrice, tel que spécifié dans la commande HELO.)</p>
+          <p
+          style="margin-left:0px;">Voici par exemple l'enregistrement SPF d'<a href="https://fr.wikipedia.org/wiki/Internet_Engineering_Task_Force">ietf.org</a> via
+            la commande :</p>
+            <p style="margin-left:0px;">"<code>dig TXT ietf.org</code>"&nbsp;:</p>
+            <p style="margin-left:0px;"><code>ietf.org. 720 IN TXT "v=spf1 ip4:12.22.58.0/24 ip6:2001:1890:123a::/56 ip4:64.170.98.0/24 ip6:2001:1890:126c::/56 ip4:4.31.198.32/27 ip6:2001:1900:3001:0011::0/64 ip4:209.208.19.192/27 ip6:2607:f170:8000:1500::0/64 ip4:72.167.123.204 -all"</code>
+            </p>
+            <p style="margin-left:0px;">Seuls les blocs d'adresses IPv4 et IPv6 indiqués sont habilités à envoyer
+              du courrier avec un expéditeur du domaine ietf.org. Un serveur de courrier
+              participant à SPF peut donc rejeter un mail provenant d'autres blocs d'adresses
+              que ceux-ci.</p>
+            <p style="margin-left:0px;">Il n’est pas obligatoire de publier un enregistrement SPF, ni de faire
+              usage de ceux existants. Les sites qui ne participent pas à cette initiative
+              ne sont donc pas affectés par celle-ci. SPF ne garantit pas que la partie
+              locale de l'adresse de courrier électronique (à gauche du signe @) est
+              authentique.</p>
+      </div>
+    </div>
+  </body>
+
+</html>

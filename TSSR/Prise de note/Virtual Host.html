@@ -1,0 +1,40 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>Virtual Host</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>Virtual Host</h1>
+
+      <div class="ck-content">
+        <p>Ici “<strong>*</strong>” signifie toutes les adresse ip, on peu le remplacer
+          pour n'avoir qu'une ip pour notre server, et le port utilisé est le “<strong>80</strong>”
+          <span
+          style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(1)</code>
+            </span>on peu le changer également.</p>
+        <p>La ligne “<strong>ServerAdmin</strong>” <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(2)</code></span> nous
+          donne l'information de l'adresse mail de l'admin de notre server.</p>
+        <p>La ligne "<strong>ErrorLog</strong>" <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(3)</code></span>,
+          nous indique comment les erreur vont être enregister, on peu le modifier
+          selon le server par exemple <i>(GLPI_error.log ou encore OCS_error.log)</i>
+        </p>
+        <figure class="image">
+          <img src="Virtual%20Host/WindowsTerminal_CnDOQJi6zR.png">
+        </figure>
+        <p>&nbsp;</p>
+        <p>Serversignature : &nbsp;En "<strong>ON</strong>" te donne la version de
+          l'os sur laquelle tourne le server (Ubuntu/debian), le port utiliser (80)
+          la version d'apache et en “<strong>OFF</strong>” ne nous donne pas d'info.</p>
+        <p>history -c : remove l'historique des commandes qu'on a taper</p>
+        <p>&nbsp;</p>
+      </div>
+    </div>
+  </body>
+
+</html>

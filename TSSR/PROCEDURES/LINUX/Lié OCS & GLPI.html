@@ -1,0 +1,144 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>Lié OCS &amp; GLPI</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>Lié OCS &amp; GLPI</h1>
+
+      <div class="ck-content">
+        <hr>
+        <p><span class="text-big"><strong>ACTIVER LES PLUGINS GPLI</strong></span>
+        </p>
+        <p>&nbsp;</p>
+        <p>On se rend sur l'interface graphique GLPI, puis dans l'onglet “<strong>Configuration</strong>”
+          <span
+          style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(1)</code>
+            </span>, “<strong>Plugins</strong>” <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(2)</code></span>,
+            et on active les plugins <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(3)</code></span> :</p>
+        <figure
+        class="image">
+          <img src="Li%C3%A9%20OCS%20%26%20GLPI/brave_QhMnuFgrl0.png">
+          </figure>
+          <hr>
+          <p><span class="text-big"><strong>TELECHARGEMENT / INSTALLATION&nbsp;</strong></span>
+          </p>
+          <p>On tape la commande suivante :</p><pre><code class="language-text-plain">apt install git</code></pre>
+          <p>On se rend dans le repertoire suivant :</p><pre><code class="language-text-plain">cd /var/www/html/glpi/plugins</code></pre>
+          <p>Et on télécharge le plugins :</p><pre><code class="language-text-plain">wget https://github.com/pluginsGLPI/ocsinventoryng/releases/download/2.0.4/glpi-ocsinventoryng-2.0.4.tar.bz2 </code></pre>
+          <p>Et on décompresse l'archive :</p><pre><code class="language-text-plain">tar -xf glpi tab</code></pre>
+          <hr>
+          <p><span class="text-big"><strong>ACTIVATION CONFIGURATION PLUGINS</strong></span>
+          </p>
+          <p>&nbsp;On retourne sur l'interface graphique de GLPI, dans l'onglet “<strong>Configuration</strong>”
+            <span
+            style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(1)</code>
+              </span>, puis “<strong>Plugins</strong>” <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(2)</code></span> et
+              on active notre plugin <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(3)</code></span> :</p>
+          <figure
+          class="image">
+            <img src="Li%C3%A9%20OCS%20%26%20GLPI/brave_YbFyAR2ZdM.png">
+            </figure>
+            <p><i>&nbsp;(Refresh la page au besoin)</i>
+            </p>
+            <p>Ensuite dans l'onglet “<strong>Outils</strong>” <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(1)</code></span>,
+              puis “<strong>OCS Inventory NG</strong>” <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(2)</code></span>,
+              on vient “<strong>Ajouter un serveur OCSNG</strong>” <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(3)</code></span> :</p>
+            <figure
+            class="image">
+              <img src="Li%C3%A9%20OCS%20%26%20GLPI/brave_2tnuYHRWrr.png">
+              </figure>
+              <p>&nbsp;</p>
+              <p>On commence par lui donner un “<strong>Nom</strong>” <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(1)</code></span>,
+                on indique “<strong>Hôte</strong>” <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(2)</code></span>,
+                la “<strong>base de données</strong>” <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(3)</code></span>,
+                on indique notre “<strong>Utilisateur</strong>” <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(4)</code></span>,
+                et son “<strong>Mot de passe</strong>” <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(5)</code></span>,
+                une fois tout rempli on peu cliquer sur “<strong>Ajouter</strong>”
+                <span
+                style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(6)</code>
+                  </span>:</p>
+              <figure class="image">
+                <img src="Li%C3%A9%20OCS%20%26%20GLPI/brave_DGuz6O7ei0.png">
+              </figure>
+              <p>&nbsp;</p>
+              <p style="margin-left:40px;">Une fois ajouter, il est temps de la tester, on se rend sur l'onglet “Tester”
+                <span
+                style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(1)</code>
+                  </span>, on un message d'erreur nous indiquant que la configuration OCSNG est
+                  invalide le “TRACE_DELETED” doit être activé <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(2)</code></span> :</p>
+              <figure
+              class="image">
+                <img src="Li%C3%A9%20OCS%20%26%20GLPI/brave_UcNstCuKcl.png">
+                </figure>
+                <p>&nbsp;</p>
+                <p>Pour ce faire on se rend sur notre interface graphique OCS dans l'onglet
+                  “<strong>Configuration</strong>” <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(1)</code></span>,
+                  puis “<strong>Configuration général</strong>” <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(2)</code></span> :</p>
+                <p>&nbsp;</p>
+                <figure class="image">
+                  <img src="Li%C3%A9%20OCS%20%26%20GLPI/brave_Lx7s7njvfK.png">
+                </figure>
+                <p>&nbsp;</p>
+                <p>Une fois dans configuration général, on se rend dans l'onglet “<strong>Serveur</strong>”
+                  <span
+                  style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(1)</code>
+                    </span>, on va trouver “<strong>TRACE_DELETE</strong>” et on l'active <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(2)</code></span> ,
+                    pour finir on clique sur “<strong>Mettre à jour</strong>” <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(3)</code></span> :</p>
+                <figure
+                class="image">
+                  <img src="Li%C3%A9%20OCS%20%26%20GLPI/brave_CL8JYm9RHo.png">
+                  </figure>
+                  <p>&nbsp;</p>
+                  <p>De retour sur l'interface graphique GLPI on peu refaire un test <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(1)</code></span> et
+                    si tout est en ordre on doit voir que la connexion à la base de donnée
+                    a réussie <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(2)</code></span> :</p>
+                  <figure
+                  class="image">
+                    <img src="Li%C3%A9%20OCS%20%26%20GLPI/brave_1tz79C1dUM.png">
+                    </figure>
+                    <p>&nbsp;</p>
+                    <p>Pour importer les ordinateur qui sont dans la base de données OCS on se
+                      rend dans l'onglet “<strong>Outils</strong>” <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(1)</code></span> puis
+                      “<strong>OCS Inventory NG</strong>” <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(2)</code></span>,
+                      bien choisir le 2eme onglet <strong>“Import de l'inventaire</strong>”
+                      <span
+                      style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(3)</code>
+                        </span>et cliquer sur “<strong>Importer ou lier des ordinateurs</strong>”
+                        <span
+                        style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(4)</code>
+                          </span>:</p>
+                    <figure class="image">
+                      <img src="Li%C3%A9%20OCS%20%26%20GLPI/brave_Lg3TQtfvW9.png">
+                    </figure>
+                    <p>&nbsp;</p>
+                    <p>Pour finir séléctionner son ordinateur dans la liste <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(1)</code></span>,
+                      puis cliquer sur “<span style="background-color:hsl(30,75%,60%);"><strong>Importer ou lier des ordinateurs</strong></span>”
+                      <span
+                      style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(2)</code>
+                        </span>:</p>
+                    <p>&nbsp;</p>
+                    <figure class="image">
+                      <img src="Li%C3%A9%20OCS%20%26%20GLPI/brave_CGE5kWwQqV.png">
+                    </figure>
+                    <p>&nbsp;</p>
+                    <p>Si tout a bien été effectuer on doit voir l'ordinateur apparaitre dans
+                      le "<strong>tableau de bord</strong>" <span style="background-color:hsl(0, 75%, 60%);color:hsl(0, 0%, 100%);"><code>(1)</code></span> :</p>
+                    <figure
+                    class="image">
+                      <img src="Li%C3%A9%20OCS%20%26%20GLPI/brave_cFrYdGo1Yx.png">
+                      </figure>
+                      <p>&nbsp;</p>
+                      <p>&nbsp;</p>
+                      <p>&nbsp;</p>
+      </div>
+    </div>
+  </body>
+
+</html>

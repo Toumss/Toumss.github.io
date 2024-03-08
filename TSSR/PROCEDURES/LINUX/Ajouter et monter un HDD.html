@@ -1,0 +1,45 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>Ajouter et monter un HDD</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>Ajouter et monter un HDD</h1>
+
+      <div class="ck-content">
+        <ol>
+          <li>Passé en mode root / mdp</li>
+        </ol><pre><code class="language-text-plain">su -</code></pre>
+        <p style="margin-left:40px;">2) &nbsp;Pour voir les disques présent sur la Debian</p><pre><code class="language-text-plain">fdisk -l</code></pre>
+        <p
+        style="margin-left:40px;">3) &nbsp;Pour crée une partition sur le disque</p><pre><code class="language-text-plain">cfdisk /dev/sdX</code></pre>
+          <p
+          style="margin-left:40px;">=&gt; gpt =&gt; Nouvelle =&gt; Ecrire =&gt; Oui =&gt; Quitter</p>
+            <p style="margin-left:40px;">4)&nbsp;</p><pre><code class="language-text-plain">mkfs.ext4 /dev/sdXN</code></pre>
+            <p
+            style="margin-left:40px;">
+              <br>=&gt; Yes/no = Y</p>
+              <p style="margin-left:40px;">5) Crée le dossier ou monter le hdd
+                <br>Se rendre dans /mnt puis crée le dossier voulu avec (mkdir ”nom du dossier")</p>
+              <p
+              style="margin-left:40px;">6) Blkid (Récupere l'UUID de ta partition de ton disque dur)</p><pre><code class="language-text-plain">nano /etc/fstab</code></pre>
+                <p
+                style="margin-left:40px;">
+                  <br>UUID=ffedaa2c-94d3-4565-a03b-94948ae852f1 &nbsp; &nbsp; &nbsp; &nbsp;/mnt/data
+                  ext4 rw,user,auto (ou default) &nbsp; &nbsp;0 &nbsp; &nbsp; &nbsp; 2
+                  <br>ctrl-x (quitter) / sauvergarder ? O/Y / fstab… ? “ENTRER”</p>
+                  <p style="margin-left:40px;">8) mount -a (pour monter le disque) (daemon si nécéssaire)</p>
+                  <p style="margin-left:40px;">
+                    <br>&nbsp;</p>
+                  <p style="margin-left:40px;">&nbsp;</p>
+      </div>
+    </div>
+  </body>
+
+</html>

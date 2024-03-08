@@ -1,0 +1,94 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>SID</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>SID</h1>
+
+      <div class="ck-content">
+        <p><span class="text-big">Le SID c'est quoi ?</span>
+          <br>
+          <br>SID = Système d'information décisionnel. C'est un identifiant de sécurité
+          unique (Utilisateur, groupes, services, ordinateur etc…)</p>
+        <p>Chaque SID est unique : Le SID est une valeur plus fiable que le nom.
+          Par exemple :</p>
+        <ul>
+          <li>SI l'on renomme un utilisateur le SID ne change pas</li>
+          <li>Si l'on supprime et recrée un utilisateur, la le SID change.&nbsp;</li>
+        </ul>
+        <p>Le “<strong>jeton d'accès</strong>” d'un utilisateur contient :&nbsp;</p>
+        <ul>
+          <li>Son SID</li>
+          <li>Le SID de ses groupes et ses autorisations</li>
+        </ul>
+        <p>Le SID est impliqué dans la gestion des autorisations, déterminer le propriétaire
+          d'un objet, etc…</p>
+        <p>Dans l'"<strong>Active Directory</strong>", chaque objet est également
+          associé à un SID unique.&nbsp;</p>
+        <p>Chaque SID respecte une structure stricte, que l'on peut interpréter :</p>
+        <p>S-1-5-21-1990400566-1867844161-3796721076-500</p>
+        <ul>
+          <li>S-1 : Préfixe commun des SID</li>
+          <li>-5 autorité d'identification, ici Autorité NT</li>
+          <li>-21 autorité secondaire</li>
+          <li>1990400566-1867844161-3796721076 : identifiant du domaine ou de l'ordinateur
+            (valeur unique sur chaque machine.</li>
+          <li>-500 : <strong>RID</strong> pour "<strong>Relative ID</strong>" ou identificateur
+            relatif de l'objet.</li>
+        </ul>
+        <p>Le RID a une valeur prévisible pour les objets intégrés nativement dans
+          windows :</p>
+        <ul>
+          <li>-500 = Compte Administrateur</li>
+          <li>-501 = Compte invité</li>
+          <li>-1001 Premier compte utilisateur crée</li>
+        </ul>
+        <p>Commande “Powershell” pour connaitre SID :</p>
+        <ul>
+          <li>Get-CimInstance -Class win32_UserAccount</li>
+          <li>Get-CimInstance -Class win32_Group</li>
+        </ul>
+        <p>Commande “cmd” pour connaitre SID :</p>
+        <ul>
+          <li>wmic useraccount get name, sid</li>
+          <li>wmic Group get name, sid</li>
+        </ul>
+        <p>&nbsp;</p>
+        <p><span class="text-big">Pourquoi faire ?</span>
+        </p>
+        <p><span style="background-color:rgb(255,255,255);color:rgb(68,68,68);">Le SID sert à autoriser ou non l’accès à des ressources locales ou dans un annuaire Active Directory, ce qui explique pourquoi il se doit d’être unique. Derrière chaque nom d’utilisateur, chaque nom de machine, chaque groupe d’utilisateurs se cache un SID qui est beaucoup plus significatif pour le système que le nom de l’objet en lui-même.</span>
+        </p>
+        <p><span style="background-color:rgb(255,255,255);color:rgb(68,68,68);">Lorsqu'on effectue de la duplication de machines, le SID se retrouve également dupliqué sur ces machines, il est donc nécessaire d'en obtenir un nouveau afin de rendre le SID de la machine unique au sein du domaine ou groupe de travail.</span>
+        </p>
+        <p>&nbsp;</p>
+        <p><span class="text-big" style="background-color:rgb(255,255,255);color:rgb(68,68,68);">Comment obtenir un nouvel SID ?</span>
+        </p>
+        <p><span style="background-color:rgb(255,255,255);color:rgb(68,68,68);">Pour obtenir un nouvel SID, Microsoft recommande d’utiliser l’outil SYSPREP (un outil de préparation système), nous allons suivre cette recommandation et procéder à la manipulation. D’autre part, l’utilitaire « NewSID » permet également d'obtenir un nouvel SID.</span>
+        </p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+      </div>
+    </div>
+  </body>
+
+</html>

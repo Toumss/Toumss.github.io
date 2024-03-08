@@ -1,0 +1,153 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>Intergrer un ordi par gpo</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>Intergrer un ordi par gpo</h1>
+
+      <div class="ck-content">
+        <p>Pour intégrer un ordi par GPO a notre WSUS on commence par :</p>
+        <ul>
+          <li>Ouvrez la console WSUS</li>
+          <li>Cliquez sur «&nbsp;<strong>Options</strong>» à gauche <span style="background-color:hsl(30, 75%, 60%);color:hsl(0, 0%, 100%);"><code>(1)</code></span>
+          </li>
+          <li>Cliquez sur « <strong>Computers&nbsp;</strong>» / «&nbsp;<strong>Ordinateurs </strong>»
+            à droite <span style="background-color:hsl(30, 75%, 60%);color:hsl(0, 0%, 100%);"><code>(2)</code></span>
+          </li>
+          <li>Cochez l’option «&nbsp;<strong>Use Group Policy or registry settings on computers</strong> »
+            / « <strong>Utiliser les paramètres de stratégie de groupe ou de Registre sur les ordinateurs</strong> »
+            <span
+            style="background-color:hsl(30, 75%, 60%);color:hsl(0, 0%, 100%);"><code>(3)</code>
+              </span>.</li>
+          <li>Validez</li>
+        </ul>
+        <figure class="image">
+          <img src="Intergrer%20un%20ordi%20par%20gpo/1.png">
+        </figure>
+        <p><span style="background-color:rgb(255,255,255);color:rgb(68,68,68);"><i>Désormais, l’affectation sera effectuée selon la valeur définie par stratégie de groupe ou directement dans le Registre de la machine.</i></span>
+        </p>
+        <hr>
+        <p><span style="background-color:rgb(255,255,255);color:rgb(68,68,68);">Avant d’entamer la création de nos stratégies de groupe, nous allons créer nos deux groupes sur le serveur WSUS&nbsp;: «&nbsp;</span><strong>PC</strong>
+          <span
+          style="background-color:rgb(255,255,255);color:rgb(68,68,68);">&nbsp;» et «&nbsp;</span><strong>Serveurs</strong><span style="background-color:rgb(255,255,255);color:rgb(68,68,68);">&nbsp;».</span>
+        </p>
+        <p><span style="background-color:rgb(255,255,255);color:rgb(68,68,68);">Ouvrez la console «&nbsp;</span><strong>WSUS</strong>
+          <span
+          style="background-color:rgb(255,255,255);color:rgb(68,68,68);">&nbsp;», effectuez un clic droit sur «</span><strong>&nbsp;Tous les ordinateurs</strong>
+            <span
+            style="background-color:rgb(255,255,255);color:rgb(68,68,68);">&nbsp;» puis cliquez sur «&nbsp;</span><strong>Add Computer Group</strong>
+              <span
+              style="background-color:rgb(255,255,255);color:rgb(68,68,68);">&nbsp;». Nommez ce premier groupe «&nbsp;</span><strong>PC</strong>
+                <span
+                style="background-color:rgb(255,255,255);color:rgb(68,68,68);">&nbsp;» puis recommencez pour le second groupe.</span>
+        </p>
+        <figure class="image">
+          <img src="Intergrer%20un%20ordi%20par%20gpo/2.png">
+        </figure>
+        <p>&nbsp;</p>
+        <p><span style="background-color:rgb(255,255,255);color:rgb(68,68,68);">Au final, on obtient l’arborescence suivante&nbsp;:</span>
+        </p>
+        <figure class="image">
+          <img src="Intergrer%20un%20ordi%20par%20gpo/presentation-console-wsus-16-1">
+        </figure>
+        <hr>
+        <p>On s'occupe ensuite de crée notre GPO dans notre domaine controller, soit
+          a la racine pour toutes les machines soit dans un OU spécifique pour des
+          machines spécifique.</p>
+        <p>On clic sur modifier puis on se rend dans <strong>Configuration ordinateur &gt; Stratégies &gt; Modèles d’administration &gt; Composants Windows &gt; Windows Update</strong>
+        </p>
+        <figure class="image">
+          <img src="Intergrer%20un%20ordi%20par%20gpo/gpo-wsus-domaine-02.png">
+        </figure>
+        <p>&nbsp;</p>
+        <p>Pour commencer on se rend dans <span style="background-color:rgb(255,255,255);color:rgb(68,68,68);">«&nbsp;</span><strong>Spécifier l’emplacement intranet du service de mise à jour Microsoft</strong>
+          <span
+          style="background-color:rgb(255,255,255);color:rgb(68,68,68);">&nbsp;»</span>
+        </p>
+        <p><span style="background-color:rgb(255,255,255);color:rgb(68,68,68);">Il faut commencer par activer ce paramètre </span>
+          <span
+          style="background-color:hsl(30, 75%, 60%);color:hsl(0, 0%, 100%);"><code>(1)</code>
+            </span><span style="background-color:rgb(255,255,255);color:rgb(68,68,68);">, puis définir l’adresse du serveur WSUS comme emplacement pour la détection des mises à jour </span>
+            <span
+            style="background-color:hsl(30, 75%, 60%);color:hsl(0, 0%, 100%);"><code>(2)</code>
+              </span><span style="background-color:rgb(255,255,255);color:rgb(68,68,68);">, mais aussi pour les statistiques </span>
+              <span
+              style="background-color:hsl(30, 75%, 60%);color:hsl(0, 0%, 100%);"><code>(3)</code>
+                </span><span style="background-color:rgb(255,255,255);color:rgb(68,68,68);">. Les autres options peuvent être laissées par défaut.</span>
+        </p>
+        <figure class="image">
+          <img src="Intergrer%20un%20ordi%20par%20gpo/1_gpo-wsus-domaine-02.png">
+        </figure>
+        <p><span style="background-color:rgb(255,255,255);color:rgb(68,68,68);">Et on y indique le protocole, &nbsp;l'adresse IP et le port utiliser de notre server WSUS.</span>
+        </p>
+        <p><span style="background-color:rgb(255,255,255);color:rgb(68,68,68);"><u>Par exemple</u> :</span>
+        </p>
+        <p><span style="background-color:rgb(255,255,255);color:rgb(68,68,68);">“<strong>http://192.168.240.51:8530</strong>”&nbsp;</span>
+        </p>
+        <p style="margin-left:40px;"><span style="background-color:rgb(255,255,255);color:rgb(68,68,68);">“http://” =&gt; protocole</span>
+          <br><span style="background-color:rgb(255,255,255);color:rgb(68,68,68);">192.168.240.51 =&gt; adresse ip</span>
+          <br><span style="background-color:rgb(255,255,255);color:rgb(68,68,68);">:8530 =&gt; port utilisé</span>
+        </p>
+        <p>&nbsp;</p>
+        <p>Ensuite on se rend dans le parametre <span style="background-color:rgb(255,255,255);color:rgb(68,68,68);">«&nbsp;</span><strong>Configuration du service Mises à jour automatique</strong>
+          <span
+          style="background-color:rgb(255,255,255);color:rgb(68,68,68);">&nbsp;».</span>
+            <br><span style="background-color:rgb(255,255,255);color:rgb(68,68,68);"><i>Il sert à agir sur le comportement des machines notamment pour télécharger et installer les mises à jour</i>.</span>
+        </p>
+        <p><span style="background-color:rgb(255,255,255);color:rgb(68,68,68);">Il faut commencer par activer ce paramètre. Je vous laisse prendre connaissance de ma configuration ci-dessous puis des explications à la suite.</span>
+        </p>
+        <figure class="image">
+          <img src="Intergrer%20un%20ordi%20par%20gpo/3_gpo-wsus-domaine-02.png">
+        </figure>
+        <p>&nbsp;</p>
+        <p>Pour finir on se rend dans le parametre <span style="background-color:rgb(255,255,255);color:rgb(68,68,68);">«&nbsp;</span><strong>Ne pas se connecter à des emplacements Internet Windows Update</strong>
+          <span
+          style="background-color:rgb(255,255,255);color:rgb(68,68,68);">&nbsp;»</span>
+            <br><span style="background-color:rgb(255,255,255);color:rgb(68,68,68);"><i>Afin d’empêcher les machines de se connecter sur les serveurs Microsoft Update pour appliquer des mises à jour</i>.</span>
+        </p>
+        <figure class="image">
+          <img src="Intergrer%20un%20ordi%20par%20gpo/gpo-wsus-domaine-03.png">
+        </figure>
+        <p>Il nous suffit de l'activer.</p>
+        <hr>
+        <p><span style="background-color:rgb(255,255,255);color:rgb(68,68,68);">Notre configuration étant prête, il va falloir tester pour s’assurer qu’elle fonctionne.</span>
+        </p>
+        <p><span style="background-color:rgb(255,255,255);color:rgb(68,68,68);">On se rend sur le pc concerner, on entre dans l'invite de commande et on tape :</span>
+        </p><pre><code class="language-text-plain">gpupdate /force</code></pre>
+        <figure
+        class="image">
+          <img src="Intergrer%20un%20ordi%20par%20gpo/gpo-wsus-domaine-15.png">
+          </figure>
+          <p>On redémarre l'ordinateur, a<span style="background-color:rgb(255,255,255);color:rgb(68,68,68);">près le redémarrage, il est fort probable que l’ordinateur soit visible sur le serveur WSUS. Pour le vérifier, il est nécessaire d’ouvrir la console WSUS. On se rend dans “Ordinateur”, “Tous les ordinateurs” </span>
+            <span
+            style="background-color:hsl(0, 75%, 60%);color:hsl(0, 0%, 100%);"><code>(1)</code>
+              </span><span style="background-color:rgb(255,255,255);color:rgb(68,68,68);"> .Ensuite, il faut basculer l’état sur «&nbsp;</span><strong>Toutes</strong>
+              <span
+              style="background-color:rgb(255,255,255);color:rgb(68,68,68);">&nbsp;» et cliquer sur «&nbsp;</span><strong>Actualiser</strong>
+                <span
+                style="background-color:rgb(255,255,255);color:rgb(68,68,68);">&nbsp;» («&nbsp;</span><i>Refresh</i><span style="background-color:rgb(255,255,255);color:rgb(68,68,68);">&nbsp;»). La on doit voir son ordi remonter </span>
+                  <span
+                  style="background-color:hsl(0, 75%, 60%);color:hsl(0, 0%, 100%);"><code>(2)</code>
+                    </span>
+          </p>
+          <figure class="image">
+            <img src="Intergrer%20un%20ordi%20par%20gpo/vmware_i7Dri6aURE.png">
+          </figure>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+      </div>
+    </div>
+  </body>
+
+</html>

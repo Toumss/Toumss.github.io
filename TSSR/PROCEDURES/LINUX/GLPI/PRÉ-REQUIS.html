@@ -1,0 +1,42 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>PRÉ-REQUIS</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>PRÉ-REQUIS</h1>
+
+      <div class="ck-content">
+        <p><span class="text-big"><strong>PRÉ-REQUIS</strong></span>
+        </p>
+        <p>&nbsp;</p>
+        <p><i>Toutes les commandes doivent être entrer en “root”</i>
+        </p>
+        <p>On commence “<strong>mettre à jour</strong>” les paquet sur la machine
+          Debian 12 :</p><pre><code class="language-text-plain">apt-get update &amp;&amp; apt-get upgrade</code></pre>
+        <p>Ensuite on s'attaque au “<strong>pré-requis</strong>” avant l'installation
+          de GLPI, c'est a dire “Apache2”, php et mariadb-server :</p><pre><code class="language-text-plain">apt-get install apache2 php mariadb-server -y</code></pre>
+        <p><span style="background-color:rgb(255,255,255);color:rgb(68,68,68);">Puis, nous allons installer toutes les “<strong>extensions</strong>” nécessaires au bon fonctionnement de GLPI :</span>
+        </p><pre><code class="language-text-plain">apt-get install php-xml php-common php-json php-mysql php-mbstring php-curl php-gd php-intl php-zip php-bz2 php-imap php-apcu -y</code></pre>
+        <p><span style="background-color:rgb(255,255,255);color:rgb(68,68,68);">Si on envisage d'associer GLPI avec un annuaire LDAP comme l'Active Directory, on doit installer l'extension LDAP de PHP :</span>
+        </p><pre><code class="language-text-plain">apt-get install php-ldap -y</code></pre>
+        <p>Pour sécuriser un minimum mariadb on utilise la commande suivante :</p><pre><code class="language-text-plain">mysql_secure_installation</code></pre>
+        <p>On réponde “y” à tous et on suis les information qu'on nous donne.</p>
+        <hr>
+        <p>Pour se connecter a MariaDB :</p><pre><code class="language-text-plain">mysql -u root -p</code></pre>
+        <p>On entre le mot de passe qu'on attribuer à l'étape précédente</p>
+        <p>On commence par crée la DataBase :</p><pre><code class="language-text-plain">CREATE DATABASE DataBaseGLPI ;</code></pre>
+        <p>On crée un utilisateur à qui on donne tous les privilèges :</p><pre><code class="language-text-plain">GRANT ALL PRIVILEGES ON DataBaseGLPI.* TO glpi_admin@localhost IDENTIFIED BY "azerty";</code></pre>
+        <p>On termine par la commande suivante, pour rafraichir les privileges :</p><pre><code class="language-text-plain">FLUSH PRIVILEGES;</code></pre>
+        <p>Pour sortir de MariaDb utiliser la commande :</p><pre><code class="language-text-plain">EXIT</code></pre>
+      </div>
+    </div>
+  </body>
+
+</html>

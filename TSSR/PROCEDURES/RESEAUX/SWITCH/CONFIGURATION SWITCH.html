@@ -1,0 +1,72 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>CONFIGURATION SWITCH</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>CONFIGURATION SWITCH</h1>
+
+      <div class="ck-content">
+        <p>Une fois la connexion faire on doit arrivé sur cette page :</p>
+        <figure
+        class="image">
+          <img src="CONFIGURATION%20SWITCH/putty_33IKdsyrUU.png">
+          </figure>
+          <p>(<i>Si on nous propose quelque chose (Yes/No) dire No puis entrer</i>)</p>
+          <figure
+          class="image">
+            <img src="CONFIGURATION%20SWITCH/putty_0Pet1sEvRt.png">
+            </figure>
+            <p>Ensuite on tape “enable” comme ca on peux vérifier si le switch dispose
+              d'un mot de passe.&nbsp;
+              <br>Dans ce cas la trouver le bouton "mode" du switch puis laisser appuyer
+              dessus jusqu'a reinitialisation :</p>
+            <figure class="image image_resized"
+            style="width:33.65%;">
+              <img src="CONFIGURATION%20SWITCH/ApplicationFrameHost_eiHVGEgVw">
+            </figure>
+            <p>On commencera par changer le nom de notre appareil :</p><pre><code class="language-text-plain">conf t</code></pre><pre><code class="language-text-plain">hostname "Nom"</code></pre>
+            <p>&nbsp;</p>
+            <p>Pour ajouter un mot de passe chiffrer :</p><pre><code class="language-text-plain">enable secret </code></pre>
+            <p>&nbsp;</p>
+            <p>On vient ensuite configurer l'ip de la Vlan1 de notre switch :</p><pre><code class="language-text-plain">conf t</code></pre><pre><code class="language-text-plain">interface vlan1</code></pre><pre><code class="language-text-plain">ip address "0.0.0.0"(Adress ip) "0.0.0.0" (Masque)</code></pre>
+            <p>&nbsp;</p>
+            <p>On lui donne un domaine :</p><pre><code class="language-text-plain">ip domain-name "NomDeDomaine"</code></pre>
+            <p>&nbsp;</p>
+            <p>Pour acceder au SSH on commence par donner la version utiliser :</p><pre><code class="language-text-plain">ip ssh version 2</code></pre>
+            <p>&nbsp;</p>
+            <p>Ensuite on crée une clef rsa :</p><pre><code class="language-text-plain">crypto key generate rsa</code></pre>
+            <p>Puis on tape 1024</p>
+            <p>&nbsp;</p>
+            <p>On crée un utilisateur avec un mdp crypté</p><pre><code class="language-text-plain">username toto secret toto</code></pre>
+            <p>&nbsp;</p>
+            <p>Ensuite on crée les ligne ssh :</p><pre><code class="language-text-plain">conf t</code></pre><pre><code class="language-text-plain">line vty 0 4</code></pre>
+            <p>&nbsp;</p>
+            <p>On authorise les login local :</p><pre><code class="language-text-plain">line 0 4</code></pre><pre><code class="language-text-plain">login local</code></pre><pre><code class="language-text-plain">transport (en fonction du switch) input ssh / preferred ssh</code></pre>
+            <p>&nbsp;</p>
+            <p>Pour garder notre configuration même après un redémarrage on utilise la
+              commande :</p><pre><code class="language-text-plain">write memory</code></pre>
+            <p>ou&nbsp;</p><pre><code class="language-text-plain">copy running-config startup-config</code></pre>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+      </div>
+    </div>
+  </body>
+
+</html>

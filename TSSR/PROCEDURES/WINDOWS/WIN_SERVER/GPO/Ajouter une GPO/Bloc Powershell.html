@@ -1,0 +1,62 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../../../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>Bloc Powershell</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>Bloc Powershell</h1>
+
+      <div class="ck-content">
+        <p style="margin-left:40px;">1) Une fois la GPO crée, clic droit “Modifier” et la fenêtre “éditeur
+          de gestion des stratégies de groupe” s'ouvre, se rendre dans :
+          <br>Configuration utilisateur", “Stratégies” <span style="background-color:hsl(0, 75%, 60%);color:hsl(0, 0%, 100%);"><code>(1)</code></span>,
+          “Paramètres Windows” <span style="background-color:hsl(0, 75%, 60%);color:hsl(0, 0%, 100%);"><code>(2)</code></span>,
+          “Paramètres de sécurité” <span style="background-color:hsl(0, 75%, 60%);color:hsl(0, 0%, 100%);"><code>(3)</code></span>,
+          puis “Nouvelles stratégies de restriction logicielle” <span style="background-color:hsl(0, 75%, 60%);color:hsl(0, 0%, 100%);"><code>(4)</code></span> :</p>
+        <figure
+        class="image">
+          <img src="Bloc%20Powershell/1.png">
+          </figure>
+          <p>&nbsp;</p>
+          <p style="margin-left:40px;">2) Dans “règle supplémentaire” <span style="background-color:hsl(0, 75%, 60%);color:hsl(0, 0%, 100%);"><code>(1)</code></span>,
+            clic sur “Nouvelle règle de chemin d'accès…” <span style="background-color:hsl(0, 75%, 60%);color:hsl(0, 0%, 100%);"><code>(2)</code></span> :</p>
+          <figure
+          class="image">
+            <img src="Bloc%20Powershell/2.png">
+            </figure>
+            <p>&nbsp;</p>
+            <p style="margin-left:40px;">3) Mettre le chemin d'accès que l'on veux bloquer : <span style="background-color:hsl(0, 75%, 60%);color:hsl(0, 0%, 100%);"><code>(1)</code></span>,
+              puis “Appliquer” <span style="background-color:hsl(0, 75%, 60%);color:hsl(0, 0%, 100%);"><code>(2)</code></span> et
+              enfin “OK” <span style="background-color:hsl(0, 75%, 60%);color:hsl(0, 0%, 100%);"><code>(3)</code></span> :</p>
+            <figure
+            class="image">
+              <img src="Bloc%20Powershell/3.png">
+              </figure>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p style="margin-left:40px;">4) Pour ajouter une règle de hachage, clic droit sur “Règle supplémentaire”
+                <span
+                style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(1)</code>
+                  </span>, puis “Nouvelle règle de hachage…” <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(2)</code></span> :</p>
+              <figure
+              class="image">
+                <img src="Bloc%20Powershell/5.png">
+                </figure>
+                <p>&nbsp;</p>
+                <p style="margin-left:40px;">5) Si tout est bien bloqué avec les hachages, les règles devrait ressembler
+                  à ça :</p>
+                <p style="margin-left:40px;">&nbsp;</p>
+                <figure class="image">
+                  <img src="Bloc%20Powershell/6.png">
+                </figure>
+      </div>
+    </div>
+  </body>
+
+</html>

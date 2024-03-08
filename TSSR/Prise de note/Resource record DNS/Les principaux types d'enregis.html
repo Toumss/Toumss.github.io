@@ -1,0 +1,109 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>Les principaux types d&#39;enregistrements DNS</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>Les principaux types d&#39;enregistrements DNS</h1>
+
+      <div class="ck-content">
+        <h3 style="margin-left:0px;">Les principaux types d'enregistrements DNS</h3>
+        <p style="margin-left:0px;">&nbsp;</p>
+        <h4 style="margin-left:0px;">L’enregistrement A</h4>
+        <p style="margin-left:0px;">La plupart des résolutions de noms sur Internet se font au moyen des
+          <a
+          href="https://www.ionos.fr/digitalguide/hebergement/aspects-techniques/a-record/">enregistrements de type&nbsp;A</a>. Son champ de donnée renferme une<strong> adresse IPv4</strong>.
+            Ces enregistrements permettent notamment à un internaute de saisir un nom
+            de domaine dans le navigateur&nbsp;: l’ordinateur envoie alors une requête
+            HTTP à l’adresse IP correspondante. Une adresse IPv4 ayant toujours une
+            taille de 4&nbsp;octets, la valeur <i>rdlength</i> sera toujours 4.</p>
+        <p
+        style="margin-left:0px;">&nbsp;</p>
+          <h4 style="margin-left:0px;">L’enregistrement AAAA</h4>
+          <p style="margin-left:0px;">Un enregistrement AAAA, aussi connu sous le nom de «&nbsp;quad-a&nbsp;»,
+            fonctionne comme un enregistrement A, sauf qu’il a recours à une <a href="https://www.ionos.fr/digitalguide/serveur/know-how/quels-sont-les-avantages-de-ipv6/">adresse IPv6</a> au
+            lieu d’une adresse IPv4 pour résoudre le nom du domaine. Une adresse IPv6
+            ayant une longueur de 128&nbsp;bits ou 16&nbsp;octets, on précise ici la
+            longueur du champ de données. La désignation AAAA est une manière d’indiquer
+            que cet enregistrement DNS est quatre fois plus long qu’un enregistrement
+            A.</p>
+          <p style="margin-left:0px;">&nbsp;</p>
+          <h4 style="margin-left:0px;">L’enregistrement SOA</h4>
+          <p style="margin-left:0px;"><a href="https://www.ionos.fr/digitalguide/hebergement/aspects-techniques/enregistrement-soa/">SOA</a> signifie <strong>Start of Authority </strong>(début
+            d’autorité). Les enregistrements de ce type renferment des informations
+            sur la zone, qui sont organisées au moyen du fichier de zone ou du serveur
+            DNS. Ils sont importants entre autres pour le transfert de zone&nbsp;:
+            ce transfert consiste à répliquer une zone d’un serveur vers un autre pour
+            parer d’éventuelles pannes. Le transfert de zone permet d’assurer une réplication
+            fidèle du fichier d’origine. Dans un tel enregistrement DNS, vous trouverez
+            derrière l’adresse électronique de l’administrateur un numéro de série.
+            Celui-ci est incrémenté à chaque nouvelle mise à jour.</p>
+          <p style="margin-left:0px;">&nbsp;</p>
+          <h4 style="margin-left:0px;">L’enregistrement CNAME</h4>
+          <p style="margin-left:0px;">Dans un <a href="https://www.ionos.fr/digitalguide/hebergement/aspects-techniques/enregistrement-cname/">enregistrement CNAME</a> (Canonical-Name-Record)
+            on trouve un <strong>alias</strong>, c’est à dire un autre nom applicable
+            à un domaine. L’entrée renvoie à un enregistrement existant, de type A
+            ou AAAA. Pour ce type, le champ <i>rdata</i> indique le nom du domaine qui
+            a été précédemment relié au fichier à l’aide d’une adresse IP. Cela permet
+            de renvoyer plusieurs adresses différentes vers le même serveur.</p>
+          <p
+          style="margin-left:0px;">&nbsp;</p>
+            <h4 style="margin-left:0px;">L’enregistrement MX</h4>
+            <p style="margin-left:0px;">Un <a href="https://www.ionos.fr/digitalguide/email/aspects-techniques/enregistrement-mx/">enregistrement MX</a> renvoie
+              à un <strong>Mail Exchange</strong>r ou à un serveur de messagerie SMTP.
+              On y enregistre un ou plusieurs serveur(s) de messagerie appartenant au
+              domaine correspondant. Si on utilise plusieurs serveurs de messagerie,
+              par exemple pour pallier d’éventuelles pannes, on doit préciser l’ordre
+              de priorité. Le DNS sait alors dans quel ordre il doit interroger les serveurs
+              de mails.</p>
+            <p style="margin-left:0px;">&nbsp;</p>
+            <h4 style="margin-left:0px;">L’enregistrement PTR</h4>
+            <p style="margin-left:0px;">Le <a href="https://www.ionos.fr/digitalguide/hebergement/aspects-techniques/enregistrement-ptr/">PTR-Record</a> (pointeur)
+              est un DNS record qui permet un <strong>Reverse-Lookup</strong> (recherche
+              inversée). Le serveur DNS peut ainsi donner des informations sur les noms
+              des hôtes qui sont associés à une adresse IP spécifique. Chaque adresse
+              IP utilisée dans un enregistrement de type A ou AAAA, est associée à un
+              enregistrement PTR. L’adresse IP est alors structurée dans l’ordre inverse,
+              avant d’être complétée par le nom d’une zone.</p>
+            <p style="margin-left:0px;">&nbsp;</p>
+            <h4 style="margin-left:0px;">L’enregistrement NS</h4>
+            <p style="margin-left:0px;">Dans un enregistrement NS, l’<strong>entrée du serveur de nom</strong> d’un
+              fichier de zone, on vous indique la compétence d’une zone particulière.
+              Cette entrée est donc obligatoire pour chaque fichier de zone. Cet enregistrement
+              de ressources permet d’indiquer au serveur DNS s’il est compétent pour
+              la requête, c’est-à-dire en charge de la zone, ou bien s’il doit transférer
+              la requête.</p>
+            <p style="margin-left:0px;">&nbsp;</p>
+            <h4 style="margin-left:0px;">L'enregistrement TXT</h4>
+            <p style="margin-left:0px;">Le <a href="https://www.ionos.fr/digitalguide/hebergement/aspects-techniques/enregistrement-txt/">record TXT</a> renferme
+              du texte qui n’est pas destiné à des utilisateurs, ni même à être lu par
+              les machines. Cet enregistrement DNS permet à un administrateur de sauvegarder
+              du<strong> texte non-structuré</strong> (à la différence des données structurées
+              renfermées dans les autres enregistrements DNS). Il peut par exemple renfermer
+              des détails qui relèvent de l’entreprise responsable du domaine.</p>
+            <p
+            style="margin-left:0px;">&nbsp;</p>
+              <h4 style="margin-left:0px;">L’enregistrement SRV</h4>
+              <p style="margin-left:0px;">Avec un enregistrement SRV, vous pouvez informer un serveur d’<strong>autres services</strong> (SRV)
+                proposés. Vous y inscrivez le service disponible, ainsi que le numéro de
+                port. Vous pouvez aussi y entrer le protocole que vous souhaitez employer.
+                Cette entrée DNS permet par exemple de donner à un client des informations
+                portant sur des services LDAP ou <a href="https://www.ionos.fr/digitalguide/serveur/know-how/xmpp/">XMPP</a>.</p>
+              <p
+              style="margin-left:0px;">&nbsp;</p>
+                <h4 style="margin-left:0px;">L’enregistrement LOC</h4>
+                <p style="margin-left:0px;">Un enregistrement LOC permet de donner des <strong>informations sur la position géographique du serveur</strong>.
+                  À la fin de cet enregistrement se trouvent des données quant à la latitude,
+                  la longitude et l’altitude au-dessus du niveau de la mer, ainsi que la
+                  précision de la position indiquée.</p>
+      </div>
+    </div>
+  </body>
+
+</html>

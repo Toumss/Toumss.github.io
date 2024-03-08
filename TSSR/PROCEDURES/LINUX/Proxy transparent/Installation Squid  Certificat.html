@@ -1,0 +1,72 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>Installation Squid / Certificats</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>Installation Squid / Certificats</h1>
+
+      <div class="ck-content">
+        <h2 style="margin-left:0px;"><strong>Étapes de configuration</strong></h2>
+        <h3 style="margin-left:0px;"><strong>Étape 1 : Installation du package Squid</strong></h3>
+        <p style="margin-left:0px;">&nbsp;</p>
+        <ol>
+          <li>Connectez-vous à l'interface web de pfSense.</li>
+          <li>Accédez à <strong>System &gt; Package Manager</strong>
+          </li>
+        </ol>
+        <p>&nbsp;</p>
+        <figure class="image">
+          <img src="Image/vmware_Kygfzahtjj.png">
+        </figure>
+        <p>&nbsp;</p>
+        <ol>
+          <li>Recherchez "squid" dans la barre de recherche.</li>
+          <li>Cliquez sur <strong>Install</strong> pour installer le package Squid.</li>
+        </ol>
+        <p>&nbsp;</p>
+        <figure class="image">
+          <img src="Image/vmware_Sl5SQteI4q.png">
+        </figure>
+        <p>&nbsp;</p>
+        <p><span style="background-color:rgb(255,255,255);color:rgb(68,68,68);">Pour commencer, il faut créer une autorité de certification sur notre pare-feu PfSense.&nbsp;</span>
+          <br><span style="background-color:rgb(255,255,255);color:rgb(68,68,68);">On se rend dans “System” </span>
+          <span
+          style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(1)</code>
+            </span><span style="background-color:rgb(255,255,255);color:rgb(68,68,68);">, puis certificate </span>
+            <span
+            style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(2)</code>
+              </span><span style="background-color:rgb(255,255,255);color:rgb(68,68,68);"> :</span>
+        </p>
+        <figure class="image">
+          <img src="Image/vmware_tEZzYf3pBN.png">
+        </figure>
+        <p>&nbsp;</p>
+        <p>Une fois sur le page on clique sur “<strong>Add</strong>”</p>
+        <figure class="image">
+          <img src="Image/vmware_1dtLKePCAG.png">
+        </figure>
+        <p>&nbsp;</p>
+        <p>Pour le configurer on note juste un “<strong>Description Name</strong>”
+          puis on save tout en bas.</p>
+        <p>&nbsp;</p>
+        <figure class="image">
+          <img src="Image/vmware_QmJCHwXXBK.png">
+        </figure>
+        <p>&nbsp;</p>
+        <p>Une fois le certificat crée on l'export en cliquant ici :</p>
+        <figure class="image">
+          <img src="Image/vmware_5fW3aoGp4b.png">
+        </figure>
+        <p>&nbsp;</p>
+      </div>
+    </div>
+  </body>
+
+</html>

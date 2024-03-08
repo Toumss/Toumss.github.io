@@ -1,0 +1,119 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>Configuration squid</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>Configuration squid</h1>
+
+      <div class="ck-content">
+        <h3 style="margin-left:0px;"><strong>Étape 2 : Configuration de Squid</strong></h3>
+        <h3 style="margin-left:0px;"><span class="text-tiny">Une fois l'installation terminée, accédez à <strong>Services &gt; Squid Proxy Server</strong>.</span></h3>
+        <p style="margin-left:0px;">&nbsp;</p>
+        <figure class="image">
+          <img src="Image/vmware_RSABWQullc.png">
+        </figure>
+        <p>&nbsp;</p>
+        <p>On commence par ce rendre dans “Locale Cache” on ne change rien, juste
+          on save en bas de la page.</p>
+        <p>&nbsp;</p>
+        <figure class="image">
+          <img src="Image/tuto-pfsense-proxy-transparent">
+        </figure>
+        <p>&nbsp;</p>
+        <p>Ensuite on se rend dans “General” :
+          <br>Cochez <strong>Enable Squid Proxy</strong> pour activer le proxy.</p>
+        <p><strong>Check to enable the Squid proxy </strong>: On coche l'option
+          <br><strong>Listen IP Version</strong><span style="background-color:rgb(255,255,255);color:rgb(68,68,68);"> : écouter en IPv4, en IPv6 ou les deux</span>
+          <br><strong>Proxy interface(s)</strong> : Ici, ce sera seulement sur l'interface
+          "<strong>LAN</strong>" donc je la sélectionne.
+          <br><strong>Proxy Port</strong> : on laisse le port par défaut, à savoir 3128,
+          mais il ne devra pas être déclaré sur les postes clients puisque l'on va
+          configurer Squid en mode proxy transparent.
+          <br><strong>Allow Users on interface</strong> : cochez cette case pour autoriser
+          implicitement les utilisateurs connectés sur le réseau "LAN" à utiliser
+          le proxy.
+          <br><strong>Resolve DNS IPv4 First</strong> : on coche l'option</p>
+        <p>&nbsp;</p>
+        <figure class="image">
+          <img src="Image/1_tuto-pfsense-proxy-transparent">
+        </figure>
+        <figure class="image">
+          <img src="Image/2_tuto-pfsense-proxy-transparent">
+        </figure>
+        <p>&nbsp;</p>
+        <p>Cliquez sur <strong>Save</strong> pour enregistrer les modifications.</p>
+        <p>On déscent et on s'arette à “Transparent Proxy Settings”
+          <br>&nbsp;</p>
+        <p><strong>Transparent HTTP Proxy</strong> : On coche l'option
+          <br><strong>Transparent Proxy Interface(s)</strong> : LAN</p>
+        <p>&nbsp;</p>
+        <figure class="image">
+          <img src="Image/5_tuto-pfsense-proxy-transparent">
+        </figure>
+        <p>&nbsp;</p>
+        <p>On s'arette à SSL Man In the Middle Filtering</p>
+        <p><strong>HTTPS/SSL Intersection</strong> : On coche l'option <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(1)</code></span>
+          <br><strong>SSL/MITM</strong> : On choisi Splice all <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(2)</code></span>
+          <br><strong>SSL intercept interface(s)</strong> : On choisi LAN <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(3)</code></span>
+          <br><strong>SSL Proxy Port</strong> : On tape 3129 <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(4)</code></span>
+          <br><strong>CA</strong> : On clique sur le menu déroulant et on choisi notre
+          certificat crée plus tot <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(5)</code></span>
+        </p>
+        <p>&nbsp;</p>
+        <figure class="image">
+          <img src="Image/vmware_BGOpTa2kc0.png">
+        </figure>
+        <p>&nbsp;</p>
+        <p>On descent encore et on s'arette sur “Logging Settings”&nbsp;</p>
+        <p><strong>Enable Access Logging</strong><span style="background-color:rgb(255,255,255);color:rgb(68,68,68);"> : cochez l'option pour activer les journaux</span>
+          <br><strong>Rotate Logs</strong><span style="background-color:rgb(255,255,255);color:rgb(68,68,68);"> : pendant combien de jours souhaitez-vous conserver les logs ?</span>
+        </p>
+        <p>&nbsp;</p>
+        <figure class="image">
+          <img src="Image/4_tuto-pfsense-proxy-transparent">
+        </figure>
+        <p>&nbsp;</p>
+        <p>On continu dans le sous menu "Headers Handling, Language and other Customizations</p>
+        <p><strong>Visible Hostname</strong><span style="background-color:rgb(255,255,255);color:rgb(68,68,68);"> : correspond au nom d'hôte qui peut s'afficher côté client</span>
+          <br><strong>Administrator's Email</strong> : <span style="background-color:rgb(255,255,255);color:rgb(68,68,68);">l'e-mail spécifié pour l'option&nbsp;</span>
+          <br><strong>Error Language </strong>:<strong> </strong><span style="background-color:rgb(255,255,255);color:rgb(68,68,68);">Pour les messages d'erreurs justement, précisez la langue française au niveau de l'option</span>
+        </p>
+        <p>&nbsp;</p>
+        <figure class="image">
+          <img src="Image/3_tuto-pfsense-proxy-transparent">
+        </figure>
+        <p>&nbsp;</p>
+        <p><span style="background-color:rgb(255,255,255);color:rgb(68,68,68);">Voilà, on est arrivé au bout de la page de configuration ! Cliquez sur "</span><strong>Save</strong>
+          <span
+          style="background-color:rgb(255,255,255);color:rgb(68,68,68);">" pour appliquer cette nouvelle configuration.</span>
+        </p>
+        <p>&nbsp;</p>
+        <p><span class="text-big" style="background-color:rgb(255,255,255);color:rgb(68,68,68);"><strong>On se rend dans l'onglet “ACLs”</strong></span>
+          <span
+          style="background-color:rgb(255,255,255);color:rgb(68,68,68);"></span><span class="text-big" style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(1)</code></span>
+            <br>Allowed Subnets on indique notre adresse réseau WAN/LAN et son CIDR</p>
+        <p>&nbsp;</p>
+        <figure class="image">
+          <img src="Image/vmware_mVBG2o5f0q.png">
+        </figure>
+        <p>&nbsp;</p>
+        <p>Dans la section “BlackList” on peux choisir des sites spécifique a bloquer
+          :</p>
+        <figure class="image">
+          <img src="Image/vmware_ApxCLR7Bg8.png">
+        </figure>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+      </div>
+    </div>
+  </body>
+
+</html>

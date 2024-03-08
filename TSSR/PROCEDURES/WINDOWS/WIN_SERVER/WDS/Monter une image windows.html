@@ -1,0 +1,140 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>Monter une image windows</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>Monter une image windows</h1>
+
+      <div class="ck-content">
+        <p><span class="text-huge"><strong>PRÉ-REQUIS</strong></span>
+        </p>
+        <hr>
+        <p>Pour commencer à monter une image windows, il nous faut un iso du windows
+          que l'on souhaite on l'ouvre avec l'explorateur de fichier, on se rend
+          dans le fichier “sources” <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(1)</code></span>
+        </p>
+        <figure class="image">
+          <img src="Monter%20une%20image%20windows/vmware_DFBQdtJisR.png">
+        </figure>
+        <p>&nbsp;</p>
+        <p>Une fois dans le fichier “Sources” on taper “.wim” dans la barre de recherche
+          <span
+          style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(1)</code>
+            </span>et on copie dans un dossier à part les fichier “install.cim” <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(2)</code></span> et
+            “boot.wim” <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(3)</code></span>
+        </p>
+        <figure class="image">
+          <img src="Monter%20une%20image%20windows/vmware_fg1gAFHdOa.png">
+        </figure>
+        <hr>
+        <p><span class="text-huge"><strong>INSTALLATION IMAGE</strong></span>
+        </p>
+        <p>&nbsp;</p>
+        <p>On se rend ensuite dans notre service de déploiement dans le dossier Images
+          d'installation on clique droit et on clique su “Ajouter une image d'installation…”
+          <span
+          style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(1)</code>
+            </span>
+        </p>
+        <figure class="image">
+          <img src="Monter%20une%20image%20windows/vmware_gh4nwxU99e.png">
+        </figure>
+        <p>&nbsp;</p>
+        <p>Sur cette page on peu renommer le groupe d'image, puis cliqué sur "Suivant"
+          <span
+          style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(1)</code>
+            </span>&nbsp;</p>
+        <figure class="image">
+          <img src="Monter%20une%20image%20windows/vmware_Kpf49knCZm.png">
+        </figure>
+        <p>&nbsp;</p>
+        <p>On arrive sur le choix de l'emplacement du fichier, on clique sur “Parcourir…”
+          <span
+          style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(1)</code>
+            </span>puis on va cherche notre fichier “install.wim” <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(2)</code></span>
+        </p>
+        <figure class="image">
+          <img src="Monter%20une%20image%20windows/vmware_mnvLzxBlsK.png">
+        </figure>
+        <p>&nbsp;</p>
+        <p>On arrive sur l'Assistant Ajout d'images, puis on choisi le version de
+          notre windows <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(1)</code></span>,
+          puis on clique sur “Suivant” <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(2)</code></span>
+        </p>
+        <figure class="image">
+          <img src="Monter%20une%20image%20windows/vmware_N8i8lhANzw.png">
+        </figure>
+        <p>&nbsp;</p>
+        <p>On arrive la page de récapitulatif, on clic sur suivant <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(1)</code></span>
+        </p>
+        <figure class="image">
+          <img src="Monter%20une%20image%20windows/vmware_CCknPEahi7.png">
+        </figure>
+        <p>&nbsp;</p>
+        <p>Une fois la tache terminer on peu cliqué sur “Terminer” <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(1)</code></span>
+        </p>
+        <figure class="image">
+          <img src="Monter%20une%20image%20windows/vmware_Vk3SFmG3GS.png">
+        </figure>
+        <hr>
+        <p><span class="text-huge"><strong>INSTALLATION BOOT</strong></span>
+        </p>
+        <p>&nbsp;</p>
+        <p>Ensuite pour installer le bot on se rend dans notre Service de déploiement
+          Windows puis on clique droit sur “<strong>Image de démarrage</strong>”
+          et on choisi “<strong>Ajouter une image de démarrage</strong>” <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(1)</code></span>
+        </p>
+        <figure class="image">
+          <img src="Monter%20une%20image%20windows/vmware_v7blpNmi6n.png">
+        </figure>
+        <p>&nbsp;</p>
+        <p>On arrive sur la page de l'emplacement, on clique sur “Parcourir”
+          <span
+          style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(1)</code>
+            </span>, puis on séléctionne notre “boot.wim” <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(2)</code></span>&nbsp;</p>
+        <figure
+        class="image">
+          <img src="Monter%20une%20image%20windows/vmware_vvI61dhrwy.png">
+          </figure>
+          <p>&nbsp;</p>
+          <p>Sur cette page on peu changer le nom de l'image, puis cliqué sur “Suivant”
+            <span
+            style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(1)</code>
+              </span>
+          </p>
+          <figure class="image">
+            <img src="Monter%20une%20image%20windows/vmware_RVmWp7dAaw.png">
+          </figure>
+          <p>&nbsp;</p>
+          <p>On arrive sur la page de récapitulatif, on vérifie et on clique sur “Suivant”
+            <span
+            style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(1)</code>
+              </span>
+          </p>
+          <figure class="image">
+            <img src="Monter%20une%20image%20windows/vmware_Qpboj2Kgpj.png">
+          </figure>
+          <p>&nbsp;</p>
+          <p>Une fois l'installation terminer on clique sur “Terminer” <span style="background-color:hsl(0,75%,60%);color:hsl(0,0%,100%);"><code>(1)</code></span>
+          </p>
+          <figure class="image">
+            <img src="Monter%20une%20image%20windows/vmware_ZmvKOuaiRY.png">
+          </figure>
+          <hr>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+      </div>
+    </div>
+  </body>
+
+</html>

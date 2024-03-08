@@ -1,0 +1,62 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>UTILISATION DE PHP8.2-FPM</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>UTILISATION DE PHP8.2-FPM</h1>
+
+      <div class="ck-content">
+        <p><span class="text-big"><strong>UTILISATION DE PHP8.2-FPM</strong></span>
+        </p>
+        <p>&nbsp;</p>
+        <p><span style="background-color:rgb(255,255,255);color:rgb(68,68,68);">Il est </span><strong>recommandé d'utiliser PHP-FPM</strong>
+          <span
+          style="background-color:rgb(255,255,255);color:rgb(68,68,68);">car il est plus performant et se présente comme un service indépendant.</span>
+        </p>
+        <p><span style="background-color:rgb(255,255,255);color:rgb(68,68,68);">Nous allons commencer par</span><strong> installer PHP8.2-FPM</strong>
+          <span
+          style="background-color:rgb(255,255,255);color:rgb(68,68,68);">avec la commande suivante :</span>
+        </p><pre><code class="language-text-plain">apt-get install php8.2-fpm</code></pre>
+        <p>&nbsp;</p>
+        <p><span style="background-color:rgb(255,255,255);color:rgb(68,68,68);">Puis, nous allons activer deux modules dans Apache et la configuration de PHP-FPM, avant de recharger Apache2 :</span>
+        </p><pre><code class="language-text-plain">a2enmod proxy_fcgi setenvif
+a2enconf php8.2-fpm
+systemctl reload apache2</code></pre>
+        <p>&nbsp;</p>
+        <p>Maintenant nous allons éditer le fichier suivant :</p><pre><code class="language-text-plain">nano /etc/php/8.2/fpm/php.ini</code></pre>
+        <p>Utiliser le raccourci “Ctrl + w” pour rechercher un terme en particulier
+          et entrer “<strong>session.cookie_httponly</strong>” et ajouter la valeur
+          “on” pour l'activer :</p>
+        <figure class="image">
+          <img src="UTILISATION%20DE%20PHP8.2-FPM/WindowsTerminal_5Y7fZI9NHh.png">
+        </figure>
+        <p>&nbsp;</p>
+        <p><span style="background-color:rgb(255,255,255);color:rgb(68,68,68);">Pour appliquer les modifications, nous devons redémarrer PHP-FPM :</span>
+        </p><pre><code class="language-text-plain">systemctl restart php8.2-fpm.service</code></pre>
+        <p>&nbsp;</p>
+        <p><span style="background-color:rgb(255,255,255);color:rgb(68,68,68);">Pour finir, nous devons </span><strong>modifier notre VirtualHost</strong>
+          <span
+          style="background-color:rgb(255,255,255);color:rgb(68,68,68);">pour préciser à Apache2 que PHP-FPM doit être utilisé pour les fichiers
+            PHP :</span>
+        </p><pre><code class="language-text-plain">nano /etc/apache2/sites-available/tssr.local.conf</code></pre><pre><code class="language-text-plain">&lt;FilesMatch \.php$&gt;
+    SetHandler "proxy:unix:/run/php/php8.2-fpm.sock|fcgi://localhost/"
+&lt;/FilesMatch&gt;</code></pre>
+        <p>Ca doit nous donner ca :</p>
+        <figure class="image">
+          <img src="UTILISATION%20DE%20PHP8.2-FPM/WindowsTerminal_osqRPoTR3D.png">
+        </figure>
+        <p>&nbsp;</p>
+        <p>Pour des raisons de sécurité on va delete le dossier "<strong>install.php</strong>"</p><pre><code class="language-text-plain">rm /var/www/glpi/install/install.php</code></pre>
+        <p>Pour que tout prenne effet on restart apache2 :</p><pre><code class="language-text-plain">systemctl restart apache2</code></pre>
+      </div>
+    </div>
+  </body>
+
+</html>
